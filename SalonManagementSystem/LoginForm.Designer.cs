@@ -85,9 +85,9 @@ namespace SalonManagementSystem
             this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogin.Location = new System.Drawing.Point(311, 57);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(148, 58);
+            this.lblLogin.Size = new System.Drawing.Size(161, 58);
             this.lblLogin.TabIndex = 5;
-            this.lblLogin.Text = "Login";
+            this.lblLogin.Text = "Log in";
             // 
             // LoginForm
             // 
