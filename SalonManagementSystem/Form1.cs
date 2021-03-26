@@ -23,5 +23,12 @@ namespace SalonManagementSystem
             login.Show();
             login.MdiParent = this;
         }
+
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HomeForm home = new HomeForm();
+            home.Show();
+            home.MdiParent = this;
+        }
     }
 }
