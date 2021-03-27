@@ -30,5 +30,10 @@ namespace SalonManagementSystem
             home.Show();
             home.MdiParent = this;
         }
+
+        private void Closed_Form1(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

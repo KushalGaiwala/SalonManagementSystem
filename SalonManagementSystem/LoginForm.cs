@@ -28,11 +28,14 @@ namespace SalonManagementSystem
             con.Close();
             if (i == 0)
             {
-                MessageBox.Show("Not Logged in!");
+                MessageBox.Show("Login failed!");
             }
             else
             {
-                MessageBox.Show("Use is logged in!");
+                MessageBox.Show("Successfully logged in!");
+                Form1 form = new Form1();
+                form.Show();
+                this.Hide();
             }
         }
     }
