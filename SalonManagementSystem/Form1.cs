@@ -17,11 +17,11 @@ namespace SalonManagementSystem
             InitializeComponent();
         }
 
-        private void lOGINToolStripMenuItem_Click(object sender, EventArgs e)
+        private void lOGOUTToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Hide();
             LoginForm login = new LoginForm();
             login.Show();
-            login.MdiParent = this;
         }
 
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)

@@ -49,7 +49,7 @@ namespace SalonManagementSystem
             this.ClientSize = new System.Drawing.Size(779, 518);
             this.Controls.Add(this.label1);
             this.Name = "HomeForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HomeForm";
             this.ResumeLayout(false);
             this.PerformLayout();

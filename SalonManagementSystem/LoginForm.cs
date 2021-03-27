@@ -17,6 +17,7 @@ namespace SalonManagementSystem
         {
             InitializeComponent();
         }
+
         // Add your connection string
         private SqlConnection con = new SqlConnection(@"Data Source=KUSHAL\MSSQLSERVER01;Initial Catalog=system;Integrated Security=True");
         private SqlCommand cmd;
@@ -28,6 +29,7 @@ namespace SalonManagementSystem
             con.Close();
             if (i == 0)
             {
+                reset_LoginForm();
                 MessageBox.Show("Login failed!");
             }
             else
@@ -37,6 +39,17 @@ namespace SalonManagementSystem
                 form.Show();
                 this.Hide();
             }
+        }
+
+        private void reset_LoginForm()
+        {
+            txtName.Text = null;
+            txtPassword.Text = null;
+        }
+
+        private void Closed_LoginForm(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
