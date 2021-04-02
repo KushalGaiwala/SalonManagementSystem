@@ -32,6 +32,13 @@ namespace SalonManagementSystem
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lOGOUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iNSERTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sERVICESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uPDATEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cUSTOMERSToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.dISPLAYToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cUSTOMERSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sERVICESToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,17 +47,20 @@ namespace SalonManagementSystem
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.homeToolStripMenuItem,
-            this.lOGOUTToolStripMenuItem});
+            this.lOGOUTToolStripMenuItem,
+            this.iNSERTToolStripMenuItem,
+            this.uPDATEToolStripMenuItem,
+            this.dISPLAYToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(66, 26);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
             this.homeToolStripMenuItem.Text = "HOME";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
@@ -58,9 +68,60 @@ namespace SalonManagementSystem
             // 
             this.lOGOUTToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.lOGOUTToolStripMenuItem.Name = "lOGOUTToolStripMenuItem";
-            this.lOGOUTToolStripMenuItem.Size = new System.Drawing.Size(79, 26);
+            this.lOGOUTToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
             this.lOGOUTToolStripMenuItem.Text = "LOGOUT";
             this.lOGOUTToolStripMenuItem.Click += new System.EventHandler(this.lOGOUTToolStripMenuItem_Click);
+            // 
+            // iNSERTToolStripMenuItem
+            // 
+            this.iNSERTToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sERVICESToolStripMenuItem,
+            this.sERVICESToolStripMenuItem1});
+            this.iNSERTToolStripMenuItem.Name = "iNSERTToolStripMenuItem";
+            this.iNSERTToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.iNSERTToolStripMenuItem.Text = "ADD";
+            // 
+            // sERVICESToolStripMenuItem
+            // 
+            this.sERVICESToolStripMenuItem.Name = "sERVICESToolStripMenuItem";
+            this.sERVICESToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.sERVICESToolStripMenuItem.Text = "APPOINTMENT";
+            this.sERVICESToolStripMenuItem.Click += new System.EventHandler(this.sERVICESToolStripMenuItem_Click);
+            // 
+            // uPDATEToolStripMenuItem
+            // 
+            this.uPDATEToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cUSTOMERSToolStripMenuItem1});
+            this.uPDATEToolStripMenuItem.Name = "uPDATEToolStripMenuItem";
+            this.uPDATEToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
+            this.uPDATEToolStripMenuItem.Text = "UPDATE";
+            // 
+            // cUSTOMERSToolStripMenuItem1
+            // 
+            this.cUSTOMERSToolStripMenuItem1.Name = "cUSTOMERSToolStripMenuItem1";
+            this.cUSTOMERSToolStripMenuItem1.Size = new System.Drawing.Size(175, 26);
+            this.cUSTOMERSToolStripMenuItem1.Text = "CUSTOMERS";
+            // 
+            // dISPLAYToolStripMenuItem
+            // 
+            this.dISPLAYToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cUSTOMERSToolStripMenuItem});
+            this.dISPLAYToolStripMenuItem.Name = "dISPLAYToolStripMenuItem";
+            this.dISPLAYToolStripMenuItem.Size = new System.Drawing.Size(117, 24);
+            this.dISPLAYToolStripMenuItem.Text = "VIEW DETAILS";
+            // 
+            // cUSTOMERSToolStripMenuItem
+            // 
+            this.cUSTOMERSToolStripMenuItem.Name = "cUSTOMERSToolStripMenuItem";
+            this.cUSTOMERSToolStripMenuItem.Size = new System.Drawing.Size(175, 26);
+            this.cUSTOMERSToolStripMenuItem.Text = "CUSTOMERS";
+            // 
+            // sERVICESToolStripMenuItem1
+            // 
+            this.sERVICESToolStripMenuItem1.Name = "sERVICESToolStripMenuItem1";
+            this.sERVICESToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.sERVICESToolStripMenuItem1.Text = "SERVICES";
+            this.sERVICESToolStripMenuItem1.Click += new System.EventHandler(this.sERVICESToolStripMenuItem1_Click);
             // 
             // Form1
             // 
@@ -86,6 +147,13 @@ namespace SalonManagementSystem
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lOGOUTToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem iNSERTToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sERVICESToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dISPLAYToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cUSTOMERSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem uPDATEToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cUSTOMERSToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem sERVICESToolStripMenuItem1;
     }
 }
 

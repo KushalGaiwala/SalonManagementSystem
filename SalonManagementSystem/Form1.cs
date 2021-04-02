@@ -35,5 +35,17 @@ namespace SalonManagementSystem
         {
             Application.Exit();
         }
+
+        private void sERVICESToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Insert_AppointmentForm insertAppoint = new Insert_AppointmentForm();
+            insertAppoint.Show();
+            insertAppoint.MdiParent = this;
+        }
+
+        private void sERVICESToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

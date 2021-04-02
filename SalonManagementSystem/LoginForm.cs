@@ -19,11 +19,15 @@ namespace SalonManagementSystem
         }
 
         // Add your connection string
-        private SqlConnection con = new SqlConnection(@"Data Source=KUSHAL\MSSQLSERVER01;Initial Catalog=system;Integrated Security=True");
+        private SqlConnection con = new SqlConnection(@"Data Source=KUSHAL\MSSQLSERVER01;Initial Catalog=DB_SalonManagementSystem;Integrated Security=True");
         private SqlCommand cmd;
+        
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            cmd = new SqlCommand("select LId from tblLoginDetail where UName='"+txtName.Text+"' and UPass='"+txtPassword.Text+"'",con);
+            cmd = new SqlCommand("Sp_tblLogin",con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Lname", txtName.Text);
+            cmd.Parameters.AddWithValue("@Lpass",txtPassword.Text);
             con.Open();
             int i = Convert.ToInt32(cmd.ExecuteScalar());
             con.Close();
