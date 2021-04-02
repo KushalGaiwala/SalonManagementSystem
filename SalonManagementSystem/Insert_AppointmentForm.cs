@@ -55,20 +55,10 @@ namespace SalonManagementSystem
             }
         }
 
-        private void Insert_AppointmentForm_Load(object sender, EventArgs e)
+        private void btnViewPackages_Click(object sender, EventArgs e)
         {
-            cmd = new SqlCommand("Sp_View_tblServicePackages", con);
-            cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter adp = new SqlDataAdapter(cmd);
-            con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();
-
-            DataTable dt = new DataTable();
-
-            adp.Fill(dt);
-            dgvAppointmentPackages.DataSource = dt;
-            
+            Display_ServicesForm displayService = new Display_ServicesForm();
+            displayService.Show();
         }
     }
 }

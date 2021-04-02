@@ -35,12 +35,16 @@ namespace SalonManagementSystem
             this.txtServicePrice = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAddService = new System.Windows.Forms.Button();
+            this.lblPackage = new System.Windows.Forms.Label();
+            this.lblCategory = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(297, 146);
+            this.label1.Location = new System.Drawing.Point(16, 77);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 17);
             this.label1.TabIndex = 0;
@@ -49,7 +53,7 @@ namespace SalonManagementSystem
             // lblServicePrice
             // 
             this.lblServicePrice.AutoSize = true;
-            this.lblServicePrice.Location = new System.Drawing.Point(297, 192);
+            this.lblServicePrice.Location = new System.Drawing.Point(16, 123);
             this.lblServicePrice.Name = "lblServicePrice";
             this.lblServicePrice.Size = new System.Drawing.Size(40, 17);
             this.lblServicePrice.TabIndex = 1;
@@ -57,14 +61,14 @@ namespace SalonManagementSystem
             // 
             // txtServiceName
             // 
-            this.txtServiceName.Location = new System.Drawing.Point(372, 141);
+            this.txtServiceName.Location = new System.Drawing.Point(91, 72);
             this.txtServiceName.Name = "txtServiceName";
             this.txtServiceName.Size = new System.Drawing.Size(100, 22);
             this.txtServiceName.TabIndex = 2;
             // 
             // txtServicePrice
             // 
-            this.txtServicePrice.Location = new System.Drawing.Point(372, 187);
+            this.txtServicePrice.Location = new System.Drawing.Point(91, 118);
             this.txtServicePrice.Name = "txtServicePrice";
             this.txtServicePrice.Size = new System.Drawing.Size(100, 22);
             this.txtServicePrice.TabIndex = 3;
@@ -72,7 +76,7 @@ namespace SalonManagementSystem
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(333, 89);
+            this.label2.Location = new System.Drawing.Point(52, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 17);
             this.label2.TabIndex = 4;
@@ -80,18 +84,56 @@ namespace SalonManagementSystem
             // 
             // btnAddService
             // 
-            this.btnAddService.Location = new System.Drawing.Point(336, 282);
+            this.btnAddService.Location = new System.Drawing.Point(55, 356);
             this.btnAddService.Name = "btnAddService";
             this.btnAddService.Size = new System.Drawing.Size(75, 23);
             this.btnAddService.TabIndex = 5;
             this.btnAddService.Text = "Add";
             this.btnAddService.UseVisualStyleBackColor = true;
             // 
+            // lblPackage
+            // 
+            this.lblPackage.AutoSize = true;
+            this.lblPackage.Location = new System.Drawing.Point(16, 161);
+            this.lblPackage.Name = "lblPackage";
+            this.lblPackage.Size = new System.Drawing.Size(63, 17);
+            this.lblPackage.TabIndex = 6;
+            this.lblPackage.Text = "Package";
+            // 
+            // lblCategory
+            // 
+            this.lblCategory.AutoSize = true;
+            this.lblCategory.Location = new System.Drawing.Point(16, 197);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(65, 17);
+            this.lblCategory.TabIndex = 7;
+            this.lblCategory.Text = "Category";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(91, 154);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.TabIndex = 8;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(91, 190);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 24);
+            this.comboBox2.TabIndex = 9;
+            // 
             // ServicesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.lblCategory);
+            this.Controls.Add(this.lblPackage);
             this.Controls.Add(this.btnAddService);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtServicePrice);
@@ -113,5 +155,9 @@ namespace SalonManagementSystem
         private System.Windows.Forms.TextBox txtServicePrice;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAddService;
+        private System.Windows.Forms.Label lblPackage;
+        private System.Windows.Forms.Label lblCategory;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }
