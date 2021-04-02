@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Display_ServicesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Display_ServicesForm.Designer.cs">
+      <DependentUpon>Display_ServicesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,9 @@
     <Compile Include="ServicesForm.Designer.cs">
       <DependentUpon>ServicesForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Display_ServicesForm.resx">
+      <DependentUpon>Display_ServicesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

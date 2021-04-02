@@ -54,5 +54,21 @@ namespace SalonManagementSystem
                 MessageBox.Show("Enter Details Properly!");
             }
         }
+
+        private void Insert_AppointmentForm_Load(object sender, EventArgs e)
+        {
+            cmd = new SqlCommand("Sp_View_tblServicePackages", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            DataTable dt = new DataTable();
+
+            adp.Fill(dt);
+            dgvAppointmentPackages.DataSource = dt;
+            
+        }
     }
 }

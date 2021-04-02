@@ -40,7 +40,7 @@ namespace SalonManagementSystem
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(288, 145);
+            this.label1.Location = new System.Drawing.Point(297, 146);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 17);
             this.label1.TabIndex = 0;
@@ -49,7 +49,7 @@ namespace SalonManagementSystem
             // lblServicePrice
             // 
             this.lblServicePrice.AutoSize = true;
-            this.lblServicePrice.Location = new System.Drawing.Point(288, 191);
+            this.lblServicePrice.Location = new System.Drawing.Point(297, 192);
             this.lblServicePrice.Name = "lblServicePrice";
             this.lblServicePrice.Size = new System.Drawing.Size(40, 17);
             this.lblServicePrice.TabIndex = 1;
@@ -57,14 +57,14 @@ namespace SalonManagementSystem
             // 
             // txtServiceName
             // 
-            this.txtServiceName.Location = new System.Drawing.Point(363, 140);
+            this.txtServiceName.Location = new System.Drawing.Point(372, 141);
             this.txtServiceName.Name = "txtServiceName";
             this.txtServiceName.Size = new System.Drawing.Size(100, 22);
             this.txtServiceName.TabIndex = 2;
             // 
             // txtServicePrice
             // 
-            this.txtServicePrice.Location = new System.Drawing.Point(363, 186);
+            this.txtServicePrice.Location = new System.Drawing.Point(372, 187);
             this.txtServicePrice.Name = "txtServicePrice";
             this.txtServicePrice.Size = new System.Drawing.Size(100, 22);
             this.txtServicePrice.TabIndex = 3;
@@ -72,7 +72,7 @@ namespace SalonManagementSystem
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(324, 88);
+            this.label2.Location = new System.Drawing.Point(333, 89);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 17);
             this.label2.TabIndex = 4;
@@ -80,7 +80,7 @@ namespace SalonManagementSystem
             // 
             // btnAddService
             // 
-            this.btnAddService.Location = new System.Drawing.Point(327, 281);
+            this.btnAddService.Location = new System.Drawing.Point(336, 282);
             this.btnAddService.Name = "btnAddService";
             this.btnAddService.Size = new System.Drawing.Size(75, 23);
             this.btnAddService.TabIndex = 5;
