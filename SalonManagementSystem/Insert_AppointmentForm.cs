@@ -112,9 +112,9 @@ namespace SalonManagementSystem
                 adp.Fill(dt);
 
                 cbPackages.Items.Add(dt.Rows[i-1][0].ToString());
-
             }
-            // End
+            // ComboBox
+            // End 
             dgvPackages.DataSource = dt;
 
             // for total price
