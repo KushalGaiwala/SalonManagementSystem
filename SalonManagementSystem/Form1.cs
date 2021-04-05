@@ -45,7 +45,9 @@ namespace SalonManagementSystem
 
         private void sERVICESToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            ServicesForm services = new ServicesForm();
+            services.Show();
+            services.MdiParent = this;
         }
     }
 }

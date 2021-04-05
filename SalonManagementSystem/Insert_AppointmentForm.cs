@@ -18,10 +18,7 @@ namespace SalonManagementSystem
             InitializeComponent();
         }
 
-        private SqlConnection con = new SqlConnection(@"Data Source=KUSHAL\MSSQLSERVER01;Initial Catalog=DB_SalonManagementSystem;Integrated Security=True");
-        private SqlCommand cmd;
-        
-        private void btnCustInsert_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
             try
             {
@@ -31,22 +28,31 @@ namespace SalonManagementSystem
                 {
                     Gender = 'M';
                 }
-                else if(rbFemale.Checked)
+                else if (rbFemale.Checked)
                 {
                     Gender = 'F';
                 }
 
-                cmd = new SqlCommand("Sp_Insert_tblCustomer", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@CustName", txtCustName.Text);
-                cmd.Parameters.AddWithValue("@Area", txtCustArea.Text);
-                cmd.Parameters.AddWithValue("@ContactNo", Convert.ToDouble(txtCustContactNo.Text));
-                cmd.Parameters.AddWithValue("@Gender", Gender);
+                CString.cmd = new SqlCommand("Sp_Insert_tblCustomer", CString.con);
+                CString.cmd.CommandType = CommandType.StoredProcedure;
+                CString.cmd.Parameters.AddWithValue("@CustName", txtCustName.Text);
+                CString.cmd.Parameters.AddWithValue("@Area", txtCustArea.Text);
+                CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToDouble(txtCustContactNo.Text));
+                CString.cmd.Parameters.AddWithValue("@Gender", Gender);
 
-                con.Open();
-                cmd.ExecuteNonQuery();
+                CString.con.Open();
+                CString.cmd.ExecuteNonQuery();
+                reset_AllFields();
                 MessageBox.Show("Data successfully Inserted!");
-                con.Close();
+                CString.con.Close();
+
+                CString.cmd = new SqlCommand("Sp_Insert_tblAppointment", CString.con);
+
+
+
+
+
+
 
             }
             catch (Exception ex)
@@ -55,10 +61,77 @@ namespace SalonManagementSystem
             }
         }
 
-        private void btnViewPackages_Click(object sender, EventArgs e)
+        void reset_AllFields()
         {
-            Display_ServicesForm displayService = new Display_ServicesForm();
-            displayService.Show();
+            txtCustArea.Text = null;
+            txtCustContactNo.Text = null;
+            txtCustName.Text = null;
+            rbFemale.Checked = false;
+            rbMale.Checked = false;
+        }
+
+        private void Insert_AppointmentForm_Load(object sender, EventArgs e)
+        {
+
+            DataTable dt = new DataTable();
+
+            CString.cmd = new SqlCommand("Sp_View_NoOfPackage", CString.con);
+            CString.cmd.CommandType = CommandType.StoredProcedure;
+            
+            CString.con.Open();
+            CString.cmd.ExecuteNonQuery();
+            CString.con.Close();
+            SqlDataAdapter adp = new SqlDataAdapter(CString.cmd);
+            adp.Fill(dt);
+
+            int pckCnt = Convert.ToInt32(dt.Rows[0][0]);
+            dt.Reset();
+
+            CString.cmd = new SqlCommand("Sp_View_Packages", CString.con);
+            CString.cmd.CommandType = CommandType.StoredProcedure;
+            
+            CString.con.Open();
+            CString.cmd.ExecuteNonQuery();
+            CString.con.Close();
+
+            adp = new SqlDataAdapter(CString.cmd);
+            adp.Fill(dt);
+
+            for (int i = 1; i <= pckCnt; ++i)
+            {
+                CString.cmd = new SqlCommand("Sp_View_Packages", CString.con);
+                CString.cmd.CommandType = CommandType.StoredProcedure;
+
+                CString.cmd.Parameters.AddWithValue("@pck", i);
+
+                CString.con.Open();
+                CString.cmd.ExecuteNonQuery();
+                CString.con.Close();
+
+                adp = new SqlDataAdapter(CString.cmd);
+                
+                adp.Fill(dt);
+            }
+            dgvPackages.DataSource = dt;
+
+            // for total price
+            /*for (int i = 1; i <= pckCnt; ++i)
+            {
+                CString.cmd = new SqlCommand("Sp_View_TotalPackageAmount", CString.con);
+                CString.cmd.CommandType = CommandType.StoredProcedure;
+
+                CString.cmd.Parameters.AddWithValue("@pckId", i);
+
+                CString.con.Open();
+                CString.cmd.ExecuteNonQuery();
+                CString.con.Close();
+
+                adp = new SqlDataAdapter(CString.cmd);
+
+                adp.Fill(dt);
+            }
+            dgvPackages.DataSource = dt;*/
+
         }
     }
 }
