@@ -216,6 +216,9 @@ namespace SalonManagementSystem
             this.cbPackages.Name = "cbPackages";
             this.cbPackages.Size = new System.Drawing.Size(121, 26);
             this.cbPackages.TabIndex = 24;
+            this.cbPackages.TextChanged += new System.EventHandler(this.TextChanged_cbPackages);
+            this.cbPackages.Click += new System.EventHandler(this.Click_cbPackages);
+            this.cbPackages.Enter += new System.EventHandler(this.Enter_cbPackages);
             // 
             // Insert_AppointmentForm
             // 

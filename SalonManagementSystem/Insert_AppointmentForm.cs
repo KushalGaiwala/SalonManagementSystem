@@ -83,18 +83,11 @@ namespace SalonManagementSystem
             CString.con.Open();
             CString.cmd.ExecuteNonQuery();
             CString.con.Close();
+            
             SqlDataAdapter adp = new SqlDataAdapter(CString.cmd);
             adp.Fill(dt);
-
             int pckCnt = Convert.ToInt32(dt.Rows[0][0]);
             dt.Reset();
-
-            CString.cmd = new SqlCommand("Sp_View_AllPackages", CString.con);
-            CString.cmd.CommandType = CommandType.StoredProcedure;
-            
-            CString.con.Open();
-            CString.cmd.ExecuteNonQuery();
-            CString.con.Close();
 
             for (int i = 1; i <= pckCnt; ++i)
             {
@@ -114,8 +107,7 @@ namespace SalonManagementSystem
                 cbPackages.Items.Add(dt.Rows[i-1][0].ToString());
             }
             // ComboBox
-            // End 
-            dgvPackages.DataSource = dt;
+            // End
 
             // for total price
             /*for (int i = 1; i <= pckCnt; ++i)
@@ -134,7 +126,56 @@ namespace SalonManagementSystem
                 adp.Fill(dt);
             }
             dgvPackages.DataSource = dt;*/
+        }
 
+        private void Click_cbPackages(object sender, EventArgs e)
+        {
+            /*CString.cmd = new SqlCommand("Sp_View_AllPackage", CString.con);
+            CString.cmd.CommandType = CommandType.StoredProcedure;
+            CString.cmd.Parameters.AddWithValue("@pckName", cbPackages.Text);
+
+            CString.con.Open();
+            CString.cmd.ExecuteNonQuery();
+            CString.con.Close();
+
+            DataTable dt = new DataTable();
+            CString.adp.Fill(dt);
+
+            dgvPackages.DataSource = dt;*/
+        }
+
+        private void Enter_cbPackages(object sender, EventArgs e)
+        {
+            /*CString.cmd = new SqlCommand("Sp_View_AllPackage", CString.con);
+            CString.cmd.CommandType = CommandType.StoredProcedure;
+            CString.cmd.Parameters.AddWithValue("@pckName", cbPackages.Text);
+
+            CString.con.Open();
+            CString.cmd.ExecuteNonQuery();
+            CString.con.Close();
+
+            DataTable dt = new DataTable();
+            CString.adp.Fill(dt);
+
+            dgvPackages.DataSource = dt;*/
+        }
+
+        private void TextChanged_cbPackages(object sender, EventArgs e)
+        {
+            CString.cmd = new SqlCommand("Sp_View_AllPackages", CString.con);
+            CString.cmd.CommandType = CommandType.StoredProcedure;
+            CString.cmd.Parameters.AddWithValue("@pckName", cbPackages.Text);
+
+            CString.con.Open();
+            CString.cmd.ExecuteNonQuery();
+            CString.con.Close();
+
+            SqlDataAdapter adp = new SqlDataAdapter(CString.cmd);
+
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+
+            dgvPackages.DataSource = dt;
         }
     }
 }
