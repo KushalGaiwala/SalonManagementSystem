@@ -75,6 +75,8 @@ namespace SalonManagementSystem
 
             DataTable dt = new DataTable();
 
+            // For ComboBox
+            // Start
             CString.cmd = new SqlCommand("Sp_View_NoOfPackage", CString.con);
             CString.cmd.CommandType = CommandType.StoredProcedure;
             
@@ -87,15 +89,12 @@ namespace SalonManagementSystem
             int pckCnt = Convert.ToInt32(dt.Rows[0][0]);
             dt.Reset();
 
-            CString.cmd = new SqlCommand("Sp_View_Packages", CString.con);
+            CString.cmd = new SqlCommand("Sp_View_AllPackages", CString.con);
             CString.cmd.CommandType = CommandType.StoredProcedure;
             
             CString.con.Open();
             CString.cmd.ExecuteNonQuery();
             CString.con.Close();
-
-            adp = new SqlDataAdapter(CString.cmd);
-            adp.Fill(dt);
 
             for (int i = 1; i <= pckCnt; ++i)
             {
@@ -111,7 +110,11 @@ namespace SalonManagementSystem
                 adp = new SqlDataAdapter(CString.cmd);
                 
                 adp.Fill(dt);
+
+                cbPackages.Items.Add(dt.Rows[i-1][0].ToString());
+
             }
+            // End
             dgvPackages.DataSource = dt;
 
             // for total price
