@@ -47,6 +47,8 @@ namespace SalonManagementSystem
             this.dgvPackages = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.cbPackages = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtTotalPrice = new System.Windows.Forms.TextBox();
             this.gbGender.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPackages)).BeginInit();
             this.SuspendLayout();
@@ -203,7 +205,7 @@ namespace SalonManagementSystem
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(503, 9);
+            this.label6.Location = new System.Drawing.Point(314, 87);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 18);
             this.label6.TabIndex = 23;
@@ -212,7 +214,7 @@ namespace SalonManagementSystem
             // cbPackages
             // 
             this.cbPackages.FormattingEnabled = true;
-            this.cbPackages.Location = new System.Drawing.Point(480, 55);
+            this.cbPackages.Location = new System.Drawing.Point(404, 79);
             this.cbPackages.Name = "cbPackages";
             this.cbPackages.Size = new System.Drawing.Size(121, 26);
             this.cbPackages.TabIndex = 24;
@@ -220,11 +222,29 @@ namespace SalonManagementSystem
             this.cbPackages.Click += new System.EventHandler(this.Click_cbPackages);
             this.cbPackages.Enter += new System.EventHandler(this.Enter_cbPackages);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(547, 87);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(41, 18);
+            this.label8.TabIndex = 25;
+            this.label8.Text = "Total";
+            // 
+            // txtTotalPrice
+            // 
+            this.txtTotalPrice.Location = new System.Drawing.Point(603, 81);
+            this.txtTotalPrice.Name = "txtTotalPrice";
+            this.txtTotalPrice.Size = new System.Drawing.Size(100, 24);
+            this.txtTotalPrice.TabIndex = 26;
+            // 
             // Insert_AppointmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 549);
+            this.Controls.Add(this.txtTotalPrice);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.cbPackages);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dgvPackages);
@@ -274,5 +294,7 @@ namespace SalonManagementSystem
         private System.Windows.Forms.DataGridView dgvPackages;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbPackages;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtTotalPrice;
     }
 }

@@ -23,14 +23,18 @@ namespace SalonManagementSystem
             try
             {
 
-                char Gender = 'F';
+                string Gender = null;
                 if (rbMale.Checked)
                 {
-                    Gender = 'M';
+                    Gender ="M";
                 }
                 else if (rbFemale.Checked)
                 {
-                    Gender = 'F';
+                    Gender = "F";
+                }
+                else
+                {
+                    Gender = null;
                 }
 
                 CString.cmd = new SqlCommand("Sp_Insert_tblCustomer", CString.con);
@@ -47,17 +51,13 @@ namespace SalonManagementSystem
                 CString.con.Close();
 
                 CString.cmd = new SqlCommand("Sp_Insert_tblAppointment", CString.con);
-
-
-
-
-
-
+                CString.cmd.CommandType = CommandType.StoredProcedure;
+                CString.cmd.Parameters.AddWithValue("@", );
 
             }
-            catch (Exception ex)
+            catch (FormatException ex)
             {
-                MessageBox.Show("Enter Details Properly!");
+                MessageBox.Show("Enter Details Properly!"+ex);
             }
         }
 
@@ -176,6 +176,19 @@ namespace SalonManagementSystem
             adp.Fill(dt);
 
             dgvPackages.DataSource = dt;
+
+            CString.cmd = new SqlCommand("Sp_View_TotalPackageAmount", CString.con);
+            CString.cmd.CommandType = CommandType.StoredProcedure;
+            CString.cmd.Parameters.AddWithValue("@pckName", cbPackages.Text);
+
+            CString.con.Open();
+            CString.cmd.ExecuteNonQuery();
+            CString.con.Close();
+
+            adp = new SqlDataAdapter(CString.cmd);
+            DataTable totalAmount = new DataTable();
+            adp.Fill(totalAmount);
+            txtTotalPrice.Text = totalAmount.Rows[0][0].ToString();
         }
     }
 }
