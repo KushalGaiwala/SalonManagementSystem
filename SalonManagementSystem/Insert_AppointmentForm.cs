@@ -22,7 +22,6 @@ namespace SalonManagementSystem
         {
             try
             {
-
                 string Gender = null;
                 if (rbMale.Checked)
                 {
@@ -46,18 +45,25 @@ namespace SalonManagementSystem
 
                 CString.con.Open();
                 CString.cmd.ExecuteNonQuery();
-                reset_AllFields();
-                MessageBox.Show("Data successfully Inserted!");
                 CString.con.Close();
 
                 CString.cmd = new SqlCommand("Sp_Insert_tblAppointment", CString.con);
                 CString.cmd.CommandType = CommandType.StoredProcedure;
-                CString.cmd.Parameters.AddWithValue("@", );
+                CString.cmd.Parameters.AddWithValue("@CName", txtCustName.Text);
+                CString.cmd.Parameters.AddWithValue("@PName", cbPackages.Text);
+                CString.cmd.Parameters.AddWithValue("@Time", Convert.ToDateTime(dtpAppointmentTime.Text));
+                CString.cmd.Parameters.AddWithValue("@Date", Convert.ToDateTime(dtpAppointmentDate.Text));
+
+                CString.con.Open();
+                CString.cmd.ExecuteNonQuery();
+                reset_AllFields();
+                MessageBox.Show("Appointment successfully Generated!");
+                CString.con.Close();
 
             }
             catch (FormatException ex)
             {
-                MessageBox.Show("Enter Details Properly!"+ex);
+                MessageBox.Show("      Enter Details Properly!     ");
             }
         }
 
@@ -128,39 +134,7 @@ namespace SalonManagementSystem
             dgvPackages.DataSource = dt;*/
         }
 
-        private void Click_cbPackages(object sender, EventArgs e)
-        {
-            /*CString.cmd = new SqlCommand("Sp_View_AllPackage", CString.con);
-            CString.cmd.CommandType = CommandType.StoredProcedure;
-            CString.cmd.Parameters.AddWithValue("@pckName", cbPackages.Text);
-
-            CString.con.Open();
-            CString.cmd.ExecuteNonQuery();
-            CString.con.Close();
-
-            DataTable dt = new DataTable();
-            CString.adp.Fill(dt);
-
-            dgvPackages.DataSource = dt;*/
-        }
-
-        private void Enter_cbPackages(object sender, EventArgs e)
-        {
-            /*CString.cmd = new SqlCommand("Sp_View_AllPackage", CString.con);
-            CString.cmd.CommandType = CommandType.StoredProcedure;
-            CString.cmd.Parameters.AddWithValue("@pckName", cbPackages.Text);
-
-            CString.con.Open();
-            CString.cmd.ExecuteNonQuery();
-            CString.con.Close();
-
-            DataTable dt = new DataTable();
-            CString.adp.Fill(dt);
-
-            dgvPackages.DataSource = dt;*/
-        }
-
-        private void TextChanged_cbPackages(object sender, EventArgs e)
+        private void SelectedValueChanged_cbPackages(object sender, EventArgs e)
         {
             CString.cmd = new SqlCommand("Sp_View_AllPackages", CString.con);
             CString.cmd.CommandType = CommandType.StoredProcedure;

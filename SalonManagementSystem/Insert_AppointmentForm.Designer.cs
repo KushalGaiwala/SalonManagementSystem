@@ -40,9 +40,9 @@ namespace SalonManagementSystem
             this.rbMale = new System.Windows.Forms.RadioButton();
             this.gbGender = new System.Windows.Forms.GroupBox();
             this.rbFemale = new System.Windows.Forms.RadioButton();
-            this.dptAppointmentDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpAppointmentDate = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.dptAppointmentTime = new System.Windows.Forms.DateTimePicker();
+            this.dtpAppointmentTime = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvPackages = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
@@ -56,11 +56,12 @@ namespace SalonManagementSystem
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(52, 9);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(266, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 18);
+            this.label1.Size = new System.Drawing.Size(221, 29);
             this.label1.TabIndex = 0;
-            this.label1.Text = "New Appointment";
+            this.label1.Text = "Book Appointment";
             // 
             // label2
             // 
@@ -153,15 +154,16 @@ namespace SalonManagementSystem
             this.rbFemale.Text = "Female";
             this.rbFemale.UseVisualStyleBackColor = true;
             // 
-            // dptAppointmentDate
+            // dtpAppointmentDate
             // 
-            this.dptAppointmentDate.CustomFormat = "  dd / MM / yyyy";
-            this.dptAppointmentDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dptAppointmentDate.Location = new System.Drawing.Point(122, 335);
-            this.dptAppointmentDate.Name = "dptAppointmentDate";
-            this.dptAppointmentDate.Size = new System.Drawing.Size(143, 24);
-            this.dptAppointmentDate.TabIndex = 18;
-            this.dptAppointmentDate.Value = new System.DateTime(2021, 5, 7, 0, 0, 0, 0);
+            this.dtpAppointmentDate.CustomFormat = "  dd / MM / yyyy";
+            this.dtpAppointmentDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpAppointmentDate.Location = new System.Drawing.Point(122, 335);
+            this.dtpAppointmentDate.MinDate = new System.DateTime(2021, 4, 7, 0, 0, 0, 0);
+            this.dtpAppointmentDate.Name = "dtpAppointmentDate";
+            this.dtpAppointmentDate.Size = new System.Drawing.Size(143, 24);
+            this.dtpAppointmentDate.TabIndex = 18;
+            this.dtpAppointmentDate.Value = new System.DateTime(2021, 5, 7, 0, 0, 0, 0);
             // 
             // label3
             // 
@@ -172,16 +174,17 @@ namespace SalonManagementSystem
             this.label3.TabIndex = 19;
             this.label3.Text = "Select Date";
             // 
-            // dptAppointmentTime
+            // dtpAppointmentTime
             // 
-            this.dptAppointmentTime.CustomFormat = "hh:mm:ss";
-            this.dptAppointmentTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dptAppointmentTime.Location = new System.Drawing.Point(122, 382);
-            this.dptAppointmentTime.Name = "dptAppointmentTime";
-            this.dptAppointmentTime.ShowUpDown = true;
-            this.dptAppointmentTime.Size = new System.Drawing.Size(83, 24);
-            this.dptAppointmentTime.TabIndex = 20;
-            this.dptAppointmentTime.Value = new System.DateTime(2021, 4, 2, 14, 23, 0, 0);
+            this.dtpAppointmentTime.CustomFormat = "hh:mm:ss";
+            this.dtpAppointmentTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpAppointmentTime.Location = new System.Drawing.Point(122, 382);
+            this.dtpAppointmentTime.MinDate = new System.DateTime(2021, 4, 7, 0, 0, 0, 0);
+            this.dtpAppointmentTime.Name = "dtpAppointmentTime";
+            this.dtpAppointmentTime.ShowUpDown = true;
+            this.dtpAppointmentTime.Size = new System.Drawing.Size(83, 24);
+            this.dtpAppointmentTime.TabIndex = 20;
+            this.dtpAppointmentTime.Value = new System.DateTime(2021, 4, 7, 0, 0, 0, 0);
             // 
             // label4
             // 
@@ -218,9 +221,7 @@ namespace SalonManagementSystem
             this.cbPackages.Name = "cbPackages";
             this.cbPackages.Size = new System.Drawing.Size(121, 26);
             this.cbPackages.TabIndex = 24;
-            this.cbPackages.TextChanged += new System.EventHandler(this.TextChanged_cbPackages);
-            this.cbPackages.Click += new System.EventHandler(this.Click_cbPackages);
-            this.cbPackages.Enter += new System.EventHandler(this.Enter_cbPackages);
+            this.cbPackages.SelectedValueChanged += new System.EventHandler(this.SelectedValueChanged_cbPackages);
             // 
             // label8
             // 
@@ -249,9 +250,9 @@ namespace SalonManagementSystem
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dgvPackages);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dptAppointmentTime);
+            this.Controls.Add(this.dtpAppointmentTime);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dptAppointmentDate);
+            this.Controls.Add(this.dtpAppointmentDate);
             this.Controls.Add(this.gbGender);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtCustContactNo);
@@ -264,7 +265,7 @@ namespace SalonManagementSystem
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Insert_AppointmentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Insert_Customer";
+            this.Text = "Book Appointment";
             this.Load += new System.EventHandler(this.Insert_AppointmentForm_Load);
             this.gbGender.ResumeLayout(false);
             this.gbGender.PerformLayout();
@@ -287,9 +288,9 @@ namespace SalonManagementSystem
         private System.Windows.Forms.RadioButton rbMale;
         private System.Windows.Forms.GroupBox gbGender;
         private System.Windows.Forms.RadioButton rbFemale;
-        private System.Windows.Forms.DateTimePicker dptAppointmentDate;
+        private System.Windows.Forms.DateTimePicker dtpAppointmentDate;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dptAppointmentTime;
+        private System.Windows.Forms.DateTimePicker dtpAppointmentTime;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dgvPackages;
         private System.Windows.Forms.Label label6;
