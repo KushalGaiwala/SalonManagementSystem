@@ -221,7 +221,7 @@ namespace SalonManagementSystem
             this.cbPackages.Name = "cbPackages";
             this.cbPackages.Size = new System.Drawing.Size(121, 26);
             this.cbPackages.TabIndex = 24;
-            this.cbPackages.SelectedValueChanged += new System.EventHandler(this.SelectedValueChanged_cbPackages);
+            this.cbPackages.SelectedValueChanged += new System.EventHandler(this.selectedValueChanged_cbPackages);
             // 
             // label8
             // 

@@ -134,7 +134,7 @@ namespace SalonManagementSystem
             dgvPackages.DataSource = dt;*/
         }
 
-        private void SelectedValueChanged_cbPackages(object sender, EventArgs e)
+        private void selectedValueChanged_cbPackages(object sender, EventArgs e)
         {
             CString.cmd = new SqlCommand("Sp_View_AllPackages", CString.con);
             CString.cmd.CommandType = CommandType.StoredProcedure;
