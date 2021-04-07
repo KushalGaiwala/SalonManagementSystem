@@ -37,8 +37,14 @@ namespace SalonManagementSystem
             this.btnAddService = new System.Windows.Forms.Button();
             this.lblPackage = new System.Windows.Forms.Label();
             this.lblCategory = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbPackage = new System.Windows.Forms.ComboBox();
+            this.cbCategory = new System.Windows.Forms.ComboBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -110,29 +116,76 @@ namespace SalonManagementSystem
             this.lblCategory.TabIndex = 7;
             this.lblCategory.Text = "Category";
             // 
-            // comboBox1
+            // cbPackage
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(91, 221);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 8;
+            this.cbPackage.FormattingEnabled = true;
+            this.cbPackage.Items.AddRange(new object[] {
+            "Add More"});
+            this.cbPackage.Location = new System.Drawing.Point(91, 221);
+            this.cbPackage.Name = "cbPackage";
+            this.cbPackage.Size = new System.Drawing.Size(121, 24);
+            this.cbPackage.TabIndex = 8;
             // 
-            // comboBox2
+            // cbCategory
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(91, 288);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
-            this.comboBox2.TabIndex = 9;
+            this.cbCategory.FormattingEnabled = true;
+            this.cbCategory.Items.AddRange(new object[] {
+            "Add More"});
+            this.cbCategory.Location = new System.Drawing.Point(91, 288);
+            this.cbCategory.Name = "cbCategory";
+            this.cbCategory.Size = new System.Drawing.Size(121, 24);
+            this.cbCategory.TabIndex = 9;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(351, 51);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(437, 169);
+            this.dataGridView1.TabIndex = 10;
+
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(351, 276);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(437, 162);
+            this.dataGridView2.TabIndex = 11;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(541, 31);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 17);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Packages";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(541, 256);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 17);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Category";
             // 
             // ServicesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.cbCategory);
+            this.Controls.Add(this.cbPackage);
             this.Controls.Add(this.lblCategory);
             this.Controls.Add(this.lblPackage);
             this.Controls.Add(this.btnAddService);
@@ -142,8 +195,10 @@ namespace SalonManagementSystem
             this.Controls.Add(this.lblServicePrice);
             this.Controls.Add(this.label1);
             this.Name = "ServicesForm";
-            this.Text = "ServicesForm";
+            this.Text = "ServiceForm";
             this.Load += new System.EventHandler(this.ServicesForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,7 +214,11 @@ namespace SalonManagementSystem
         private System.Windows.Forms.Button btnAddService;
         private System.Windows.Forms.Label lblPackage;
         private System.Windows.Forms.Label lblCategory;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbPackage;
+        private System.Windows.Forms.ComboBox cbCategory;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

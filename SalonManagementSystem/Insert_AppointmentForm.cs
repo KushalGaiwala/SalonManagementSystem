@@ -22,10 +22,12 @@ namespace SalonManagementSystem
         {
             try
             {
+                // Insert tblCustomer
+                // Start
                 string Gender = null;
                 if (rbMale.Checked)
                 {
-                    Gender ="M";
+                    Gender = "M";
                 }
                 else if (rbFemale.Checked)
                 {
@@ -38,7 +40,7 @@ namespace SalonManagementSystem
 
                 CString.cmd = new SqlCommand("Sp_Insert_tblCustomer", CString.con);
                 CString.cmd.CommandType = CommandType.StoredProcedure;
-                CString.cmd.Parameters.AddWithValue("@CustName", txtCustName.Text);
+                CString.cmd.Parameters.AddWithValue("@CustName", txtCustName.Text.ToLower()); // Userd Lowercase in Customer Name
                 CString.cmd.Parameters.AddWithValue("@Area", txtCustArea.Text);
                 CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToDouble(txtCustContactNo.Text));
                 CString.cmd.Parameters.AddWithValue("@Gender", Gender);
@@ -46,7 +48,11 @@ namespace SalonManagementSystem
                 CString.con.Open();
                 CString.cmd.ExecuteNonQuery();
                 CString.con.Close();
+                // Insert tblCustomer
+                // End
 
+                // Insert tblAppointment
+                // Start
                 CString.cmd = new SqlCommand("Sp_Insert_tblAppointment", CString.con);
                 CString.cmd.CommandType = CommandType.StoredProcedure;
                 CString.cmd.Parameters.AddWithValue("@CName", txtCustName.Text);
@@ -59,12 +65,24 @@ namespace SalonManagementSystem
                 reset_AllFields();
                 MessageBox.Show("Appointment successfully Generated!");
                 CString.con.Close();
-
+                // Insert tblAppointment
+                // End
             }
-            catch (FormatException ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("      Enter Details Properly!     ");
+                MessageBox.Show("  Enter Details Properly!  "+ex.Message);
             }
+            
+        }
+        void Insert_tblCustomer()
+        {
+            
+        }
+
+        void Insert_tblAppointment()
+        {  
+            
+            
         }
 
         void reset_AllFields()
