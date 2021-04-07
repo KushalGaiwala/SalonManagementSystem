@@ -49,6 +49,7 @@ namespace SalonManagementSystem
             this.cbPackages = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtTotalPrice = new System.Windows.Forms.TextBox();
+            this.lblAlertExists = new System.Windows.Forms.Label();
             this.gbGender.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPackages)).BeginInit();
             this.SuspendLayout();
@@ -96,6 +97,7 @@ namespace SalonManagementSystem
             this.txtCustName.Name = "txtCustName";
             this.txtCustName.Size = new System.Drawing.Size(100, 24);
             this.txtCustName.TabIndex = 8;
+            this.txtCustName.Leave += new System.EventHandler(this.leave_txtCustName);
             // 
             // txtCustArea
             // 
@@ -239,11 +241,22 @@ namespace SalonManagementSystem
             this.txtTotalPrice.Size = new System.Drawing.Size(100, 24);
             this.txtTotalPrice.TabIndex = 26;
             // 
+            // lblAlertExists
+            // 
+            this.lblAlertExists.AutoSize = true;
+            this.lblAlertExists.Location = new System.Drawing.Point(122, 84);
+            this.lblAlertExists.Name = "lblAlertExists";
+            this.lblAlertExists.Size = new System.Drawing.Size(100, 18);
+            this.lblAlertExists.TabIndex = 27;
+            this.lblAlertExists.Text = "Already Exists";
+            this.lblAlertExists.Visible = false;
+            // 
             // Insert_AppointmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 549);
+            this.Controls.Add(this.lblAlertExists);
             this.Controls.Add(this.txtTotalPrice);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.cbPackages);
@@ -297,5 +310,6 @@ namespace SalonManagementSystem
         private System.Windows.Forms.ComboBox cbPackages;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtTotalPrice;
+        private System.Windows.Forms.Label lblAlertExists;
     }
 }

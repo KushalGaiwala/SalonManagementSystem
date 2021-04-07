@@ -18,12 +18,29 @@ namespace SalonManagementSystem
             InitializeComponent();
         }
 
+        /*Boolean customerExists()
+        {
+            CString.cmd = new SqlCommand("Sp_Verify_Customer", CString.con);
+
+            *//*if ()
+            {
+
+                return true;
+            }
+            else
+            {
+
+                return false;
+            }*//*
+        }*/
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
             {
                 // Insert tblCustomer
                 // Start
+
                 string Gender = null;
                 if (rbMale.Checked)
                 {
@@ -41,48 +58,50 @@ namespace SalonManagementSystem
                 CString.cmd = new SqlCommand("Sp_Insert_tblCustomer", CString.con);
                 CString.cmd.CommandType = CommandType.StoredProcedure;
                 CString.cmd.Parameters.AddWithValue("@CustName", txtCustName.Text.ToLower()); // Userd Lowercase in Customer Name
-                CString.cmd.Parameters.AddWithValue("@Area", txtCustArea.Text);
+                CString.cmd.Parameters.AddWithValue("@Area", txtCustArea.Text.ToLower()); // Used Lowercase in Customer Area
                 CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToDouble(txtCustContactNo.Text));
                 CString.cmd.Parameters.AddWithValue("@Gender", Gender);
 
                 CString.con.Open();
                 CString.cmd.ExecuteNonQuery();
                 CString.con.Close();
+
                 // Insert tblCustomer
                 // End
-
-                // Insert tblAppointment
-                // Start
-                CString.cmd = new SqlCommand("Sp_Insert_tblAppointment", CString.con);
-                CString.cmd.CommandType = CommandType.StoredProcedure;
-                CString.cmd.Parameters.AddWithValue("@CName", txtCustName.Text);
-                CString.cmd.Parameters.AddWithValue("@PName", cbPackages.Text);
-                CString.cmd.Parameters.AddWithValue("@Time", Convert.ToDateTime(dtpAppointmentTime.Text));
-                CString.cmd.Parameters.AddWithValue("@Date", Convert.ToDateTime(dtpAppointmentDate.Text));
-
-                CString.con.Open();
-                CString.cmd.ExecuteNonQuery();
-                reset_AllFields();
-                MessageBox.Show("Appointment successfully Generated!");
-                CString.con.Close();
-                // Insert tblAppointment
-                // End
+                insert_tblAppointment();
+            }
+            catch (SqlException sqlEx)
+            {
+                insert_tblAppointment();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("  Enter Details Properly!  "+ex.Message);
+                MessageBox.Show(" Enter Details Properly! ");
             }
-            
         }
         void Insert_tblCustomer()
         {
             
         }
 
-        void Insert_tblAppointment()
-        {  
-            
-            
+        void insert_tblAppointment()
+        {
+            // Insert tblAppointment
+            // Start
+            CString.cmd = new SqlCommand("Sp_Insert_tblAppointment", CString.con);
+            CString.cmd.CommandType = CommandType.StoredProcedure;
+            CString.cmd.Parameters.AddWithValue("@CName", txtCustName.Text);
+            CString.cmd.Parameters.AddWithValue("@PName", cbPackages.Text);
+            CString.cmd.Parameters.AddWithValue("@Time", Convert.ToDateTime(dtpAppointmentTime.Text));
+            CString.cmd.Parameters.AddWithValue("@Date", Convert.ToDateTime(dtpAppointmentDate.Text));
+
+            CString.con.Open();
+            CString.cmd.ExecuteNonQuery();
+            reset_AllFields();
+            MessageBox.Show("Appointment successfully Generated!");
+            CString.con.Close();
+            // Insert tblAppointment
+            // End
         }
 
         void reset_AllFields()
@@ -181,6 +200,11 @@ namespace SalonManagementSystem
             DataTable totalAmount = new DataTable();
             adp.Fill(totalAmount);
             txtTotalPrice.Text = totalAmount.Rows[0][0].ToString();
+        }
+
+        private void leave_txtCustName(object sender, EventArgs e)
+        {
+            
         }
     }
 }
