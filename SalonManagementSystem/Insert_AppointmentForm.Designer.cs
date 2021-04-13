@@ -79,7 +79,6 @@ namespace SalonManagementSystem
             this.txtCustName.Name = "txtCustName";
             this.txtCustName.Size = new System.Drawing.Size(100, 24);
             this.txtCustName.TabIndex = 8;
-            this.txtCustName.Leave += new System.EventHandler(this.leave_txtCustName);
             // 
             // btnAdd
             // 
@@ -225,6 +224,7 @@ namespace SalonManagementSystem
             this.txtCustContactNo.Name = "txtCustContactNo";
             this.txtCustContactNo.Size = new System.Drawing.Size(100, 24);
             this.txtCustContactNo.TabIndex = 29;
+            this.txtCustContactNo.Leave += new System.EventHandler(this.txtCustContactNo_Leave);
             // 
             // label7
             // 

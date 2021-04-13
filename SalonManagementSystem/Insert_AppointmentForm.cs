@@ -22,7 +22,7 @@ namespace SalonManagementSystem
         {
             CString.cmd = new SqlCommand("Sp_Verify_Customer", CString.con);
             CString.cmd.CommandType = CommandType.StoredProcedure;
-            CString.cmd.Parameters.AddWithValue("@CName", txtCustName.Text);
+            CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToInt64(txtCustContactNo.Text));
 
             CString.con.Open();
             int i = Convert.ToInt32(CString.cmd.ExecuteScalar());
@@ -44,8 +44,6 @@ namespace SalonManagementSystem
             {
                 if(!customerExists())
                 {
-                    // Insert tblCustomer
-                    // Start
                     string Gender = null;
                     if (rbMale.Checked)
                     {
@@ -70,8 +68,6 @@ namespace SalonManagementSystem
                     CString.con.Open();
                     CString.cmd.ExecuteNonQuery();
                     CString.con.Close();
-                    // Insert tblCustomer
-                    // End
                 }
                 insert_tblAppointment();
             }
@@ -87,11 +83,9 @@ namespace SalonManagementSystem
 
         void insert_tblAppointment()
         {
-            // Insert tblAppointment
-            // Start
             CString.cmd = new SqlCommand("Sp_Insert_tblAppointment", CString.con);
             CString.cmd.CommandType = CommandType.StoredProcedure;
-            CString.cmd.Parameters.AddWithValue("@CName", txtCustName.Text);
+            CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToInt64(txtCustContactNo.Text));
             CString.cmd.Parameters.AddWithValue("@PName", cbPackages.Text);
             CString.cmd.Parameters.AddWithValue("@Time", Convert.ToDateTime(dtpAppointmentTime.Text));
             CString.cmd.Parameters.AddWithValue("@Date", Convert.ToDateTime(dtpAppointmentDate.Text));
@@ -101,8 +95,6 @@ namespace SalonManagementSystem
             reset_AllFields();
             MessageBox.Show("Appointment successfully Generated!");
             CString.con.Close();
-            // Insert tblAppointment
-            // End
         }
 
         void reset_AllFields()
@@ -165,7 +157,7 @@ namespace SalonManagementSystem
             reader.Close();
         }
 
-        private void leave_txtCustName(object sender, EventArgs e)
+        private void txtCustContactNo_Leave(object sender, EventArgs e)
         {
             if (customerExists())
             {
