@@ -18,65 +18,66 @@ namespace SalonManagementSystem
             InitializeComponent();
         }
 
-        /*Boolean customerExists()
+        Boolean customerExists()
         {
             CString.cmd = new SqlCommand("Sp_Verify_Customer", CString.con);
+            CString.cmd.CommandType = CommandType.StoredProcedure;
+            CString.cmd.Parameters.AddWithValue("@CName", txtCustName.Text);
 
-            *//*if ()
+            CString.con.Open();
+            int i = Convert.ToInt32(CString.cmd.ExecuteScalar());
+            CString.con.Close();
+
+            if (i == 0)
             {
-
-                return true;
+                return false;
             }
             else
             {
-
-                return false;
-            }*//*
-        }*/
+                return true;
+            }
+        }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
             {
-                // Insert tblCustomer
-                // Start
-
-                string Gender = null;
-                if (rbMale.Checked)
+                if(!customerExists())
                 {
-                    Gender = "M";
-                }
-                else if (rbFemale.Checked)
-                {
-                    Gender = "F";
-                }
-                else
-                {
-                    Gender = null;
-                }
+                    // Insert tblCustomer
+                    // Start
+                    string Gender = null;
+                    if (rbMale.Checked)
+                    {
+                        Gender = "M";
+                    }
+                    else if (rbFemale.Checked)
+                    {
+                        Gender = "F";
+                    }
+                    else
+                    {
+                        Gender = null;
+                    }
 
-                CString.cmd = new SqlCommand("Sp_Insert_tblCustomer", CString.con);
-                CString.cmd.CommandType = CommandType.StoredProcedure;
-                CString.cmd.Parameters.AddWithValue("@CustName", txtCustName.Text.ToLower()); // Userd Lowercase in Customer Name
-                CString.cmd.Parameters.AddWithValue("@Area", txtCustArea.Text.ToLower()); // Used Lowercase in Customer Area
-                CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToDouble(txtCustContactNo.Text));
-                CString.cmd.Parameters.AddWithValue("@Gender", Gender);
+                    CString.cmd = new SqlCommand("Sp_Insert_tblCustomer", CString.con);
+                    CString.cmd.CommandType = CommandType.StoredProcedure;
+                    CString.cmd.Parameters.AddWithValue("@CustName", txtCustName.Text.ToLower()); // Used Lowercase in Customer Name
+                    CString.cmd.Parameters.AddWithValue("@Area", txtCustArea.Text.ToLower()); // Used Lowercase in Customer Area
+                    CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToDouble(txtCustContactNo.Text));
+                    CString.cmd.Parameters.AddWithValue("@Gender", Gender);
 
-                CString.con.Open();
-                CString.cmd.ExecuteNonQuery();
-                CString.con.Close();
-
-                // Insert tblCustomer
-                // End
-                insert_tblAppointment();
-            }
-            catch (SqlException sqlEx)
-            {
+                    CString.con.Open();
+                    CString.cmd.ExecuteNonQuery();
+                    CString.con.Close();
+                    // Insert tblCustomer
+                    // End
+                }
                 insert_tblAppointment();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(" Enter Details Properly! ");
+                MessageBox.Show(" Enter Details Properly! "+ex.Message);
             }
         }
         void Insert_tblCustomer()
@@ -111,64 +112,28 @@ namespace SalonManagementSystem
             txtCustName.Text = null;
             rbFemale.Checked = false;
             rbMale.Checked = false;
+            cbPackages.Text = " ";
+            txtTotalPrice.Text = null;
+            lblAlertExists.Visible = false;
         }
 
         private void Insert_AppointmentForm_Load(object sender, EventArgs e)
         {
-
-            DataTable dt = new DataTable();
-
             // For ComboBox
             // Start
-            CString.cmd = new SqlCommand("Sp_View_NoOfPackage", CString.con);
+            CString.cmd = new SqlCommand("Sp_View_Packages", CString.con);
             CString.cmd.CommandType = CommandType.StoredProcedure;
-            
+
             CString.con.Open();
-            CString.cmd.ExecuteNonQuery();
-            CString.con.Close();
-            
-            SqlDataAdapter adp = new SqlDataAdapter(CString.cmd);
-            adp.Fill(dt);
-            int pckCnt = Convert.ToInt32(dt.Rows[0][0]);
-            dt.Reset();
-
-            for (int i = 1; i <= pckCnt; ++i)
+            SqlDataReader reader = CString.cmd.ExecuteReader();
+            while (reader.Read())
             {
-                CString.cmd = new SqlCommand("Sp_View_Packages", CString.con);
-                CString.cmd.CommandType = CommandType.StoredProcedure;
-
-                CString.cmd.Parameters.AddWithValue("@pck", i);
-
-                CString.con.Open();
-                CString.cmd.ExecuteNonQuery();
-                CString.con.Close();
-
-                adp = new SqlDataAdapter(CString.cmd);
-                
-                adp.Fill(dt);
-
-                cbPackages.Items.Add(dt.Rows[i-1][0].ToString());
+                cbPackages.Items.Add(reader.GetValue(0).ToString());
             }
+            CString.con.Close();
+            reader.Close();
             // ComboBox
             // End
-
-            // for total price
-            /*for (int i = 1; i <= pckCnt; ++i)
-            {
-                CString.cmd = new SqlCommand("Sp_View_TotalPackageAmount", CString.con);
-                CString.cmd.CommandType = CommandType.StoredProcedure;
-
-                CString.cmd.Parameters.AddWithValue("@pckId", i);
-
-                CString.con.Open();
-                CString.cmd.ExecuteNonQuery();
-                CString.con.Close();
-
-                adp = new SqlDataAdapter(CString.cmd);
-
-                adp.Fill(dt);
-            }
-            dgvPackages.DataSource = dt;*/
         }
 
         private void selectedValueChanged_cbPackages(object sender, EventArgs e)
@@ -180,31 +145,36 @@ namespace SalonManagementSystem
             CString.con.Open();
             CString.cmd.ExecuteNonQuery();
             CString.con.Close();
-
+            
             SqlDataAdapter adp = new SqlDataAdapter(CString.cmd);
-
             DataTable dt = new DataTable();
             adp.Fill(dt);
-
             dgvPackages.DataSource = dt;
 
             CString.cmd = new SqlCommand("Sp_View_TotalPackageAmount", CString.con);
             CString.cmd.CommandType = CommandType.StoredProcedure;
             CString.cmd.Parameters.AddWithValue("@pckName", cbPackages.Text);
-
+            
             CString.con.Open();
-            CString.cmd.ExecuteNonQuery();
+            SqlDataReader reader = CString.cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                txtTotalPrice.Text = reader.GetValue(0).ToString();
+            }
             CString.con.Close();
-
-            adp = new SqlDataAdapter(CString.cmd);
-            DataTable totalAmount = new DataTable();
-            adp.Fill(totalAmount);
-            txtTotalPrice.Text = totalAmount.Rows[0][0].ToString();
+            reader.Close();
         }
 
         private void leave_txtCustName(object sender, EventArgs e)
         {
-            
+            if (customerExists())
+            {
+                lblAlertExists.Visible = true;
+            }
+            else
+            {
+                lblAlertExists.Visible = false;
+            }
         }
     }
 }
