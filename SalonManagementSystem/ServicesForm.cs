@@ -37,6 +37,19 @@ namespace SalonManagementSystem
             load_Category();
         }
 
+        void load_Category()
+        {
+            CString.cmd = new SqlCommand("Sp_Insert_tblService", CString.con);
+            CString.cmd.CommandType = CommandType.StoredProcedure;
+            CString.cmd.Parameters.AddWithValue("@Name", txtServiceName.Text);
+            CString.cmd.Parameters.AddWithValue("@Price", Convert.ToDouble(txtServicePrice.Text));
+
+            CString.con.Open();
+            CString.cmd.ExecuteNonQuery();
+            MessageBox.Show("Inserted Data Successfully!");
+            CString.con.Close();
+        }
+
         void load_Package()
         {
             CString.cmd = new SqlCommand("Sp_View_PackageService", CString.con);
