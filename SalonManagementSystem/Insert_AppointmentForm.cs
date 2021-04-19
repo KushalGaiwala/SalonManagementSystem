@@ -44,30 +44,7 @@ namespace SalonManagementSystem
             {
                 if(!customerExists())
                 {
-                    string Gender = null;
-                    if (rbMale.Checked)
-                    {
-                        Gender = "M";
-                    }
-                    else if (rbFemale.Checked)
-                    {
-                        Gender = "F";
-                    }
-                    else
-                    {
-                        Gender = null;
-                    }
-
-                    CString.cmd = new SqlCommand("Sp_Insert_tblCustomer", CString.con);
-                    CString.cmd.CommandType = CommandType.StoredProcedure;
-                    CString.cmd.Parameters.AddWithValue("@CustName", txtCustName.Text.ToLower()); // Used Lowercase in Customer Name
-                    CString.cmd.Parameters.AddWithValue("@Area", txtCustArea.Text.ToLower()); // Used Lowercase in Customer Area
-                    CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToDouble(txtCustContactNo.Text));
-                    CString.cmd.Parameters.AddWithValue("@Gender", Gender);
-
-                    CString.con.Open();
-                    CString.cmd.ExecuteNonQuery();
-                    CString.con.Close();
+                    insert_tblCustomer();
                 }
                 insert_tblAppointment();
             }
@@ -76,9 +53,34 @@ namespace SalonManagementSystem
                 MessageBox.Show(" Enter Details Properly! "+ex.Message);
             }
         }
-        void Insert_tblCustomer()
+
+        void insert_tblCustomer()
         {
-            
+            string Gender = null;
+            if (rbMale.Checked)
+            {
+                Gender = "M";
+            }
+            else if (rbFemale.Checked)
+            {
+                Gender = "F";
+            }
+            else
+            {
+                Gender = null;
+            }
+
+            CString.cmd = new SqlCommand("Sp_Insert_tblCustomer", CString.con);
+            CString.cmd.CommandType = CommandType.StoredProcedure;
+            CString.cmd.Parameters.AddWithValue("@FirstName", txtCustFName.Text.ToLower()); // Used Lowercase in Customer FirstName
+            CString.cmd.Parameters.AddWithValue("@LastName", txtCustLName.Text.ToLower()); // Used Lowercase in LastName
+            CString.cmd.Parameters.AddWithValue("@Area", txtCustArea.Text.ToLower()); // Used Lowercase in Customer Area
+            CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToDouble(txtCustContactNo.Text));
+            CString.cmd.Parameters.AddWithValue("@Gender", Gender);
+
+            CString.con.Open();
+            CString.cmd.ExecuteNonQuery();
+            CString.con.Close();
         }
 
         void insert_tblAppointment()
@@ -101,7 +103,8 @@ namespace SalonManagementSystem
         {
             txtCustArea.Text = null;
             txtCustContactNo.Text = null;
-            txtCustName.Text = null;
+            txtCustFName.Text = null;
+            txtCustLName.Text = null;
             rbFemale.Checked = false;
             rbMale.Checked = false;
             cbPackages.Text = " ";
@@ -111,9 +114,7 @@ namespace SalonManagementSystem
 
         private void Insert_AppointmentForm_Load(object sender, EventArgs e)
         {
-            // For ComboBox
-            // Start
-            CString.cmd = new SqlCommand("Sp_View_Packages", CString.con);
+            CString.cmd = new SqlCommand("Sp_Get_Packages", CString.con);
             CString.cmd.CommandType = CommandType.StoredProcedure;
 
             CString.con.Open();
@@ -124,8 +125,6 @@ namespace SalonManagementSystem
             }
             CString.con.Close();
             reader.Close();
-            // ComboBox
-            // End
         }
 
         private void selectedValueChanged_cbPackages(object sender, EventArgs e)
@@ -162,11 +161,31 @@ namespace SalonManagementSystem
             if (customerExists())
             {
                 lblAlertExists.Visible = true;
+                disableAllOptions();
             }
             else
             {
                 lblAlertExists.Visible = false;
+                enableAllOptions();
             }
+        }
+
+        void disableAllOptions()
+        {
+            txtCustArea.Enabled = false;
+            txtCustFName.Enabled = false;
+            txtCustLName.Enabled = false;
+            txtTotalPrice.Enabled = false;
+            gbGender.Enabled = false;
+        }
+
+        void enableAllOptions()
+        {
+            txtCustArea.Enabled = true;
+            txtCustFName.Enabled = true;
+            txtCustLName.Enabled = true;
+            txtTotalPrice.Enabled = true;
+            gbGender.Enabled = true;
         }
     }
 }
