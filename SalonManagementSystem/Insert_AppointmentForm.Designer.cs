@@ -31,7 +31,7 @@ namespace SalonManagementSystem
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtCustName = new System.Windows.Forms.TextBox();
+            this.txtCustFName = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.rbMale = new System.Windows.Forms.RadioButton();
             this.gbGender = new System.Windows.Forms.GroupBox();
@@ -50,6 +50,8 @@ namespace SalonManagementSystem
             this.label7 = new System.Windows.Forms.Label();
             this.txtCustArea = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtCustLName = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.gbGender.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPackages)).BeginInit();
             this.SuspendLayout();
@@ -67,22 +69,22 @@ namespace SalonManagementSystem
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 140);
+            this.label2.Location = new System.Drawing.Point(11, 140);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 18);
+            this.label2.Size = new System.Drawing.Size(77, 18);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Name";
+            this.label2.Text = "FirstName";
             // 
-            // txtCustName
+            // txtCustFName
             // 
-            this.txtCustName.Location = new System.Drawing.Point(125, 134);
-            this.txtCustName.Name = "txtCustName";
-            this.txtCustName.Size = new System.Drawing.Size(100, 24);
-            this.txtCustName.TabIndex = 8;
+            this.txtCustFName.Location = new System.Drawing.Point(123, 134);
+            this.txtCustFName.Name = "txtCustFName";
+            this.txtCustFName.Size = new System.Drawing.Size(100, 24);
+            this.txtCustFName.TabIndex = 8;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(55, 443);
+            this.btnAdd.Location = new System.Drawing.Point(53, 466);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(94, 30);
             this.btnAdd.TabIndex = 15;
@@ -105,7 +107,7 @@ namespace SalonManagementSystem
             // 
             this.gbGender.Controls.Add(this.rbFemale);
             this.gbGender.Controls.Add(this.rbMale);
-            this.gbGender.Location = new System.Drawing.Point(14, 221);
+            this.gbGender.Location = new System.Drawing.Point(12, 244);
             this.gbGender.Name = "gbGender";
             this.gbGender.Size = new System.Drawing.Size(200, 95);
             this.gbGender.TabIndex = 17;
@@ -127,7 +129,7 @@ namespace SalonManagementSystem
             // 
             this.dtpAppointmentDate.CustomFormat = "  dd / MM / yyyy";
             this.dtpAppointmentDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpAppointmentDate.Location = new System.Drawing.Point(122, 335);
+            this.dtpAppointmentDate.Location = new System.Drawing.Point(120, 358);
             this.dtpAppointmentDate.MinDate = new System.DateTime(2021, 4, 7, 0, 0, 0, 0);
             this.dtpAppointmentDate.Name = "dtpAppointmentDate";
             this.dtpAppointmentDate.Size = new System.Drawing.Size(143, 24);
@@ -137,7 +139,7 @@ namespace SalonManagementSystem
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 335);
+            this.label3.Location = new System.Drawing.Point(8, 358);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 18);
             this.label3.TabIndex = 19;
@@ -147,7 +149,7 @@ namespace SalonManagementSystem
             // 
             this.dtpAppointmentTime.CustomFormat = "hh:mm:ss";
             this.dtpAppointmentTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpAppointmentTime.Location = new System.Drawing.Point(122, 382);
+            this.dtpAppointmentTime.Location = new System.Drawing.Point(120, 405);
             this.dtpAppointmentTime.MinDate = new System.DateTime(2021, 4, 7, 0, 0, 0, 0);
             this.dtpAppointmentTime.Name = "dtpAppointmentTime";
             this.dtpAppointmentTime.ShowUpDown = true;
@@ -158,7 +160,7 @@ namespace SalonManagementSystem
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 387);
+            this.label4.Location = new System.Drawing.Point(9, 410);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(86, 18);
             this.label4.TabIndex = 21;
@@ -167,6 +169,7 @@ namespace SalonManagementSystem
             // dgvPackages
             // 
             this.dgvPackages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPackages.Enabled = false;
             this.dgvPackages.Location = new System.Drawing.Point(271, 111);
             this.dgvPackages.Name = "dgvPackages";
             this.dgvPackages.RowHeadersWidth = 51;
@@ -203,6 +206,7 @@ namespace SalonManagementSystem
             // 
             // txtTotalPrice
             // 
+            this.txtTotalPrice.Enabled = false;
             this.txtTotalPrice.Location = new System.Drawing.Point(603, 81);
             this.txtTotalPrice.Name = "txtTotalPrice";
             this.txtTotalPrice.Size = new System.Drawing.Size(100, 24);
@@ -237,7 +241,7 @@ namespace SalonManagementSystem
             // 
             // txtCustArea
             // 
-            this.txtCustArea.Location = new System.Drawing.Point(125, 178);
+            this.txtCustArea.Location = new System.Drawing.Point(123, 194);
             this.txtCustArea.Name = "txtCustArea";
             this.txtCustArea.Size = new System.Drawing.Size(100, 24);
             this.txtCustArea.TabIndex = 31;
@@ -245,17 +249,35 @@ namespace SalonManagementSystem
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(14, 184);
+            this.label5.Location = new System.Drawing.Point(15, 200);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(38, 18);
             this.label5.TabIndex = 30;
             this.label5.Text = "Area";
+            // 
+            // txtCustLName
+            // 
+            this.txtCustLName.Location = new System.Drawing.Point(123, 164);
+            this.txtCustLName.Name = "txtCustLName";
+            this.txtCustLName.Size = new System.Drawing.Size(100, 24);
+            this.txtCustLName.TabIndex = 33;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(11, 170);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(76, 18);
+            this.label9.TabIndex = 32;
+            this.label9.Text = "LastName";
             // 
             // Insert_AppointmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 549);
+            this.Controls.Add(this.txtCustLName);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.txtCustArea);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtCustContactNo);
@@ -272,7 +294,7 @@ namespace SalonManagementSystem
             this.Controls.Add(this.dtpAppointmentDate);
             this.Controls.Add(this.gbGender);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.txtCustName);
+            this.Controls.Add(this.txtCustFName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -292,7 +314,7 @@ namespace SalonManagementSystem
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtCustName;
+        private System.Windows.Forms.TextBox txtCustFName;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.RadioButton rbMale;
         private System.Windows.Forms.GroupBox gbGender;
@@ -311,5 +333,7 @@ namespace SalonManagementSystem
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtCustArea;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtCustLName;
+        private System.Windows.Forms.Label label9;
     }
 }
