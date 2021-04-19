@@ -64,20 +64,5 @@ namespace SalonManagementSystem
             adp.Fill(dt);
             dgvPackages.DataSource = dt;
         }
-
-        void load_Category()
-        {
-            CString.cmd = new SqlCommand("Sp_View_CategoryService", CString.con);
-            CString.cmd.CommandType = CommandType.StoredProcedure;
-
-            CString.con.Open();
-            CString.cmd.ExecuteNonQuery();
-            CString.con.Close();
-
-            SqlDataAdapter adp = new SqlDataAdapter(CString.cmd);
-            DataTable dt = new DataTable();
-            adp.Fill(dt);
-            dgvCategory.DataSource = dt;
-        }
     }
 }
