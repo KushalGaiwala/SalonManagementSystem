@@ -27,7 +27,7 @@ namespace SalonManagementSystem
 
             CString.con.Open();
             CString.cmd.ExecuteNonQuery();
-            MessageBox.Show("Inserted Data Successfully!");
+            MessageBox.Show("Inserted Data Successfully!"); // Added Comment
             CString.con.Close();
         }
 
