@@ -225,9 +225,11 @@ namespace SalonManagementSystem
             // txtCustContactNo
             // 
             this.txtCustContactNo.Location = new System.Drawing.Point(122, 57);
+            this.txtCustContactNo.MaxLength = 10;
             this.txtCustContactNo.Name = "txtCustContactNo";
             this.txtCustContactNo.Size = new System.Drawing.Size(100, 24);
             this.txtCustContactNo.TabIndex = 29;
+            this.txtCustContactNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCustContactNo_KeyPress);
             this.txtCustContactNo.Leave += new System.EventHandler(this.txtCustContactNo_Leave);
             // 
             // label7

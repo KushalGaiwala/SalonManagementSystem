@@ -51,7 +51,7 @@ namespace SalonManagementSystem
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(75, 118);
+            this.label1.Location = new System.Drawing.Point(84, 207);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 17);
             this.label1.TabIndex = 0;
@@ -61,7 +61,7 @@ namespace SalonManagementSystem
             // 
             this.lblServicePrice.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblServicePrice.AutoSize = true;
-            this.lblServicePrice.Location = new System.Drawing.Point(75, 172);
+            this.lblServicePrice.Location = new System.Drawing.Point(84, 261);
             this.lblServicePrice.Name = "lblServicePrice";
             this.lblServicePrice.Size = new System.Drawing.Size(40, 17);
             this.lblServicePrice.TabIndex = 1;
@@ -70,7 +70,7 @@ namespace SalonManagementSystem
             // txtServiceName
             // 
             this.txtServiceName.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtServiceName.Location = new System.Drawing.Point(150, 113);
+            this.txtServiceName.Location = new System.Drawing.Point(159, 202);
             this.txtServiceName.Name = "txtServiceName";
             this.txtServiceName.Size = new System.Drawing.Size(100, 22);
             this.txtServiceName.TabIndex = 2;
@@ -78,7 +78,7 @@ namespace SalonManagementSystem
             // txtServicePrice
             // 
             this.txtServicePrice.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtServicePrice.Location = new System.Drawing.Point(150, 167);
+            this.txtServicePrice.Location = new System.Drawing.Point(159, 256);
             this.txtServicePrice.Name = "txtServicePrice";
             this.txtServicePrice.Size = new System.Drawing.Size(100, 22);
             this.txtServicePrice.TabIndex = 3;
@@ -87,7 +87,7 @@ namespace SalonManagementSystem
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(111, 61);
+            this.label2.Location = new System.Drawing.Point(120, 150);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 17);
             this.label2.TabIndex = 4;
@@ -96,7 +96,7 @@ namespace SalonManagementSystem
             // btnAddService
             // 
             this.btnAddService.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnAddService.Location = new System.Drawing.Point(114, 356);
+            this.btnAddService.Location = new System.Drawing.Point(123, 445);
             this.btnAddService.Name = "btnAddService";
             this.btnAddService.Size = new System.Drawing.Size(75, 23);
             this.btnAddService.TabIndex = 5;
@@ -108,7 +108,7 @@ namespace SalonManagementSystem
             // 
             this.lblPackage.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblPackage.AutoSize = true;
-            this.lblPackage.Location = new System.Drawing.Point(75, 228);
+            this.lblPackage.Location = new System.Drawing.Point(84, 317);
             this.lblPackage.Name = "lblPackage";
             this.lblPackage.Size = new System.Drawing.Size(63, 17);
             this.lblPackage.TabIndex = 6;
@@ -118,7 +118,7 @@ namespace SalonManagementSystem
             // 
             this.lblCategory.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblCategory.AutoSize = true;
-            this.lblCategory.Location = new System.Drawing.Point(75, 295);
+            this.lblCategory.Location = new System.Drawing.Point(84, 384);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(65, 17);
             this.lblCategory.TabIndex = 7;
@@ -128,9 +128,7 @@ namespace SalonManagementSystem
             // 
             this.cbPackage.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbPackage.FormattingEnabled = true;
-            this.cbPackage.Items.AddRange(new object[] {
-            "Add More"});
-            this.cbPackage.Location = new System.Drawing.Point(150, 221);
+            this.cbPackage.Location = new System.Drawing.Point(159, 310);
             this.cbPackage.Name = "cbPackage";
             this.cbPackage.Size = new System.Drawing.Size(121, 24);
             this.cbPackage.TabIndex = 8;
@@ -139,9 +137,7 @@ namespace SalonManagementSystem
             // 
             this.cbCategory.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbCategory.FormattingEnabled = true;
-            this.cbCategory.Items.AddRange(new object[] {
-            "Add More"});
-            this.cbCategory.Location = new System.Drawing.Point(150, 288);
+            this.cbCategory.Location = new System.Drawing.Point(159, 377);
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(121, 24);
             this.cbCategory.TabIndex = 9;
@@ -150,7 +146,7 @@ namespace SalonManagementSystem
             // 
             this.dgvPackages.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dgvPackages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPackages.Location = new System.Drawing.Point(410, 29);
+            this.dgvPackages.Location = new System.Drawing.Point(430, 60);
             this.dgvPackages.Name = "dgvPackages";
             this.dgvPackages.RowHeadersWidth = 51;
             this.dgvPackages.RowTemplate.Height = 24;
@@ -161,7 +157,7 @@ namespace SalonManagementSystem
             // 
             this.dgvCategory.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dgvCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCategory.Location = new System.Drawing.Point(410, 335);
+            this.dgvCategory.Location = new System.Drawing.Point(430, 366);
             this.dgvCategory.Name = "dgvCategory";
             this.dgvCategory.RowHeadersWidth = 51;
             this.dgvCategory.RowTemplate.Height = 24;
@@ -172,7 +168,7 @@ namespace SalonManagementSystem
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(670, 9);
+            this.label3.Location = new System.Drawing.Point(690, 40);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 17);
             this.label3.TabIndex = 12;
@@ -182,7 +178,7 @@ namespace SalonManagementSystem
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(686, 315);
+            this.label4.Location = new System.Drawing.Point(706, 346);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 17);
             this.label4.TabIndex = 13;

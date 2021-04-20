@@ -18,7 +18,6 @@ namespace SalonManagementSystem
             InitializeComponent();
         }
 
-        // Add your connection string
         private SqlConnection con = new SqlConnection(@"Data Source=KUSHAL\MSSQLSERVER01;Initial Catalog=DB_SalonManagementSystem;Integrated Security=True");
         private SqlCommand cmd;
         

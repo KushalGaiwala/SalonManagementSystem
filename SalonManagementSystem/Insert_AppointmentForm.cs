@@ -20,6 +20,7 @@ namespace SalonManagementSystem
 
         Boolean customerExists()
         {
+            
             CString.cmd = new SqlCommand("Sp_Verify_Customer", CString.con);
             CString.cmd.CommandType = CommandType.StoredProcedure;
             CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToInt64(txtCustContactNo.Text));
@@ -158,15 +159,19 @@ namespace SalonManagementSystem
 
         private void txtCustContactNo_Leave(object sender, EventArgs e)
         {
-            if (customerExists())
+            if(txtCustContactNo.Text != "")
             {
-                lblAlertExists.Visible = true;
-                disableAllOptions();
-            }
-            else
-            {
-                lblAlertExists.Visible = false;
-                enableAllOptions();
+                if (customerExists())
+                {
+                    lblAlertExists.Visible = true;
+                    txtCustContactNo.Focus();
+                    disableAllOptions();
+                }
+                else
+                {
+                    lblAlertExists.Visible = false;
+                    enableAllOptions();
+                }
             }
         }
 
@@ -175,7 +180,6 @@ namespace SalonManagementSystem
             txtCustArea.Enabled = false;
             txtCustFName.Enabled = false;
             txtCustLName.Enabled = false;
-            txtTotalPrice.Enabled = false;
             gbGender.Enabled = false;
         }
 
@@ -184,8 +188,16 @@ namespace SalonManagementSystem
             txtCustArea.Enabled = true;
             txtCustFName.Enabled = true;
             txtCustLName.Enabled = true;
-            txtTotalPrice.Enabled = true;
             gbGender.Enabled = true;
+        }
+
+        private void txtCustContactNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if(!(ch >= '0' && ch <= '9' || ch == 8))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
