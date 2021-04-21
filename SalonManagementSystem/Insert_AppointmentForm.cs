@@ -124,8 +124,8 @@ namespace SalonManagementSystem
             {
                 cbPackages.Items.Add(reader.GetValue(0).ToString());
             }
-            CString.con.Close();
             reader.Close();
+            CString.con.Close();
         }
 
         private void selectedValueChanged_cbPackages(object sender, EventArgs e)
@@ -153,8 +153,8 @@ namespace SalonManagementSystem
             {
                 txtTotalPrice.Text = reader.GetValue(0).ToString();
             }
-            CString.con.Close();
             reader.Close();
+            CString.con.Close();
         }
 
         private void txtCustContactNo_Leave(object sender, EventArgs e)
@@ -163,8 +163,11 @@ namespace SalonManagementSystem
             {
                 if (customerExists())
                 {
+                    if (lblAlertExists.Visible == false)
+                    {
+                        txtCustContactNo.Focus();
+                    }
                     lblAlertExists.Visible = true;
-                    txtCustContactNo.Focus();
                     disableAllOptions();
                 }
                 else
