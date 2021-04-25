@@ -49,5 +49,12 @@ namespace SalonManagementSystem
             services.Show();
             services.MdiParent = this;
         }
+
+        private void eMPLOYEEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Insert_Employee emp = new Insert_Employee();
+            emp.Show();
+            emp.MdiParent = this;
+        }
     }
 }

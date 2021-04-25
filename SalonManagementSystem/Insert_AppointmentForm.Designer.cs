@@ -130,7 +130,7 @@ namespace SalonManagementSystem
             this.dtpAppointmentDate.CustomFormat = "  dd / MM / yyyy";
             this.dtpAppointmentDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpAppointmentDate.Location = new System.Drawing.Point(120, 358);
-            this.dtpAppointmentDate.MinDate = new System.DateTime(2021, 4, 7, 0, 0, 0, 0);
+            this.dtpAppointmentDate.MinDate = new System.DateTime(2021, 4, 22, 0, 0, 0, 0);
             this.dtpAppointmentDate.Name = "dtpAppointmentDate";
             this.dtpAppointmentDate.Size = new System.Drawing.Size(143, 24);
             this.dtpAppointmentDate.TabIndex = 18;

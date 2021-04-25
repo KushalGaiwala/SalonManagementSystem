@@ -57,18 +57,18 @@ namespace SalonManagementSystem
 
         void insert_tblCustomer()
         {
-            string Gender = null;
+            string gender = null;
             if (rbMale.Checked)
             {
-                Gender = "M";
+                gender = "M";
             }
             else if (rbFemale.Checked)
             {
-                Gender = "F";
+                gender = "F";
             }
             else
             {
-                Gender = null;
+                gender = null;
             }
 
             CString.cmd = new SqlCommand("Sp_Insert_tblCustomer", CString.con);
@@ -77,7 +77,7 @@ namespace SalonManagementSystem
             CString.cmd.Parameters.AddWithValue("@LastName", txtCustLName.Text.ToLower()); // Used Lowercase in LastName
             CString.cmd.Parameters.AddWithValue("@Area", txtCustArea.Text.ToLower()); // Used Lowercase in Customer Area
             CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToDouble(txtCustContactNo.Text));
-            CString.cmd.Parameters.AddWithValue("@Gender", Gender);
+            CString.cmd.Parameters.AddWithValue("@gender", gender);
 
             CString.con.Open();
             CString.cmd.ExecuteNonQuery();
