@@ -31,7 +31,10 @@ namespace SalonManagementSystem
 
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            home = new HomeForm();
+            if (home == null)
+            {
+                home = new HomeForm();
+            }
             home.Show();
             home.MdiParent = this;
             close_AllForm(1);
@@ -44,7 +47,10 @@ namespace SalonManagementSystem
 
         private void sERVICESToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            insertAppoint = new Insert_AppointmentForm();
+            if (insertAppoint == null)
+            {
+                insertAppoint = new Insert_AppointmentForm();
+            }
             insertAppoint.Show();
             insertAppoint.MdiParent = this;
             close_AllForm(2);
@@ -52,7 +58,10 @@ namespace SalonManagementSystem
 
         private void sERVICESToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            services = new ServicesForm();
+            if (services == null)
+            {
+                services = new ServicesForm();
+            }
             services.Show();
             services.MdiParent = this;
             close_AllForm(3);
@@ -60,7 +69,10 @@ namespace SalonManagementSystem
 
         private void eMPLOYEEToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            emp = new Insert_Employee();
+            if (emp == null) 
+            {
+                emp = new Insert_Employee();
+            }
             emp.Show();
             emp.MdiParent = this;
             close_AllForm(4);
@@ -70,19 +82,19 @@ namespace SalonManagementSystem
         {
             if (home != null && open != 1)
             {
-                home.Close();
+                home.Hide();
             }
             if (insertAppoint != null && open != 2)
             {
-                insertAppoint.Close();
+                insertAppoint.Hide();
             }
             if (services != null && open != 3)
             {
-                services.Close();
+                services.Hide();
             }
             if (emp != null && open != 4)
             {
-                emp.Close();
+                emp.Hide();
             }
         }
     }

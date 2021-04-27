@@ -52,16 +52,16 @@ namespace SalonManagementSystem
                 txtCustLName.Text = reader.GetValue(1).ToString();
                 txtCustArea.Text = reader.GetValue(2).ToString();
                 txtCustContactNo.Text = reader.GetValue(3).ToString();
-                string gender = "";
                 if(reader.GetValue(4).ToString().ToLower() == "m")
                 {
-
-                }else if(reader.GetValue(4).ToString().ToLower() == "f")
-                {
-
+                    rbMale.Checked = true;
                 }
-
+                else if(reader.GetValue(4).ToString().ToLower() == "f")
+                {
+                    rbFemale.Checked = true;
+                }
             }
+            CString.con.Close();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
