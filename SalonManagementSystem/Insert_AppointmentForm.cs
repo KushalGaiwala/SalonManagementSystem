@@ -20,7 +20,6 @@ namespace SalonManagementSystem
 
         Boolean customerExists()
         {
-            
             CString.cmd = new SqlCommand("Sp_Verify_Customer", CString.con);
             CString.cmd.CommandType = CommandType.StoredProcedure;
             CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToInt64(txtCustContactNo.Text));
@@ -36,6 +35,32 @@ namespace SalonManagementSystem
             else
             {
                 return true;
+            }
+        }
+
+        void get_CustomerDetail()
+        {
+            CString.cmd = new SqlCommand("Sp_Get_Customer", CString.con);
+            CString.cmd.CommandType = CommandType.StoredProcedure;
+            CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToInt64(txtCustContactNo.Text));
+
+            CString.con.Open();
+            SqlDataReader reader = CString.cmd.ExecuteReader();
+            while(reader.Read())
+            {
+                txtCustFName.Text = reader.GetValue(0).ToString();
+                txtCustLName.Text = reader.GetValue(1).ToString();
+                txtCustArea.Text = reader.GetValue(2).ToString();
+                txtCustContactNo.Text = reader.GetValue(3).ToString();
+                string gender = "";
+                if(reader.GetValue(4).ToString().ToLower() == "m")
+                {
+
+                }else if(reader.GetValue(4).ToString().ToLower() == "f")
+                {
+
+                }
+
             }
         }
 
@@ -115,6 +140,9 @@ namespace SalonManagementSystem
 
         private void Insert_AppointmentForm_Load(object sender, EventArgs e)
         {
+            dtpAppointmentDate.MinDate = DateTime.Today;
+            dtpAppointmentDate.Value = DateTime.Today;
+
             CString.cmd = new SqlCommand("Sp_Get_Packages", CString.con);
             CString.cmd.CommandType = CommandType.StoredProcedure;
 
@@ -168,6 +196,7 @@ namespace SalonManagementSystem
                         txtCustContactNo.Focus();
                     }
                     lblAlertExists.Visible = true;
+                    get_CustomerDetail();
                     disableAllOptions();
                 }
                 else

@@ -132,7 +132,7 @@ namespace SalonManagementSystem
             this.dtpAppointmentDate.Location = new System.Drawing.Point(120, 358);
             this.dtpAppointmentDate.MinDate = new System.DateTime(2021, 4, 22, 0, 0, 0, 0);
             this.dtpAppointmentDate.Name = "dtpAppointmentDate";
-            this.dtpAppointmentDate.Size = new System.Drawing.Size(143, 24);
+            this.dtpAppointmentDate.Size = new System.Drawing.Size(121, 24);
             this.dtpAppointmentDate.TabIndex = 18;
             this.dtpAppointmentDate.Value = new System.DateTime(2021, 5, 7, 0, 0, 0, 0);
             // 
@@ -155,7 +155,7 @@ namespace SalonManagementSystem
             this.dtpAppointmentTime.ShowUpDown = true;
             this.dtpAppointmentTime.Size = new System.Drawing.Size(83, 24);
             this.dtpAppointmentTime.TabIndex = 20;
-            this.dtpAppointmentTime.Value = new System.DateTime(2021, 4, 7, 0, 0, 0, 0);
+            this.dtpAppointmentTime.Value = new System.DateTime(2021, 4, 27, 0, 0, 0, 0);
             // 
             // label4
             // 

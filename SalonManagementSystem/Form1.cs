@@ -17,6 +17,11 @@ namespace SalonManagementSystem
             InitializeComponent();
         }
 
+        Insert_Employee emp = null;
+        ServicesForm services = null;
+        HomeForm home = null;
+        Insert_AppointmentForm insertAppoint = null;
+
         private void lOGOUTToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -26,9 +31,10 @@ namespace SalonManagementSystem
 
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            HomeForm home = new HomeForm();
+            home = new HomeForm();
             home.Show();
             home.MdiParent = this;
+            close_AllForm(1);
         }
 
         private void Closed_Form1(object sender, FormClosedEventArgs e)
@@ -38,23 +44,46 @@ namespace SalonManagementSystem
 
         private void sERVICESToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Insert_AppointmentForm insertAppoint = new Insert_AppointmentForm();
+            insertAppoint = new Insert_AppointmentForm();
             insertAppoint.Show();
             insertAppoint.MdiParent = this;
+            close_AllForm(2);
         }
 
         private void sERVICESToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ServicesForm services = new ServicesForm();
+            services = new ServicesForm();
             services.Show();
             services.MdiParent = this;
+            close_AllForm(3);
         }
 
         private void eMPLOYEEToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Insert_Employee emp = new Insert_Employee();
+            emp = new Insert_Employee();
             emp.Show();
             emp.MdiParent = this;
+            close_AllForm(4);
+        }
+
+        void close_AllForm(int open)
+        {
+            if (home != null && open != 1)
+            {
+                home.Close();
+            }
+            if (insertAppoint != null && open != 2)
+            {
+                insertAppoint.Close();
+            }
+            if (services != null && open != 3)
+            {
+                services.Close();
+            }
+            if (emp != null && open != 4)
+            {
+                emp.Close();
+            }
         }
     }
 }

@@ -62,16 +62,18 @@ namespace SalonManagementSystem
             this.btnSubmit = new System.Windows.Forms.Button();
             this.dtpDOJ = new System.Windows.Forms.DateTimePicker();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblAlertExists = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.gbGender.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitle
             // 
+            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(399, 0);
+            this.lblTitle.Location = new System.Drawing.Point(413, 9);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(263, 37);
             this.lblTitle.TabIndex = 0;
@@ -79,8 +81,9 @@ namespace SalonManagementSystem
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(417, 73);
+            this.label2.Location = new System.Drawing.Point(85, 184);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 17);
             this.label2.TabIndex = 1;
@@ -88,22 +91,26 @@ namespace SalonManagementSystem
             // 
             // txtEmpContactNo
             // 
-            this.txtEmpContactNo.Location = new System.Drawing.Point(537, 73);
+            this.txtEmpContactNo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtEmpContactNo.Location = new System.Drawing.Point(205, 184);
             this.txtEmpContactNo.Name = "txtEmpContactNo";
             this.txtEmpContactNo.Size = new System.Drawing.Size(100, 22);
             this.txtEmpContactNo.TabIndex = 2;
+            this.txtEmpContactNo.Leave += new System.EventHandler(this.txtEmpContactNo_Leave);
             // 
             // txtEmpFName
             // 
-            this.txtEmpFName.Location = new System.Drawing.Point(537, 111);
+            this.txtEmpFName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtEmpFName.Location = new System.Drawing.Point(205, 222);
             this.txtEmpFName.Name = "txtEmpFName";
             this.txtEmpFName.Size = new System.Drawing.Size(100, 22);
             this.txtEmpFName.TabIndex = 4;
             // 
             // lblEmpFName
             // 
+            this.lblEmpFName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblEmpFName.AutoSize = true;
-            this.lblEmpFName.Location = new System.Drawing.Point(417, 111);
+            this.lblEmpFName.Location = new System.Drawing.Point(85, 222);
             this.lblEmpFName.Name = "lblEmpFName";
             this.lblEmpFName.Size = new System.Drawing.Size(76, 17);
             this.lblEmpFName.TabIndex = 3;
@@ -111,15 +118,17 @@ namespace SalonManagementSystem
             // 
             // txtEmpLName
             // 
-            this.txtEmpLName.Location = new System.Drawing.Point(537, 149);
+            this.txtEmpLName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtEmpLName.Location = new System.Drawing.Point(205, 260);
             this.txtEmpLName.Name = "txtEmpLName";
             this.txtEmpLName.Size = new System.Drawing.Size(100, 22);
             this.txtEmpLName.TabIndex = 6;
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(417, 149);
+            this.label3.Location = new System.Drawing.Point(85, 260);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 17);
             this.label3.TabIndex = 5;
@@ -127,8 +136,9 @@ namespace SalonManagementSystem
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(417, 188);
+            this.label1.Location = new System.Drawing.Point(85, 299);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 17);
             this.label1.TabIndex = 7;
@@ -136,18 +146,21 @@ namespace SalonManagementSystem
             // 
             // dtpEmpDOB
             // 
+            this.dtpEmpDOB.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dtpEmpDOB.CustomFormat = " dd / MM / yyyy";
             this.dtpEmpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpEmpDOB.Location = new System.Drawing.Point(537, 188);
+            this.dtpEmpDOB.Location = new System.Drawing.Point(205, 299);
             this.dtpEmpDOB.Name = "dtpEmpDOB";
             this.dtpEmpDOB.Size = new System.Drawing.Size(124, 22);
             this.dtpEmpDOB.TabIndex = 8;
+            this.dtpEmpDOB.Value = new System.DateTime(2021, 4, 25, 0, 0, 0, 0);
             // 
             // gbGender
             // 
+            this.gbGender.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.gbGender.Controls.Add(this.rbFemale);
             this.gbGender.Controls.Add(this.rbMale);
-            this.gbGender.Location = new System.Drawing.Point(420, 221);
+            this.gbGender.Location = new System.Drawing.Point(88, 332);
             this.gbGender.Name = "gbGender";
             this.gbGender.Size = new System.Drawing.Size(242, 69);
             this.gbGender.TabIndex = 9;
@@ -156,6 +169,7 @@ namespace SalonManagementSystem
             // 
             // rbFemale
             // 
+            this.rbFemale.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.rbFemale.AutoSize = true;
             this.rbFemale.Location = new System.Drawing.Point(128, 30);
             this.rbFemale.Name = "rbFemale";
@@ -167,6 +181,7 @@ namespace SalonManagementSystem
             // 
             // rbMale
             // 
+            this.rbMale.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.rbMale.AutoSize = true;
             this.rbMale.Location = new System.Drawing.Point(11, 30);
             this.rbMale.Name = "rbMale";
@@ -178,6 +193,7 @@ namespace SalonManagementSystem
             // 
             // txtHouseNo
             // 
+            this.txtHouseNo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtHouseNo.Location = new System.Drawing.Point(126, 37);
             this.txtHouseNo.Name = "txtHouseNo";
             this.txtHouseNo.Size = new System.Drawing.Size(100, 22);
@@ -185,6 +201,7 @@ namespace SalonManagementSystem
             // 
             // lblHouseNo
             // 
+            this.lblHouseNo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblHouseNo.AutoSize = true;
             this.lblHouseNo.Location = new System.Drawing.Point(6, 37);
             this.lblHouseNo.Name = "lblHouseNo";
@@ -194,6 +211,7 @@ namespace SalonManagementSystem
             // 
             // txtStreet
             // 
+            this.txtStreet.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtStreet.Location = new System.Drawing.Point(126, 75);
             this.txtStreet.Name = "txtStreet";
             this.txtStreet.Size = new System.Drawing.Size(100, 22);
@@ -201,6 +219,7 @@ namespace SalonManagementSystem
             // 
             // lblStreet
             // 
+            this.lblStreet.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblStreet.AutoSize = true;
             this.lblStreet.Location = new System.Drawing.Point(6, 75);
             this.lblStreet.Name = "lblStreet";
@@ -210,6 +229,7 @@ namespace SalonManagementSystem
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.groupBox1.Controls.Add(this.txtPincode);
             this.groupBox1.Controls.Add(this.lblPincode);
             this.groupBox1.Controls.Add(this.txtCity);
@@ -220,7 +240,7 @@ namespace SalonManagementSystem
             this.groupBox1.Controls.Add(this.txtStreet);
             this.groupBox1.Controls.Add(this.txtHouseNo);
             this.groupBox1.Controls.Add(this.lblStreet);
-            this.groupBox1.Location = new System.Drawing.Point(420, 296);
+            this.groupBox1.Location = new System.Drawing.Point(446, 184);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(242, 241);
             this.groupBox1.TabIndex = 14;
@@ -229,6 +249,7 @@ namespace SalonManagementSystem
             // 
             // txtPincode
             // 
+            this.txtPincode.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtPincode.Location = new System.Drawing.Point(126, 191);
             this.txtPincode.Name = "txtPincode";
             this.txtPincode.Size = new System.Drawing.Size(100, 22);
@@ -236,6 +257,7 @@ namespace SalonManagementSystem
             // 
             // lblPincode
             // 
+            this.lblPincode.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblPincode.AutoSize = true;
             this.lblPincode.Location = new System.Drawing.Point(6, 191);
             this.lblPincode.Name = "lblPincode";
@@ -245,6 +267,7 @@ namespace SalonManagementSystem
             // 
             // txtCity
             // 
+            this.txtCity.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtCity.Location = new System.Drawing.Point(126, 153);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(100, 22);
@@ -252,6 +275,7 @@ namespace SalonManagementSystem
             // 
             // lblCity
             // 
+            this.lblCity.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblCity.AutoSize = true;
             this.lblCity.Location = new System.Drawing.Point(6, 153);
             this.lblCity.Name = "lblCity";
@@ -261,6 +285,7 @@ namespace SalonManagementSystem
             // 
             // txtArea
             // 
+            this.txtArea.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtArea.Location = new System.Drawing.Point(126, 115);
             this.txtArea.Name = "txtArea";
             this.txtArea.Size = new System.Drawing.Size(100, 22);
@@ -268,6 +293,7 @@ namespace SalonManagementSystem
             // 
             // lblArea
             // 
+            this.lblArea.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblArea.AutoSize = true;
             this.lblArea.Location = new System.Drawing.Point(6, 115);
             this.lblArea.Name = "lblArea";
@@ -277,8 +303,9 @@ namespace SalonManagementSystem
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(417, 552);
+            this.label4.Location = new System.Drawing.Point(777, 222);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 17);
             this.label4.TabIndex = 18;
@@ -286,15 +313,17 @@ namespace SalonManagementSystem
             // 
             // txtEmpExp
             // 
-            this.txtEmpExp.Location = new System.Drawing.Point(537, 589);
+            this.txtEmpExp.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtEmpExp.Location = new System.Drawing.Point(897, 259);
             this.txtEmpExp.Name = "txtEmpExp";
             this.txtEmpExp.Size = new System.Drawing.Size(100, 22);
             this.txtEmpExp.TabIndex = 21;
             // 
             // lblExp
             // 
+            this.lblExp.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblExp.AutoSize = true;
-            this.lblExp.Location = new System.Drawing.Point(417, 589);
+            this.lblExp.Location = new System.Drawing.Point(777, 259);
             this.lblExp.Name = "lblExp";
             this.lblExp.Size = new System.Drawing.Size(78, 17);
             this.lblExp.TabIndex = 20;
@@ -302,15 +331,17 @@ namespace SalonManagementSystem
             // 
             // txtEmpSalary
             // 
-            this.txtEmpSalary.Location = new System.Drawing.Point(537, 627);
+            this.txtEmpSalary.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtEmpSalary.Location = new System.Drawing.Point(897, 297);
             this.txtEmpSalary.Name = "txtEmpSalary";
             this.txtEmpSalary.Size = new System.Drawing.Size(100, 22);
             this.txtEmpSalary.TabIndex = 23;
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(417, 627);
+            this.label5.Location = new System.Drawing.Point(777, 297);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 17);
             this.label5.TabIndex = 22;
@@ -318,15 +349,17 @@ namespace SalonManagementSystem
             // 
             // txtEmpProof
             // 
-            this.txtEmpProof.Location = new System.Drawing.Point(537, 667);
+            this.txtEmpProof.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtEmpProof.Location = new System.Drawing.Point(897, 337);
             this.txtEmpProof.Name = "txtEmpProof";
             this.txtEmpProof.Size = new System.Drawing.Size(100, 22);
             this.txtEmpProof.TabIndex = 25;
             // 
             // label6
             // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(417, 667);
+            this.label6.Location = new System.Drawing.Point(777, 337);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(42, 17);
             this.label6.TabIndex = 24;
@@ -334,8 +367,9 @@ namespace SalonManagementSystem
             // 
             // btnSubmit
             // 
+            this.btnSubmit.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(420, 716);
+            this.btnSubmit.Location = new System.Drawing.Point(361, 543);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(97, 37);
             this.btnSubmit.TabIndex = 26;
@@ -345,40 +379,60 @@ namespace SalonManagementSystem
             // 
             // dtpDOJ
             // 
+            this.dtpDOJ.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dtpDOJ.CustomFormat = " dd / MM / yyyy";
             this.dtpDOJ.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDOJ.Location = new System.Drawing.Point(537, 552);
+            this.dtpDOJ.Location = new System.Drawing.Point(897, 222);
             this.dtpDOJ.Name = "dtpDOJ";
             this.dtpDOJ.Size = new System.Drawing.Size(124, 22);
             this.dtpDOJ.TabIndex = 20;
+            this.dtpDOJ.Value = new System.DateTime(2021, 4, 25, 0, 0, 0, 0);
             // 
             // btnUpdate
             // 
+            this.btnUpdate.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(544, 716);
+            this.btnUpdate.Location = new System.Drawing.Point(485, 543);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(97, 37);
             this.btnUpdate.TabIndex = 27;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Visible = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // label7
+            // lblAlertExists
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(643, 78);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(110, 17);
-            this.label7.TabIndex = 28;
-            this.label7.Text = "Employee Exists";
-            this.label7.Visible = false;
+            this.lblAlertExists.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblAlertExists.AutoSize = true;
+            this.lblAlertExists.Location = new System.Drawing.Point(311, 189);
+            this.lblAlertExists.Name = "lblAlertExists";
+            this.lblAlertExists.Size = new System.Drawing.Size(110, 17);
+            this.lblAlertExists.TabIndex = 28;
+            this.lblAlertExists.Text = "Employee Exists";
+            this.lblAlertExists.Visible = false;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(608, 543);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(97, 37);
+            this.btnDelete.TabIndex = 29;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Visible = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // Insert_Employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1105, 765);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.lblAlertExists);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.dtpDOJ);
             this.Controls.Add(this.btnSubmit);
@@ -401,8 +455,9 @@ namespace SalonManagementSystem
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTitle);
             this.Name = "Insert_Employee";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Insert_Employee";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Insert_Employee_Load);
             this.gbGender.ResumeLayout(false);
             this.gbGender.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -447,6 +502,7 @@ namespace SalonManagementSystem
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.DateTimePicker dtpDOJ;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblAlertExists;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
