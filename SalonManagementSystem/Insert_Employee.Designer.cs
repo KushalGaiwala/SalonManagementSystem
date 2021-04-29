@@ -63,9 +63,15 @@ namespace SalonManagementSystem
             this.dtpDOJ = new System.Windows.Forms.DateTimePicker();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.lblAlertExists = new System.Windows.Forms.Label();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnEmpStatus = new System.Windows.Forms.Button();
+            this.txtEmpProofId = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.gbWorkingStatus = new System.Windows.Forms.GroupBox();
+            this.rbWorkingNo = new System.Windows.Forms.RadioButton();
+            this.rbWorkingYes = new System.Windows.Forms.RadioButton();
             this.gbGender.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.gbWorkingStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -171,6 +177,7 @@ namespace SalonManagementSystem
             // 
             this.rbFemale.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.rbFemale.AutoSize = true;
+            this.rbFemale.Checked = true;
             this.rbFemale.Location = new System.Drawing.Point(128, 30);
             this.rbFemale.Name = "rbFemale";
             this.rbFemale.Size = new System.Drawing.Size(75, 21);
@@ -187,7 +194,6 @@ namespace SalonManagementSystem
             this.rbMale.Name = "rbMale";
             this.rbMale.Size = new System.Drawing.Size(59, 21);
             this.rbMale.TabIndex = 4;
-            this.rbMale.TabStop = true;
             this.rbMale.Text = "Male";
             this.rbMale.UseVisualStyleBackColor = true;
             // 
@@ -305,7 +311,7 @@ namespace SalonManagementSystem
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(777, 222);
+            this.label4.Location = new System.Drawing.Point(767, 189);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 17);
             this.label4.TabIndex = 18;
@@ -314,7 +320,7 @@ namespace SalonManagementSystem
             // txtEmpExp
             // 
             this.txtEmpExp.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtEmpExp.Location = new System.Drawing.Point(897, 259);
+            this.txtEmpExp.Location = new System.Drawing.Point(887, 226);
             this.txtEmpExp.Name = "txtEmpExp";
             this.txtEmpExp.Size = new System.Drawing.Size(100, 22);
             this.txtEmpExp.TabIndex = 21;
@@ -323,7 +329,7 @@ namespace SalonManagementSystem
             // 
             this.lblExp.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblExp.AutoSize = true;
-            this.lblExp.Location = new System.Drawing.Point(777, 259);
+            this.lblExp.Location = new System.Drawing.Point(767, 226);
             this.lblExp.Name = "lblExp";
             this.lblExp.Size = new System.Drawing.Size(78, 17);
             this.lblExp.TabIndex = 20;
@@ -332,7 +338,7 @@ namespace SalonManagementSystem
             // txtEmpSalary
             // 
             this.txtEmpSalary.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtEmpSalary.Location = new System.Drawing.Point(897, 297);
+            this.txtEmpSalary.Location = new System.Drawing.Point(887, 264);
             this.txtEmpSalary.Name = "txtEmpSalary";
             this.txtEmpSalary.Size = new System.Drawing.Size(100, 22);
             this.txtEmpSalary.TabIndex = 23;
@@ -341,7 +347,7 @@ namespace SalonManagementSystem
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(777, 297);
+            this.label5.Location = new System.Drawing.Point(767, 264);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 17);
             this.label5.TabIndex = 22;
@@ -350,7 +356,7 @@ namespace SalonManagementSystem
             // txtEmpProof
             // 
             this.txtEmpProof.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtEmpProof.Location = new System.Drawing.Point(897, 337);
+            this.txtEmpProof.Location = new System.Drawing.Point(887, 304);
             this.txtEmpProof.Name = "txtEmpProof";
             this.txtEmpProof.Size = new System.Drawing.Size(100, 22);
             this.txtEmpProof.TabIndex = 25;
@@ -359,7 +365,7 @@ namespace SalonManagementSystem
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(777, 337);
+            this.label6.Location = new System.Drawing.Point(767, 304);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(42, 17);
             this.label6.TabIndex = 24;
@@ -371,7 +377,7 @@ namespace SalonManagementSystem
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubmit.Location = new System.Drawing.Point(361, 543);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(97, 37);
+            this.btnSubmit.Size = new System.Drawing.Size(108, 48);
             this.btnSubmit.TabIndex = 26;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -382,7 +388,7 @@ namespace SalonManagementSystem
             this.dtpDOJ.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dtpDOJ.CustomFormat = " dd / MM / yyyy";
             this.dtpDOJ.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDOJ.Location = new System.Drawing.Point(897, 222);
+            this.dtpDOJ.Location = new System.Drawing.Point(887, 189);
             this.dtpDOJ.Name = "dtpDOJ";
             this.dtpDOJ.Size = new System.Drawing.Size(124, 22);
             this.dtpDOJ.TabIndex = 20;
@@ -394,7 +400,7 @@ namespace SalonManagementSystem
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.Location = new System.Drawing.Point(485, 543);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(97, 37);
+            this.btnUpdate.Size = new System.Drawing.Size(108, 48);
             this.btnUpdate.TabIndex = 27;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -412,18 +418,74 @@ namespace SalonManagementSystem
             this.lblAlertExists.Text = "Employee Exists";
             this.lblAlertExists.Visible = false;
             // 
-            // btnDelete
+            // btnEmpStatus
             // 
-            this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(608, 543);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(97, 37);
-            this.btnDelete.TabIndex = 29;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Visible = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnEmpStatus.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnEmpStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmpStatus.Location = new System.Drawing.Point(608, 543);
+            this.btnEmpStatus.Name = "btnEmpStatus";
+            this.btnEmpStatus.Size = new System.Drawing.Size(142, 48);
+            this.btnEmpStatus.TabIndex = 29;
+            this.btnEmpStatus.Text = "Change Status";
+            this.btnEmpStatus.UseVisualStyleBackColor = true;
+            this.btnEmpStatus.Visible = false;
+            this.btnEmpStatus.Click += new System.EventHandler(this.btnEmpStatus_Click);
+            // 
+            // txtEmpProofId
+            // 
+            this.txtEmpProofId.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtEmpProofId.Location = new System.Drawing.Point(887, 337);
+            this.txtEmpProofId.Name = "txtEmpProofId";
+            this.txtEmpProofId.Size = new System.Drawing.Size(100, 22);
+            this.txtEmpProofId.TabIndex = 31;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(767, 337);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(59, 17);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "Proof ID";
+            // 
+            // gbWorkingStatus
+            // 
+            this.gbWorkingStatus.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.gbWorkingStatus.Controls.Add(this.rbWorkingNo);
+            this.gbWorkingStatus.Controls.Add(this.rbWorkingYes);
+            this.gbWorkingStatus.Enabled = false;
+            this.gbWorkingStatus.Location = new System.Drawing.Point(769, 375);
+            this.gbWorkingStatus.Name = "gbWorkingStatus";
+            this.gbWorkingStatus.Size = new System.Drawing.Size(242, 69);
+            this.gbWorkingStatus.TabIndex = 10;
+            this.gbWorkingStatus.TabStop = false;
+            this.gbWorkingStatus.Text = "Working Status";
+            this.gbWorkingStatus.Visible = false;
+            // 
+            // rbWorkingNo
+            // 
+            this.rbWorkingNo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.rbWorkingNo.AutoSize = true;
+            this.rbWorkingNo.Location = new System.Drawing.Point(118, 29);
+            this.rbWorkingNo.Name = "rbWorkingNo";
+            this.rbWorkingNo.Size = new System.Drawing.Size(107, 21);
+            this.rbWorkingNo.TabIndex = 5;
+            this.rbWorkingNo.Text = "Not Working";
+            this.rbWorkingNo.UseVisualStyleBackColor = true;
+            // 
+            // rbWorkingYes
+            // 
+            this.rbWorkingYes.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.rbWorkingYes.AutoSize = true;
+            this.rbWorkingYes.Checked = true;
+            this.rbWorkingYes.Location = new System.Drawing.Point(12, 29);
+            this.rbWorkingYes.Name = "rbWorkingYes";
+            this.rbWorkingYes.Size = new System.Drawing.Size(107, 21);
+            this.rbWorkingYes.TabIndex = 4;
+            this.rbWorkingYes.TabStop = true;
+            this.rbWorkingYes.Text = "Still Working";
+            this.rbWorkingYes.UseVisualStyleBackColor = true;
             // 
             // Insert_Employee
             // 
@@ -431,7 +493,10 @@ namespace SalonManagementSystem
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1105, 765);
-            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.gbWorkingStatus);
+            this.Controls.Add(this.txtEmpProofId);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.btnEmpStatus);
             this.Controls.Add(this.lblAlertExists);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.dtpDOJ);
@@ -457,11 +522,12 @@ namespace SalonManagementSystem
             this.Name = "Insert_Employee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Insert_Employee";
-            this.Load += new System.EventHandler(this.Insert_Employee_Load);
             this.gbGender.ResumeLayout(false);
             this.gbGender.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.gbWorkingStatus.ResumeLayout(false);
+            this.gbWorkingStatus.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -503,6 +569,11 @@ namespace SalonManagementSystem
         private System.Windows.Forms.DateTimePicker dtpDOJ;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label lblAlertExists;
-        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnEmpStatus;
+        private System.Windows.Forms.TextBox txtEmpProofId;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.GroupBox gbWorkingStatus;
+        private System.Windows.Forms.RadioButton rbWorkingNo;
+        private System.Windows.Forms.RadioButton rbWorkingYes;
     }
 }

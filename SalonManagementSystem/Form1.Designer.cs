@@ -35,11 +35,11 @@ namespace SalonManagementSystem
             this.iNSERTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sERVICESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sERVICESToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.eMPLOYEEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uPDATEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cUSTOMERSToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.dISPLAYToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cUSTOMERSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eMPLOYEEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,6 +97,13 @@ namespace SalonManagementSystem
             this.sERVICESToolStripMenuItem1.Text = "SERVICES";
             this.sERVICESToolStripMenuItem1.Click += new System.EventHandler(this.sERVICESToolStripMenuItem1_Click);
             // 
+            // eMPLOYEEToolStripMenuItem
+            // 
+            this.eMPLOYEEToolStripMenuItem.Name = "eMPLOYEEToolStripMenuItem";
+            this.eMPLOYEEToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.eMPLOYEEToolStripMenuItem.Text = "EMPLOYEE";
+            this.eMPLOYEEToolStripMenuItem.Click += new System.EventHandler(this.eMPLOYEEToolStripMenuItem_Click);
+            // 
             // uPDATEToolStripMenuItem
             // 
             this.uPDATEToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -124,13 +131,6 @@ namespace SalonManagementSystem
             this.cUSTOMERSToolStripMenuItem.Name = "cUSTOMERSToolStripMenuItem";
             this.cUSTOMERSToolStripMenuItem.Size = new System.Drawing.Size(175, 26);
             this.cUSTOMERSToolStripMenuItem.Text = "CUSTOMERS";
-            // 
-            // eMPLOYEEToolStripMenuItem
-            // 
-            this.eMPLOYEEToolStripMenuItem.Name = "eMPLOYEEToolStripMenuItem";
-            this.eMPLOYEEToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.eMPLOYEEToolStripMenuItem.Text = "EMPLOYEE";
-            this.eMPLOYEEToolStripMenuItem.Click += new System.EventHandler(this.eMPLOYEEToolStripMenuItem_Click);
             // 
             // Form1
             // 

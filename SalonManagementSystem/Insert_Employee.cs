@@ -55,6 +55,7 @@ namespace SalonManagementSystem
             CString.cmd.Parameters.AddWithValue("@Experience", Convert.ToInt32(txtEmpExp.Text));
             CString.cmd.Parameters.AddWithValue("@Salary", Convert.ToDouble(txtEmpSalary.Text));
             CString.cmd.Parameters.AddWithValue("@Proof", txtEmpProof.Text);
+            CString.cmd.Parameters.AddWithValue("@ProofId", Convert.ToInt64(txtEmpProofId.Text));
 
             CString.con.Open();
             CString.cmd.ExecuteNonQuery();
@@ -75,7 +76,9 @@ namespace SalonManagementSystem
                     }
                     lblAlertExists.Visible = true;
                     btnUpdate.Visible = true;
-                    btnDelete.Visible = true;
+                    btnEmpStatus.Visible = true;
+                    gbWorkingStatus.Visible = true;
+                    get_EmployeeDetail();
                     disableAllOptions();
                 }
                 else
@@ -86,8 +89,53 @@ namespace SalonManagementSystem
             }
         }
 
+        void get_EmployeeDetail()
+        {
+            CString.cmd = new SqlCommand("Sp_Get_Employee", CString.con);
+            CString.cmd.CommandType = CommandType.StoredProcedure;
+            CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToInt64(txtEmpContactNo.Text));
+
+            CString.con.Open();
+            SqlDataReader reader = CString.cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                txtEmpFName.Text = reader.GetValue(1).ToString();
+                txtEmpLName.Text = reader.GetValue(2).ToString();
+                dtpEmpDOB.Value = Convert.ToDateTime(reader.GetValue(3));
+                if (reader.GetValue(4).ToString().ToLower() == "m")
+                {
+                    rbMale.Checked = true;
+                }
+                else if (reader.GetValue(4).ToString().ToLower() == "f")
+                {
+                    rbFemale.Checked = true;
+                }
+                txtEmpContactNo.Text = reader.GetValue(5).ToString();
+                txtHouseNo.Text = reader.GetValue(6).ToString();
+                txtStreet.Text = reader.GetValue(7).ToString();
+                txtArea.Text = reader.GetValue(8).ToString();
+                txtCity.Text = reader.GetValue(9).ToString();
+                txtPincode.Text = reader.GetValue(10).ToString();
+                dtpDOJ.Value = Convert.ToDateTime(reader.GetValue(11));
+                txtEmpExp.Text = reader.GetValue(12).ToString();
+                txtEmpSalary.Text = reader.GetValue(13).ToString();
+                txtEmpProof.Text = reader.GetValue(14).ToString();
+                txtEmpProofId.Text = reader.GetValue(15).ToString();
+                if (reader.GetValue(16).ToString().ToLower() == "y")
+                {
+                    rbWorkingYes.Checked = true;
+                }
+                else if (reader.GetValue(16).ToString().ToLower() == "n")
+                {
+                    rbWorkingNo.Checked = true;
+                }
+            }
+            CString.con.Close();
+        }
+
         void disableAllOptions()
         {
+            txtEmpProofId.Enabled = false;
             txtEmpProof.Enabled = false;
             txtEmpExp.Enabled = false;
             dtpDOJ.Enabled = false;
@@ -97,6 +145,7 @@ namespace SalonManagementSystem
 
         void enableAllOptions()
         {
+            txtEmpProofId.Enabled = true;
             txtEmpProof.Enabled = true;
             txtEmpExp.Enabled = true;
             dtpDOJ.Enabled = true;
@@ -128,17 +177,49 @@ namespace SalonManagementSystem
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             CString.cmd = new SqlCommand("Sp_Update_tblEmployee", CString.con);
+            CString.cmd.CommandType = CommandType.StoredProcedure;
+            CString.cmd.Parameters.AddWithValue("@Fname", txtEmpFName.Text);
+            CString.cmd.Parameters.AddWithValue("@Lname", txtEmpLName.Text);
+            CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToInt64(txtEmpContactNo.Text));
+            CString.cmd.Parameters.AddWithValue("@HouseNo", txtHouseNo.Text);
+            CString.cmd.Parameters.AddWithValue("@Street", txtStreet.Text);
+            CString.cmd.Parameters.AddWithValue("@Area", txtArea.Text);
+            CString.cmd.Parameters.AddWithValue("@City", txtCity.Text);
+            CString.cmd.Parameters.AddWithValue("@Pincode", Convert.ToInt32(txtPincode.Text));
+            CString.cmd.Parameters.AddWithValue("@Salary", Convert.ToInt32(txtEmpSalary.Text));
 
+            DialogResult dialogresult = MessageBox.Show("Do you really want to Update?", "Update Employee Detail", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if(dialogresult == DialogResult.Yes)
+            {
+                CString.con.Open();
+                CString.cmd.ExecuteNonQuery();
+                MessageBox.Show("Details Updated!");
+                CString.con.Close();
+            }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnEmpStatus_Click(object sender, EventArgs e)
         {
+            CString.cmd = new SqlCommand("Sp_Delete_tblEmployee", CString.con);
+            CString.cmd.CommandType = CommandType.StoredProcedure;
+            CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToInt64(txtEmpContactNo.Text));
+            if(rbWorkingYes.Checked == true)
+            {
+                CString.cmd.Parameters.AddWithValue("@Status", 'n');
+            }
+            else if(rbWorkingNo.Checked == true)
+            {
+                CString.cmd.Parameters.AddWithValue("@Status", 'y');
+            }
 
-        }
-
-        private void Insert_Employee_Load(object sender, EventArgs e)
-        {
-
+            DialogResult dialogresult = MessageBox.Show("Do you really want to Change Status?", "Change Status", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (dialogresult == DialogResult.Yes)
+            {
+                CString.con.Open();
+                CString.cmd.ExecuteNonQuery();
+                MessageBox.Show("Employee Status has been changed!");
+                CString.con.Close();
+            }
         }
     }
 }
