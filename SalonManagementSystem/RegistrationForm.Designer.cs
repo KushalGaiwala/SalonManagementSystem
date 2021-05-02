@@ -219,7 +219,8 @@ namespace SalonManagementSystem
             // 
             this.lblOtpVerify.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblOtpVerify.AutoSize = true;
-            this.lblOtpVerify.ForeColor = System.Drawing.Color.Red;
+            this.lblOtpVerify.BackColor = System.Drawing.Color.Red;
+            this.lblOtpVerify.ForeColor = System.Drawing.Color.White;
             this.lblOtpVerify.Location = new System.Drawing.Point(402, 360);
             this.lblOtpVerify.Name = "lblOtpVerify";
             this.lblOtpVerify.Size = new System.Drawing.Size(134, 17);
@@ -231,8 +232,9 @@ namespace SalonManagementSystem
             // 
             this.lblEmailVerify.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblEmailVerify.AutoSize = true;
+            this.lblEmailVerify.BackColor = System.Drawing.Color.Blue;
             this.lblEmailVerify.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmailVerify.ForeColor = System.Drawing.Color.Red;
+            this.lblEmailVerify.ForeColor = System.Drawing.Color.White;
             this.lblEmailVerify.Location = new System.Drawing.Point(544, 294);
             this.lblEmailVerify.Name = "lblEmailVerify";
             this.lblEmailVerify.Size = new System.Drawing.Size(49, 18);

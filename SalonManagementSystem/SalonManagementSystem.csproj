@@ -52,6 +52,17 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer.Designer.cs">
+      <DependentUpon>Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DB_SalonManagementSystemDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_SalonManagementSystemDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Display_ServicesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +113,9 @@
     <Compile Include="ServicesForm.Designer.cs">
       <DependentUpon>ServicesForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Customer.resx">
+      <DependentUpon>Customer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Display_ServicesForm.resx">
       <DependentUpon>Display_ServicesForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,6 +149,17 @@
     <EmbeddedResource Include="ServicesForm.resx">
       <DependentUpon>ServicesForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DB_SalonManagementSystemDataSet.xsc">
+      <DependentUpon>DB_SalonManagementSystemDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DB_SalonManagementSystemDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_SalonManagementSystemDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_SalonManagementSystemDataSet.xss">
+      <DependentUpon>DB_SalonManagementSystemDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

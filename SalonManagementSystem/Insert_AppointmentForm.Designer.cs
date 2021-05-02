@@ -61,6 +61,7 @@ namespace SalonManagementSystem
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(266, 9);
@@ -71,6 +72,7 @@ namespace SalonManagementSystem
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(11, 140);
             this.label2.Name = "label2";
@@ -80,6 +82,7 @@ namespace SalonManagementSystem
             // 
             // txtCustFName
             // 
+            this.txtCustFName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtCustFName.Location = new System.Drawing.Point(123, 134);
             this.txtCustFName.Name = "txtCustFName";
             this.txtCustFName.Size = new System.Drawing.Size(100, 24);
@@ -87,6 +90,7 @@ namespace SalonManagementSystem
             // 
             // btnAdd
             // 
+            this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnAdd.Location = new System.Drawing.Point(53, 466);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(94, 30);
@@ -97,6 +101,7 @@ namespace SalonManagementSystem
             // 
             // rbMale
             // 
+            this.rbMale.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.rbMale.AutoSize = true;
             this.rbMale.Location = new System.Drawing.Point(16, 40);
             this.rbMale.Name = "rbMale";
@@ -108,6 +113,7 @@ namespace SalonManagementSystem
             // 
             // gbGender
             // 
+            this.gbGender.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.gbGender.Controls.Add(this.rbFemale);
             this.gbGender.Controls.Add(this.rbMale);
             this.gbGender.Location = new System.Drawing.Point(12, 244);
@@ -119,6 +125,7 @@ namespace SalonManagementSystem
             // 
             // rbFemale
             // 
+            this.rbFemale.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.rbFemale.AutoSize = true;
             this.rbFemale.Location = new System.Drawing.Point(108, 40);
             this.rbFemale.Name = "rbFemale";
@@ -130,6 +137,7 @@ namespace SalonManagementSystem
             // 
             // dtpAppointmentDate
             // 
+            this.dtpAppointmentDate.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dtpAppointmentDate.CustomFormat = "  dd / MM / yyyy";
             this.dtpAppointmentDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpAppointmentDate.Location = new System.Drawing.Point(120, 358);
@@ -141,6 +149,7 @@ namespace SalonManagementSystem
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(8, 358);
             this.label3.Name = "label3";
@@ -150,6 +159,7 @@ namespace SalonManagementSystem
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(9, 410);
             this.label4.Name = "label4";
@@ -159,6 +169,7 @@ namespace SalonManagementSystem
             // 
             // dgvPackages
             // 
+            this.dgvPackages.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dgvPackages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPackages.Enabled = false;
             this.dgvPackages.Location = new System.Drawing.Point(271, 111);
@@ -170,6 +181,7 @@ namespace SalonManagementSystem
             // 
             // label6
             // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(314, 87);
             this.label6.Name = "label6";
@@ -179,6 +191,7 @@ namespace SalonManagementSystem
             // 
             // cbPackages
             // 
+            this.cbPackages.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbPackages.FormattingEnabled = true;
             this.cbPackages.Location = new System.Drawing.Point(404, 79);
             this.cbPackages.Name = "cbPackages";
@@ -188,6 +201,7 @@ namespace SalonManagementSystem
             // 
             // label8
             // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(547, 87);
             this.label8.Name = "label8";
@@ -197,6 +211,7 @@ namespace SalonManagementSystem
             // 
             // txtTotalPrice
             // 
+            this.txtTotalPrice.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtTotalPrice.Location = new System.Drawing.Point(603, 81);
             this.txtTotalPrice.Name = "txtTotalPrice";
             this.txtTotalPrice.ReadOnly = true;
@@ -205,6 +220,7 @@ namespace SalonManagementSystem
             // 
             // lblAlertExists
             // 
+            this.lblAlertExists.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblAlertExists.AutoSize = true;
             this.lblAlertExists.Location = new System.Drawing.Point(95, 84);
             this.lblAlertExists.Name = "lblAlertExists";
@@ -215,6 +231,7 @@ namespace SalonManagementSystem
             // 
             // txtCustContactNo
             // 
+            this.txtCustContactNo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtCustContactNo.Location = new System.Drawing.Point(122, 57);
             this.txtCustContactNo.MaxLength = 10;
             this.txtCustContactNo.Name = "txtCustContactNo";
@@ -225,6 +242,7 @@ namespace SalonManagementSystem
             // 
             // label7
             // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(11, 63);
             this.label7.Name = "label7";
@@ -234,6 +252,7 @@ namespace SalonManagementSystem
             // 
             // txtCustArea
             // 
+            this.txtCustArea.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtCustArea.Location = new System.Drawing.Point(123, 194);
             this.txtCustArea.Name = "txtCustArea";
             this.txtCustArea.Size = new System.Drawing.Size(100, 24);
@@ -241,6 +260,7 @@ namespace SalonManagementSystem
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(15, 200);
             this.label5.Name = "label5";
@@ -250,6 +270,7 @@ namespace SalonManagementSystem
             // 
             // txtCustLName
             // 
+            this.txtCustLName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtCustLName.Location = new System.Drawing.Point(123, 164);
             this.txtCustLName.Name = "txtCustLName";
             this.txtCustLName.Size = new System.Drawing.Size(100, 24);
@@ -257,6 +278,7 @@ namespace SalonManagementSystem
             // 
             // label9
             // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(11, 170);
             this.label9.Name = "label9";
@@ -266,6 +288,7 @@ namespace SalonManagementSystem
             // 
             // cbAppointmentTime
             // 
+            this.cbAppointmentTime.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbAppointmentTime.FormattingEnabled = true;
             this.cbAppointmentTime.Items.AddRange(new object[] {
             "9:00:00",
@@ -300,6 +323,7 @@ namespace SalonManagementSystem
             // 
             // label10
             // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(599, 478);
             this.label10.Name = "label10";
@@ -309,6 +333,7 @@ namespace SalonManagementSystem
             // 
             // cbMaxAppointment
             // 
+            this.cbMaxAppointment.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbMaxAppointment.DisplayMember = "5";
             this.cbMaxAppointment.FormattingEnabled = true;
             this.cbMaxAppointment.Items.AddRange(new object[] {
@@ -329,8 +354,11 @@ namespace SalonManagementSystem
             // 
             // lblAppointmentAlert
             // 
+            this.lblAppointmentAlert.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblAppointmentAlert.AutoSize = true;
+            this.lblAppointmentAlert.BackColor = System.Drawing.Color.Red;
             this.lblAppointmentAlert.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAppointmentAlert.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblAppointmentAlert.Location = new System.Drawing.Point(116, 431);
             this.lblAppointmentAlert.Name = "lblAppointmentAlert";
             this.lblAppointmentAlert.Size = new System.Drawing.Size(142, 20);
@@ -342,7 +370,7 @@ namespace SalonManagementSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(785, 549);
+            this.ClientSize = new System.Drawing.Size(785, 508);
             this.Controls.Add(this.lblAppointmentAlert);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.cbMaxAppointment);

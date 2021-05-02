@@ -19,51 +19,6 @@ namespace SalonManagementSystem
             InitializeComponent();
         }
 
-        Boolean customerExists()
-        {
-            CString.cmd = new SqlCommand("Sp_Verify_Customer", CString.con);
-            CString.cmd.CommandType = CommandType.StoredProcedure;
-            CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToInt64(txtCustContactNo.Text));
-
-            CString.con.Open();
-            int i = Convert.ToInt32(CString.cmd.ExecuteScalar());
-            CString.con.Close();
-
-            if (i == 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        void get_CustomerDetail()
-        {
-            CString.cmd = new SqlCommand("Sp_Get_Customer", CString.con);
-            CString.cmd.CommandType = CommandType.StoredProcedure;
-            CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToInt64(txtCustContactNo.Text));
-
-            CString.con.Open();
-            SqlDataReader reader = CString.cmd.ExecuteReader();
-            while(reader.Read())
-            {
-                txtCustFName.Text = reader.GetValue(0).ToString();
-                txtCustLName.Text = reader.GetValue(1).ToString();
-                txtCustArea.Text = reader.GetValue(2).ToString();
-                txtCustContactNo.Text = reader.GetValue(3).ToString();
-                if(reader.GetValue(4).ToString().ToLower() == "m")
-                {
-                    rbMale.Checked = true;
-                }
-                else if(reader.GetValue(4).ToString().ToLower() == "f")
-                {
-                    rbFemale.Checked = true;
-                }
-            }
-            CString.con.Close();
-        }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -81,12 +36,35 @@ namespace SalonManagementSystem
                 else
                 {
                     lblAppointmentAlert.Text = "Timing Not Available!";
-                    //MessageBox.Show("The Apponitment is Above Limit!");
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(" Enter Details Properly! "+ex.Message);
+            }
+            finally
+            {
+                CString.con.Close();
+            }
+        }
+
+        Boolean customerExists()
+        {
+            CString.cmd = new SqlCommand("Sp_Verify_Customer", CString.con);
+            CString.cmd.CommandType = CommandType.StoredProcedure;
+            CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToInt64(txtCustContactNo.Text));
+
+            CString.con.Open();
+            int i = Convert.ToInt32(CString.cmd.ExecuteScalar());
+            CString.con.Close();
+
+            if (i == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
 
@@ -217,6 +195,34 @@ namespace SalonManagementSystem
                 }
             }
         }
+
+        void get_CustomerDetail()
+        {
+            CString.cmd = new SqlCommand("Sp_Get_Customer", CString.con);
+            CString.cmd.CommandType = CommandType.StoredProcedure;
+            CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToInt64(txtCustContactNo.Text));
+
+            CString.con.Open();
+            SqlDataReader reader = CString.cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                txtCustFName.Text = reader.GetValue(0).ToString();
+                txtCustLName.Text = reader.GetValue(1).ToString();
+                txtCustArea.Text = reader.GetValue(2).ToString();
+                txtCustContactNo.Text = reader.GetValue(3).ToString();
+                if (reader.GetValue(4).ToString().ToLower() == "m")
+                {
+                    rbMale.Checked = true;
+                }
+                else if (reader.GetValue(4).ToString().ToLower() == "f")
+                {
+                    rbFemale.Checked = true;
+                }
+                lblAppointmentAlert.Visible = false;
+            }
+            CString.con.Close();
+        }
+
 
         void disableAllOptions()
         {
