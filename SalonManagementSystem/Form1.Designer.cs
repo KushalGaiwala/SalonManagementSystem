@@ -58,7 +58,7 @@ namespace SalonManagementSystem
             this.vIEWToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(870, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -139,19 +139,19 @@ namespace SalonManagementSystem
             // 
             this.appointmentToolStripMenuItem1.Name = "appointmentToolStripMenuItem1";
             this.appointmentToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
-            this.appointmentToolStripMenuItem1.Text = "Appointment";
+            this.appointmentToolStripMenuItem1.Text = "APPOINTMENT";
             // 
             // servicesToolStripMenuItem3
             // 
             this.servicesToolStripMenuItem3.Name = "servicesToolStripMenuItem3";
             this.servicesToolStripMenuItem3.Size = new System.Drawing.Size(224, 26);
-            this.servicesToolStripMenuItem3.Text = "Services";
+            this.servicesToolStripMenuItem3.Text = "SERVICES";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(870, 579);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;

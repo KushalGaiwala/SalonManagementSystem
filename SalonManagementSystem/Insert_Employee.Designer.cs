@@ -522,6 +522,7 @@ namespace SalonManagementSystem
             this.Name = "Insert_Employee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Insert_Employee";
+            this.Load += new System.EventHandler(this.Insert_Employee_Load);
             this.gbGender.ResumeLayout(false);
             this.gbGender.PerformLayout();
             this.groupBox1.ResumeLayout(false);

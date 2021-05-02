@@ -57,7 +57,7 @@ namespace SalonManagementSystem
                 session = otp;
                 string body = "Your OTP for Email Verification is: " + otp;
 
-                mail = new MailMessage(email, tempemail, "Salon Management System", pass);
+                mail = new MailMessage(email, tempemail, "Salon Management System", body);
                 mail.BodyEncoding = System.Text.Encoding.GetEncoding("utf-8");
             
                 client.Port = 587;

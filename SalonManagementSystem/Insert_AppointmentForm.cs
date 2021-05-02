@@ -69,11 +69,20 @@ namespace SalonManagementSystem
         {
             try
             {
-                if(!customerExists())
+                int totalApp = appointmentCount();
+                if (checkAppointment(totalApp))
                 {
-                    insert_tblCustomer();
+                    if (!customerExists())
+                    {
+                        insert_tblCustomer();   
+                    }
+                    insert_tblAppointment();
                 }
-                insert_tblAppointment();
+                else
+                {
+                    lblAppointmentAlert.Text = "Timing Not Available!";
+                    //MessageBox.Show("The Apponitment is Above Limit!");
+                }
             }
             catch (Exception ex)
             {
@@ -116,8 +125,8 @@ namespace SalonManagementSystem
             CString.cmd.CommandType = CommandType.StoredProcedure;
             CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToInt64(txtCustContactNo.Text));
             CString.cmd.Parameters.AddWithValue("@PName", cbPackages.Text);
-            CString.cmd.Parameters.AddWithValue("@Time", Convert.ToDateTime(dtpAppointmentTime.Text));
-            CString.cmd.Parameters.AddWithValue("@Date", Convert.ToDateTime(dtpAppointmentDate.Text));
+            CString.cmd.Parameters.AddWithValue("@Time", Convert.ToDateTime(cbAppointmentTime.Text));
+            CString.cmd.Parameters.AddWithValue("@Date", dtpAppointmentDate.Value);
 
             CString.con.Open();
             CString.cmd.ExecuteNonQuery();
@@ -141,6 +150,7 @@ namespace SalonManagementSystem
 
         private void Insert_AppointmentForm_Load(object sender, EventArgs e)
         {
+            cbMaxAppointment.Text = "3";
             dtpAppointmentDate.MinDate = DateTime.Today;
             dtpAppointmentDate.Value = DateTime.Today;
 
@@ -210,17 +220,18 @@ namespace SalonManagementSystem
 
         void disableAllOptions()
         {
-            txtCustArea.Enabled = false;
-            txtCustFName.Enabled = false;
-            txtCustLName.Enabled = false;
+            txtCustArea.ReadOnly = true;
+            txtCustFName.ReadOnly = true;
+            txtCustLName.ReadOnly = true;
             gbGender.Enabled = false;
+            lblAppointmentAlert.Visible = false;
         }
 
         void enableAllOptions()
         {
-            txtCustArea.Enabled = true;
-            txtCustFName.Enabled = true;
-            txtCustLName.Enabled = true;
+            txtCustArea.ReadOnly = false;
+            txtCustFName.ReadOnly = false;
+            txtCustLName.ReadOnly = false;
             gbGender.Enabled = true;
         }
 
@@ -231,6 +242,58 @@ namespace SalonManagementSystem
             {
                 e.Handled = true;
             }
+        }
+
+        private void cbAppointmentTime_SelectedValueChanged(object sender, EventArgs e)
+        {
+            int totalAppoint = appointmentCount();
+            if (!checkAppointment(totalAppoint))
+            {
+                lblAppointmentAlert.Text = "Not Available!";
+                lblAppointmentAlert.Visible = true;
+            }
+            else
+            {
+                lblAppointmentAlert.Visible = false;
+                cbAppointmentTime.Focus();
+            }
+        }
+
+        Boolean checkAppointment(int count)
+        {
+            int maxAppoint = Convert.ToInt32(cbMaxAppointment.Text);
+            if(appointmentCount() < maxAppoint)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        int appointmentCount()
+        {
+            int totalNum = 0;
+            CString.cmd = new SqlCommand("Sp_Verify_Appointment", CString.con);
+            CString.cmd.CommandType = CommandType.StoredProcedure;
+            CString.cmd.Parameters.AddWithValue("@Date", dtpAppointmentDate.Value);
+            CString.cmd.Parameters.AddWithValue("@Time", Convert.ToDateTime(cbAppointmentTime.Text));
+
+            CString.con.Open();
+            SqlDataReader reader = CString.cmd.ExecuteReader();
+            reader.Read();
+            if (reader.GetValue(0) == null)
+            {
+                totalNum = 0;
+            }
+            else
+            {
+                totalNum = Convert.ToInt32(reader.GetValue(0));
+            }
+            CString.con.Close();
+
+            return totalNum;
         }
     }
 }

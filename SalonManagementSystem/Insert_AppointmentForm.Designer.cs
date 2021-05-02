@@ -38,7 +38,6 @@ namespace SalonManagementSystem
             this.rbFemale = new System.Windows.Forms.RadioButton();
             this.dtpAppointmentDate = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.dtpAppointmentTime = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvPackages = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
@@ -52,6 +51,10 @@ namespace SalonManagementSystem
             this.label5 = new System.Windows.Forms.Label();
             this.txtCustLName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.cbAppointmentTime = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cbMaxAppointment = new System.Windows.Forms.ComboBox();
+            this.lblAppointmentAlert = new System.Windows.Forms.Label();
             this.gbGender.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPackages)).BeginInit();
             this.SuspendLayout();
@@ -145,18 +148,6 @@ namespace SalonManagementSystem
             this.label3.TabIndex = 19;
             this.label3.Text = "Select Date";
             // 
-            // dtpAppointmentTime
-            // 
-            this.dtpAppointmentTime.CustomFormat = "hh:mm:ss";
-            this.dtpAppointmentTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpAppointmentTime.Location = new System.Drawing.Point(120, 405);
-            this.dtpAppointmentTime.MinDate = new System.DateTime(2021, 4, 7, 0, 0, 0, 0);
-            this.dtpAppointmentTime.Name = "dtpAppointmentTime";
-            this.dtpAppointmentTime.ShowUpDown = true;
-            this.dtpAppointmentTime.Size = new System.Drawing.Size(83, 24);
-            this.dtpAppointmentTime.TabIndex = 20;
-            this.dtpAppointmentTime.Value = new System.DateTime(2021, 4, 27, 0, 0, 0, 0);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -206,9 +197,9 @@ namespace SalonManagementSystem
             // 
             // txtTotalPrice
             // 
-            this.txtTotalPrice.Enabled = false;
             this.txtTotalPrice.Location = new System.Drawing.Point(603, 81);
             this.txtTotalPrice.Name = "txtTotalPrice";
+            this.txtTotalPrice.ReadOnly = true;
             this.txtTotalPrice.Size = new System.Drawing.Size(100, 24);
             this.txtTotalPrice.TabIndex = 26;
             // 
@@ -273,11 +264,89 @@ namespace SalonManagementSystem
             this.label9.TabIndex = 32;
             this.label9.Text = "LastName";
             // 
+            // cbAppointmentTime
+            // 
+            this.cbAppointmentTime.FormattingEnabled = true;
+            this.cbAppointmentTime.Items.AddRange(new object[] {
+            "9:00:00",
+            "9:30:00",
+            "10:00:00",
+            "10:30:00",
+            "11:00:00",
+            "11:30:00",
+            "12:00:00",
+            "12:30:00",
+            "01:00:00",
+            "01:30:00",
+            "02:00:00",
+            "02:30:00",
+            "03:00:00",
+            "03:30:00",
+            "04:00:00",
+            "04:30:00",
+            "05:00:00",
+            "05:30:00",
+            "06:00:00",
+            "06:30:00",
+            "07:00:00",
+            "07:30:00",
+            "08:00:00",
+            "08:30:00"});
+            this.cbAppointmentTime.Location = new System.Drawing.Point(120, 402);
+            this.cbAppointmentTime.Name = "cbAppointmentTime";
+            this.cbAppointmentTime.Size = new System.Drawing.Size(121, 26);
+            this.cbAppointmentTime.TabIndex = 34;
+            this.cbAppointmentTime.SelectedValueChanged += new System.EventHandler(this.cbAppointmentTime_SelectedValueChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(599, 478);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(122, 18);
+            this.label10.TabIndex = 38;
+            this.label10.Text = "Max Appointment";
+            // 
+            // cbMaxAppointment
+            // 
+            this.cbMaxAppointment.DisplayMember = "5";
+            this.cbMaxAppointment.FormattingEnabled = true;
+            this.cbMaxAppointment.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.cbMaxAppointment.Location = new System.Drawing.Point(727, 470);
+            this.cbMaxAppointment.Name = "cbMaxAppointment";
+            this.cbMaxAppointment.Size = new System.Drawing.Size(46, 26);
+            this.cbMaxAppointment.TabIndex = 37;
+            // 
+            // lblAppointmentAlert
+            // 
+            this.lblAppointmentAlert.AutoSize = true;
+            this.lblAppointmentAlert.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAppointmentAlert.Location = new System.Drawing.Point(116, 431);
+            this.lblAppointmentAlert.Name = "lblAppointmentAlert";
+            this.lblAppointmentAlert.Size = new System.Drawing.Size(142, 20);
+            this.lblAppointmentAlert.TabIndex = 39;
+            this.lblAppointmentAlert.Text = "Appointment Alert";
+            this.lblAppointmentAlert.Visible = false;
+            // 
             // Insert_AppointmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 549);
+            this.Controls.Add(this.lblAppointmentAlert);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.cbMaxAppointment);
+            this.Controls.Add(this.cbAppointmentTime);
             this.Controls.Add(this.txtCustLName);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtCustArea);
@@ -291,7 +360,6 @@ namespace SalonManagementSystem
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dgvPackages);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dtpAppointmentTime);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dtpAppointmentDate);
             this.Controls.Add(this.gbGender);
@@ -323,7 +391,6 @@ namespace SalonManagementSystem
         private System.Windows.Forms.RadioButton rbFemale;
         private System.Windows.Forms.DateTimePicker dtpAppointmentDate;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dtpAppointmentTime;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dgvPackages;
         private System.Windows.Forms.Label label6;
@@ -337,5 +404,9 @@ namespace SalonManagementSystem
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtCustLName;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cbAppointmentTime;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cbMaxAppointment;
+        private System.Windows.Forms.Label lblAppointmentAlert;
     }
 }

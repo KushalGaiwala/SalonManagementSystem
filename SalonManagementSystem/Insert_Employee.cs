@@ -221,5 +221,10 @@ namespace SalonManagementSystem
                 CString.con.Close();
             }
         }
+
+        private void Insert_Employee_Load(object sender, EventArgs e)
+        {
+            dtpDOJ.MinDate = DateTime.Today;
+        }
     }
 }
