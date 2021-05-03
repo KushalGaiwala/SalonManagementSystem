@@ -43,10 +43,10 @@ namespace SalonManagementSystem
             this.label2 = new System.Windows.Forms.Label();
             this.btnInsert = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.dgvCustomerDetails = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCustNewContactNo = new System.Windows.Forms.TextBox();
             this.lblNewContactNo = new System.Windows.Forms.Label();
+            this.dgvCustomerDetails = new System.Windows.Forms.DataGridView();
             this.gbGender.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerDetails)).BeginInit();
             this.SuspendLayout();
@@ -184,19 +184,6 @@ namespace SalonManagementSystem
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // dgvCustomerDetails
-            // 
-            this.dgvCustomerDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvCustomerDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCustomerDetails.Location = new System.Drawing.Point(413, 54);
-            this.dgvCustomerDetails.Name = "dgvCustomerDetails";
-            this.dgvCustomerDetails.RowHeadersWidth = 51;
-            this.dgvCustomerDetails.RowTemplate.Height = 24;
-            this.dgvCustomerDetails.Size = new System.Drawing.Size(725, 554);
-            this.dgvCustomerDetails.TabIndex = 46;
-            // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -227,6 +214,19 @@ namespace SalonManagementSystem
             this.lblNewContactNo.Text = "New ContactNo";
             this.lblNewContactNo.Visible = false;
             // 
+            // dgvCustomerDetails
+            // 
+            this.dgvCustomerDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvCustomerDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCustomerDetails.Location = new System.Drawing.Point(413, 54);
+            this.dgvCustomerDetails.Name = "dgvCustomerDetails";
+            this.dgvCustomerDetails.RowHeadersWidth = 51;
+            this.dgvCustomerDetails.RowTemplate.Height = 24;
+            this.dgvCustomerDetails.Size = new System.Drawing.Size(725, 554);
+            this.dgvCustomerDetails.TabIndex = 46;
+            // 
             // Customer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -250,7 +250,7 @@ namespace SalonManagementSystem
             this.Controls.Add(this.label2);
             this.Name = "Customer";
             this.Text = "Customers";
-            this.Enter += new System.EventHandler(this.Customer_Enter);
+            this.Load += new System.EventHandler(this.Customer_Load);
             this.gbGender.ResumeLayout(false);
             this.gbGender.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerDetails)).EndInit();
@@ -275,9 +275,9 @@ namespace SalonManagementSystem
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnInsert;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.DataGridView dgvCustomerDetails;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtCustNewContactNo;
         private System.Windows.Forms.Label lblNewContactNo;
+        private System.Windows.Forms.DataGridView dgvCustomerDetails;
     }
 }

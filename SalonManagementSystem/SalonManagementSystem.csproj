@@ -58,6 +58,7 @@
     <Compile Include="Customer.Designer.cs">
       <DependentUpon>Customer.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomerDetail.cs" />
     <Compile Include="Display_ServicesForm.cs">
       <SubType>Form</SubType>
     </Compile>

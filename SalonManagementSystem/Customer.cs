@@ -18,102 +18,42 @@ namespace SalonManagementSystem
             InitializeComponent();
         }
 
-        private void Customer_Enter(object sender, EventArgs e)
-        {
-            CString.cmd = new SqlCommand("Sp_Get_AllCustomer", CString.con);
-            CString.cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter adp = new SqlDataAdapter(CString.cmd);
-
-            CString.con.Open();
-            CString.cmd.ExecuteNonQuery();
-            CString.con.Close();
-
-            DataTable dt = new DataTable();
-            adp.Fill(dt);
-            dgvCustomerDetails.DataSource = dt;
-        }
+        CustomerDetail customer = new CustomerDetail();
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            CString.cmd = new SqlCommand("Sp_Insert_Customer", CString.con);
-            CString.cmd.CommandType = CommandType.StoredProcedure;
-            CString.cmd.Parameters.AddWithValue("@FirstName", txtCustFName.Text);
-            CString.cmd.Parameters.AddWithValue("@LastName", txtCustLName.Text);
-            CString.cmd.Parameters.AddWithValue("@Area", txtCustArea.Text);
-            CString.cmd.Parameters.AddWithValue("@ContactNo", txtCustContactNo.Text);
+            char gender = ' ';
             if (rbFemale.Checked)
             {
-                CString.cmd.Parameters.AddWithValue("@Gender", 'f');
+                gender = 'f';
             }
-            else if(rbMale.Checked)
+            else if (rbMale.Checked)
             {
-                CString.cmd.Parameters.AddWithValue("@Gender", 'm');
+                gender = 'm';
             }
-
-            CString.con.Open();
-            CString.cmd.ExecuteNonQuery();
-            MessageBox.Show("Customer Details Inserted!");
-            CString.con.Close();
+            customer.insertDetail(txtCustFName.Text, txtCustLName.Text, txtCustArea.Text, txtCustContactNo.Text, gender);
+            dgvDisplayData();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            CString.cmd = new SqlCommand("Sp_Update_tblCustomer", CString.con);
-            CString.cmd.CommandType = CommandType.StoredProcedure;
-            CString.cmd.Parameters.AddWithValue("@Fname", txtCustFName.Text);
-            CString.cmd.Parameters.AddWithValue("@Lname", txtCustLName.Text);
-            CString.cmd.Parameters.AddWithValue("@Area", txtCustArea.Text);
-            if (txtCustNewContactNo.Text != "" || txtCustNewContactNo.Text != null)
-            {
-                CString.cmd.Parameters.AddWithValue("@ContactNo", txtCustNewContactNo.Text);
-            }
-            else
-            {
-                CString.cmd.Parameters.AddWithValue("@ContactNo", txtCustContactNo.Text);
-            }
+            char gender = ' ';
             if (rbFemale.Checked)
             {
-                CString.cmd.Parameters.AddWithValue("@Gender", 'f');
-            }
-            else if (rbMale.Checked)
+                gender = 'f';
+            }else if (rbMale.Checked)
             {
-                CString.cmd.Parameters.AddWithValue("@Gender", 'm');
+                gender = 'm';
             }
-            DialogResult result = MessageBox.Show("Do you really want to Update?", "Update Custoemr Details", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if(DialogResult.Yes == result)
-            {
-                CString.con.Open();
-                CString.cmd.ExecuteNonQuery();
-                MessageBox.Show("Customer Details Updated!");
-                CString.con.Close();
-            }
-        }
-
-        Boolean customerExists()
-        {
-            CString.cmd = new SqlCommand("Sp_Verify_Customer", CString.con);
-            CString.cmd.CommandType = CommandType.StoredProcedure;
-            CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToInt64(txtCustContactNo.Text));
-
-            CString.con.Open();
-            int i = Convert.ToInt32(CString.cmd.ExecuteScalar());
-            CString.con.Close();
-
-            if (i == 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            customer.updateDetail(txtCustFName.Text, txtCustLName.Text, txtCustArea.Text, txtCustContactNo.Text, txtCustNewContactNo.Text, gender);
+            dgvDisplayData();
         }
 
         private void txtCustContactNo_Leave(object sender, EventArgs e)
         {
             if (txtCustContactNo.Text != "")
             {
-                if (customerExists())
+                if (customer.isCustomer(txtCustContactNo.Text))
                 {
                     if (lblAlertExists.Visible == false)
                     {
@@ -145,12 +85,7 @@ namespace SalonManagementSystem
 
         void get_CustomerDetail()
         {
-            CString.cmd = new SqlCommand("Sp_Get_Customer", CString.con);
-            CString.cmd.CommandType = CommandType.StoredProcedure;
-            CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToInt64(txtCustContactNo.Text));
-
-            CString.con.Open();
-            SqlDataReader reader = CString.cmd.ExecuteReader();
+            SqlDataReader reader = customer.getDetail(txtCustContactNo.Text);
             while (reader.Read())
             {
                 txtCustFName.Text = reader.GetValue(0).ToString();
@@ -167,6 +102,26 @@ namespace SalonManagementSystem
                 }
             }
             CString.con.Close();
+        }
+
+        private void Customer_Load(object sender, EventArgs e)
+        {
+            dgvDisplayData();
+        }
+
+        void dgvDisplayData()
+        {
+            CString.cmd = new SqlCommand("Sp_Get_AllCustomer", CString.con);
+            CString.cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adp = new SqlDataAdapter(CString.cmd);
+
+            CString.con.Open();
+            CString.cmd.ExecuteNonQuery();
+            CString.con.Close();
+
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            dgvCustomerDetails.DataSource = dt;
         }
     }
 }
