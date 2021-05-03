@@ -29,7 +29,6 @@ namespace SalonManagementSystem
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.txtCustLName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtCustArea = new System.Windows.Forms.TextBox();
@@ -42,39 +41,27 @@ namespace SalonManagementSystem
             this.rbMale = new System.Windows.Forms.RadioButton();
             this.txtCustFName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnInsert = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.dgvCustomerDetails = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCustNewContactNo = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dB_SalonManagementSystemDataSet = new SalonManagementSystem.DB_SalonManagementSystemDataSet();
-            this.tblCustomerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tblCustomerTableAdapter = new SalonManagementSystem.DB_SalonManagementSystemDataSetTableAdapters.tblCustomerTableAdapter();
-            this.firstnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.areaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactnoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblNewContactNo = new System.Windows.Forms.Label();
             this.gbGender.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerDetails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dB_SalonManagementSystemDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblCustomerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // txtCustLName
             // 
-            this.txtCustLName.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtCustLName.Location = new System.Drawing.Point(209, 167);
+            this.txtCustLName.Location = new System.Drawing.Point(207, 140);
             this.txtCustLName.Name = "txtCustLName";
             this.txtCustLName.Size = new System.Drawing.Size(100, 22);
             this.txtCustLName.TabIndex = 43;
             // 
             // label9
             // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(97, 173);
+            this.label9.Location = new System.Drawing.Point(95, 146);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(72, 17);
             this.label9.TabIndex = 42;
@@ -82,17 +69,15 @@ namespace SalonManagementSystem
             // 
             // txtCustArea
             // 
-            this.txtCustArea.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtCustArea.Location = new System.Drawing.Point(209, 326);
+            this.txtCustArea.Location = new System.Drawing.Point(207, 293);
             this.txtCustArea.Name = "txtCustArea";
             this.txtCustArea.Size = new System.Drawing.Size(100, 22);
             this.txtCustArea.TabIndex = 41;
             // 
             // label5
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(101, 332);
+            this.label5.Location = new System.Drawing.Point(99, 299);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(38, 17);
             this.label5.TabIndex = 40;
@@ -100,18 +85,17 @@ namespace SalonManagementSystem
             // 
             // txtCustContactNo
             // 
-            this.txtCustContactNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtCustContactNo.Location = new System.Drawing.Point(209, 87);
+            this.txtCustContactNo.Location = new System.Drawing.Point(207, 54);
             this.txtCustContactNo.MaxLength = 10;
             this.txtCustContactNo.Name = "txtCustContactNo";
             this.txtCustContactNo.Size = new System.Drawing.Size(100, 22);
             this.txtCustContactNo.TabIndex = 39;
+            this.txtCustContactNo.Leave += new System.EventHandler(this.txtCustContactNo_Leave);
             // 
             // label7
             // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(98, 93);
+            this.label7.Location = new System.Drawing.Point(96, 60);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(74, 17);
             this.label7.TabIndex = 38;
@@ -119,9 +103,8 @@ namespace SalonManagementSystem
             // 
             // lblAlertExists
             // 
-            this.lblAlertExists.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblAlertExists.AutoSize = true;
-            this.lblAlertExists.Location = new System.Drawing.Point(182, 114);
+            this.lblAlertExists.Location = new System.Drawing.Point(180, 81);
             this.lblAlertExists.Name = "lblAlertExists";
             this.lblAlertExists.Size = new System.Drawing.Size(160, 17);
             this.lblAlertExists.TabIndex = 37;
@@ -130,10 +113,9 @@ namespace SalonManagementSystem
             // 
             // gbGender
             // 
-            this.gbGender.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.gbGender.Controls.Add(this.rbFemale);
             this.gbGender.Controls.Add(this.rbMale);
-            this.gbGender.Location = new System.Drawing.Point(104, 208);
+            this.gbGender.Location = new System.Drawing.Point(102, 175);
             this.gbGender.Name = "gbGender";
             this.gbGender.Size = new System.Drawing.Size(200, 95);
             this.gbGender.TabIndex = 36;
@@ -166,63 +148,53 @@ namespace SalonManagementSystem
             // 
             // txtCustFName
             // 
-            this.txtCustFName.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtCustFName.Location = new System.Drawing.Point(209, 137);
+            this.txtCustFName.Location = new System.Drawing.Point(207, 104);
             this.txtCustFName.Name = "txtCustFName";
             this.txtCustFName.Size = new System.Drawing.Size(100, 22);
             this.txtCustFName.TabIndex = 35;
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(97, 143);
+            this.label2.Location = new System.Drawing.Point(95, 110);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 17);
             this.label2.TabIndex = 34;
             this.label2.Text = "FirstName";
             // 
-            // button1
+            // btnInsert
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(100, 419);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(103, 40);
-            this.button1.TabIndex = 44;
-            this.button1.Text = "INSERT";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnInsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInsert.Location = new System.Drawing.Point(98, 386);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(103, 40);
+            this.btnInsert.TabIndex = 44;
+            this.btnInsert.Text = "INSERT";
+            this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
-            // button2
+            // btnUpdate
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(209, 419);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(103, 40);
-            this.button2.TabIndex = 45;
-            this.button2.Text = "UPDATE";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Location = new System.Drawing.Point(207, 386);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(103, 40);
+            this.btnUpdate.TabIndex = 45;
+            this.btnUpdate.Text = "UPDATE";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // dgvCustomerDetails
             // 
             this.dgvCustomerDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvCustomerDetails.AutoGenerateColumns = false;
             this.dgvCustomerDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCustomerDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.firstnameDataGridViewTextBoxColumn,
-            this.lastnameDataGridViewTextBoxColumn,
-            this.areaDataGridViewTextBoxColumn,
-            this.contactnoDataGridViewTextBoxColumn,
-            this.genderDataGridViewTextBoxColumn});
-            this.dgvCustomerDetails.DataSource = this.tblCustomerBindingSource;
             this.dgvCustomerDetails.Location = new System.Drawing.Point(413, 54);
             this.dgvCustomerDetails.Name = "dgvCustomerDetails";
             this.dgvCustomerDetails.RowHeadersWidth = 51;
             this.dgvCustomerDetails.RowTemplate.Height = 24;
-            this.dgvCustomerDetails.Size = new System.Drawing.Size(725, 508);
+            this.dgvCustomerDetails.Size = new System.Drawing.Size(725, 554);
             this.dgvCustomerDetails.TabIndex = 46;
             // 
             // label1
@@ -238,88 +210,34 @@ namespace SalonManagementSystem
             // 
             // txtCustNewContactNo
             // 
-            this.txtCustNewContactNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtCustNewContactNo.Location = new System.Drawing.Point(209, 354);
+            this.txtCustNewContactNo.Location = new System.Drawing.Point(207, 331);
             this.txtCustNewContactNo.MaxLength = 10;
             this.txtCustNewContactNo.Name = "txtCustNewContactNo";
             this.txtCustNewContactNo.Size = new System.Drawing.Size(100, 22);
             this.txtCustNewContactNo.TabIndex = 49;
+            this.txtCustNewContactNo.Visible = false;
             // 
-            // label3
+            // lblNewContactNo
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(98, 360);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 17);
-            this.label3.TabIndex = 48;
-            this.label3.Text = "New ContactNo";
-            // 
-            // dB_SalonManagementSystemDataSet
-            // 
-            this.dB_SalonManagementSystemDataSet.DataSetName = "DB_SalonManagementSystemDataSet";
-            this.dB_SalonManagementSystemDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tblCustomerBindingSource
-            // 
-            this.tblCustomerBindingSource.DataMember = "tblCustomer";
-            this.tblCustomerBindingSource.DataSource = this.dB_SalonManagementSystemDataSet;
-            // 
-            // tblCustomerTableAdapter
-            // 
-            this.tblCustomerTableAdapter.ClearBeforeFill = true;
-            // 
-            // firstnameDataGridViewTextBoxColumn
-            // 
-            this.firstnameDataGridViewTextBoxColumn.DataPropertyName = "firstname";
-            this.firstnameDataGridViewTextBoxColumn.HeaderText = "firstname";
-            this.firstnameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.firstnameDataGridViewTextBoxColumn.Name = "firstnameDataGridViewTextBoxColumn";
-            this.firstnameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // lastnameDataGridViewTextBoxColumn
-            // 
-            this.lastnameDataGridViewTextBoxColumn.DataPropertyName = "lastname";
-            this.lastnameDataGridViewTextBoxColumn.HeaderText = "lastname";
-            this.lastnameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.lastnameDataGridViewTextBoxColumn.Name = "lastnameDataGridViewTextBoxColumn";
-            this.lastnameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // areaDataGridViewTextBoxColumn
-            // 
-            this.areaDataGridViewTextBoxColumn.DataPropertyName = "area";
-            this.areaDataGridViewTextBoxColumn.HeaderText = "area";
-            this.areaDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.areaDataGridViewTextBoxColumn.Name = "areaDataGridViewTextBoxColumn";
-            this.areaDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // contactnoDataGridViewTextBoxColumn
-            // 
-            this.contactnoDataGridViewTextBoxColumn.DataPropertyName = "contactno";
-            this.contactnoDataGridViewTextBoxColumn.HeaderText = "contactno";
-            this.contactnoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.contactnoDataGridViewTextBoxColumn.Name = "contactnoDataGridViewTextBoxColumn";
-            this.contactnoDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // genderDataGridViewTextBoxColumn
-            // 
-            this.genderDataGridViewTextBoxColumn.DataPropertyName = "gender";
-            this.genderDataGridViewTextBoxColumn.HeaderText = "gender";
-            this.genderDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
-            this.genderDataGridViewTextBoxColumn.Width = 125;
+            this.lblNewContactNo.AutoSize = true;
+            this.lblNewContactNo.Location = new System.Drawing.Point(96, 337);
+            this.lblNewContactNo.Name = "lblNewContactNo";
+            this.lblNewContactNo.Size = new System.Drawing.Size(105, 17);
+            this.lblNewContactNo.TabIndex = 48;
+            this.lblNewContactNo.Text = "New ContactNo";
+            this.lblNewContactNo.Visible = false;
             // 
             // Customer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1150, 574);
+            this.ClientSize = new System.Drawing.Size(1150, 620);
             this.Controls.Add(this.txtCustNewContactNo);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblNewContactNo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvCustomerDetails);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.txtCustLName);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtCustArea);
@@ -332,13 +250,10 @@ namespace SalonManagementSystem
             this.Controls.Add(this.label2);
             this.Name = "Customer";
             this.Text = "Customers";
-            this.Load += new System.EventHandler(this.Customer_Load);
             this.Enter += new System.EventHandler(this.Customer_Enter);
             this.gbGender.ResumeLayout(false);
             this.gbGender.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerDetails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dB_SalonManagementSystemDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblCustomerBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -358,19 +273,11 @@ namespace SalonManagementSystem
         private System.Windows.Forms.RadioButton rbMale;
         private System.Windows.Forms.TextBox txtCustFName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnInsert;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.DataGridView dgvCustomerDetails;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtCustNewContactNo;
-        private System.Windows.Forms.Label label3;
-        private DB_SalonManagementSystemDataSet dB_SalonManagementSystemDataSet;
-        private System.Windows.Forms.BindingSource tblCustomerBindingSource;
-        private DB_SalonManagementSystemDataSetTableAdapters.tblCustomerTableAdapter tblCustomerTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firstnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn areaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contactnoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label lblNewContactNo;
     }
 }

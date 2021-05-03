@@ -48,25 +48,7 @@ namespace SalonManagementSystem
             }
         }
 
-        Boolean customerExists()
-        {
-            CString.cmd = new SqlCommand("Sp_Verify_Customer", CString.con);
-            CString.cmd.CommandType = CommandType.StoredProcedure;
-            CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToInt64(txtCustContactNo.Text));
-
-            CString.con.Open();
-            int i = Convert.ToInt32(CString.cmd.ExecuteScalar());
-            CString.con.Close();
-
-            if (i == 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
+        
 
         void insert_tblCustomer()
         {
@@ -193,6 +175,26 @@ namespace SalonManagementSystem
                     lblAlertExists.Visible = false;
                     enableAllOptions();
                 }
+            }
+        }
+
+        Boolean customerExists()
+        {
+            CString.cmd = new SqlCommand("Sp_Verify_Customer", CString.con);
+            CString.cmd.CommandType = CommandType.StoredProcedure;
+            CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToInt64(txtCustContactNo.Text));
+
+            CString.con.Open();
+            int i = Convert.ToInt32(CString.cmd.ExecuteScalar());
+            CString.con.Close();
+
+            if (i == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
 

@@ -32,7 +32,7 @@ namespace SalonManagementSystem
 
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (home == null)
+            if (home == null || home.IsDisposed == true)
             {
                 home = new HomeForm();
             }
@@ -48,7 +48,7 @@ namespace SalonManagementSystem
 
         private void sERVICESToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (insertAppoint == null)
+            if (insertAppoint == null || insertAppoint.IsDisposed == true)
             {
                 insertAppoint = new Insert_AppointmentForm();
             }
@@ -59,7 +59,7 @@ namespace SalonManagementSystem
 
         private void sERVICESToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (services == null)
+            if (services == null || services.IsDisposed == true)
             {
                 services = new ServicesForm();
             }
@@ -70,7 +70,7 @@ namespace SalonManagementSystem
 
         private void eMPLOYEEToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (emp == null) 
+            if (emp.IsDisposed == true) 
             {
                 emp = new Insert_Employee();
             }
@@ -81,7 +81,7 @@ namespace SalonManagementSystem
 
         private void cUSTOMERToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (customer == null)
+            if (customer == null || customer.IsDisposed == true)
             {
                 customer = new Customer();
             }
