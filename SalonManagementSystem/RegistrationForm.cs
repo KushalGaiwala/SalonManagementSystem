@@ -63,7 +63,6 @@ namespace SalonManagementSystem
                 client.Port = 587;
                 client.Credentials = new System.Net.NetworkCredential(email, pass);
                 client.EnableSsl = true;
-
             
                 client.Send(mail);
                 return true;

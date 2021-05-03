@@ -22,6 +22,7 @@ namespace SalonManagementSystem
         HomeForm home = null;
         Insert_AppointmentForm insertAppoint = null;
         Customer customer = null;
+        AppointmentDetail appoint = null;
 
         private void lOGOUTToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -90,6 +91,18 @@ namespace SalonManagementSystem
             close_AllForm(5);
         }
 
+
+        private void appointmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (appoint == null || appoint.IsDisposed == true)
+            {
+                appoint = new AppointmentDetail();
+            }
+            appoint.Show();
+            appoint.MdiParent = this;
+            close_AllForm(6);
+        }
+
         void close_AllForm(int open)
         {
             if (home != null && open != 1)
@@ -112,6 +125,11 @@ namespace SalonManagementSystem
             {
                 customer.Hide();
             }
+            if(appoint != null && open != 6)
+            {
+                appoint.Hide();
+            }
         }
+
     }
 }

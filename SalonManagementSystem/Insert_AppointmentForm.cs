@@ -106,7 +106,6 @@ namespace SalonManagementSystem
         void reset_AllFields()
         {
             txtCustArea.Text = null;
-            txtCustContactNo.Text = null;
             txtCustFName.Text = null;
             txtCustLName.Text = null;
             rbFemale.Checked = false;

@@ -29,6 +29,7 @@ namespace SalonManagementSystem
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Insert_AppointmentForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCustFName = new System.Windows.Forms.TextBox();
@@ -78,7 +79,6 @@ namespace SalonManagementSystem
             this.label2.Size = new System.Drawing.Size(77, 18);
             this.label2.TabIndex = 1;
             this.label2.Text = "FirstName";
-
             // 
             // txtCustFName
             // 
@@ -86,7 +86,6 @@ namespace SalonManagementSystem
             this.txtCustFName.Name = "txtCustFName";
             this.txtCustFName.Size = new System.Drawing.Size(100, 24);
             this.txtCustFName.TabIndex = 8;
-
             // 
             // btnAdd
             // 
@@ -120,7 +119,6 @@ namespace SalonManagementSystem
             this.gbGender.TabIndex = 17;
             this.gbGender.TabStop = false;
             this.gbGender.Text = "Gender";
-
             // 
             // rbFemale
             // 
@@ -153,7 +151,6 @@ namespace SalonManagementSystem
             this.label3.Size = new System.Drawing.Size(84, 18);
             this.label3.TabIndex = 19;
             this.label3.Text = "Select Date";
-            
             // 
             // label4
             // 
@@ -163,7 +160,6 @@ namespace SalonManagementSystem
             this.label4.Size = new System.Drawing.Size(86, 18);
             this.label4.TabIndex = 21;
             this.label4.Text = "Select Time";
-            
             // 
             // dgvPackages
             // 
@@ -187,7 +183,6 @@ namespace SalonManagementSystem
             this.label6.Size = new System.Drawing.Size(74, 18);
             this.label6.TabIndex = 23;
             this.label6.Text = "Packages";
-            
             // 
             // cbPackages
             // 
@@ -196,7 +191,6 @@ namespace SalonManagementSystem
             this.cbPackages.Name = "cbPackages";
             this.cbPackages.Size = new System.Drawing.Size(121, 26);
             this.cbPackages.TabIndex = 24;
-            
             this.cbPackages.SelectedValueChanged += new System.EventHandler(this.selectedValueChanged_cbPackages);
             // 
             // label8
@@ -207,7 +201,6 @@ namespace SalonManagementSystem
             this.label8.Size = new System.Drawing.Size(41, 18);
             this.label8.TabIndex = 25;
             this.label8.Text = "Total";
-            
             // 
             // txtTotalPrice
             // 
@@ -216,7 +209,6 @@ namespace SalonManagementSystem
             this.txtTotalPrice.ReadOnly = true;
             this.txtTotalPrice.Size = new System.Drawing.Size(100, 24);
             this.txtTotalPrice.TabIndex = 26;
-            
             // 
             // lblAlertExists
             // 
@@ -227,7 +219,6 @@ namespace SalonManagementSystem
             this.lblAlertExists.TabIndex = 27;
             this.lblAlertExists.Text = "Customer Already Exists";
             this.lblAlertExists.Visible = false;
-            
             // 
             // txtCustContactNo
             // 
@@ -236,7 +227,6 @@ namespace SalonManagementSystem
             this.txtCustContactNo.Name = "txtCustContactNo";
             this.txtCustContactNo.Size = new System.Drawing.Size(100, 24);
             this.txtCustContactNo.TabIndex = 29;
-            
             this.txtCustContactNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCustContactNo_KeyPress);
             this.txtCustContactNo.Leave += new System.EventHandler(this.txtCustContactNo_Leave);
             // 
@@ -248,7 +238,6 @@ namespace SalonManagementSystem
             this.label7.Size = new System.Drawing.Size(80, 18);
             this.label7.TabIndex = 28;
             this.label7.Text = "ContactNo";
-            
             // 
             // txtCustArea
             // 
@@ -256,7 +245,6 @@ namespace SalonManagementSystem
             this.txtCustArea.Name = "txtCustArea";
             this.txtCustArea.Size = new System.Drawing.Size(100, 24);
             this.txtCustArea.TabIndex = 31;
-            
             // 
             // label5
             // 
@@ -266,7 +254,6 @@ namespace SalonManagementSystem
             this.label5.Size = new System.Drawing.Size(38, 18);
             this.label5.TabIndex = 30;
             this.label5.Text = "Area";
-            
             // 
             // txtCustLName
             // 
@@ -274,7 +261,6 @@ namespace SalonManagementSystem
             this.txtCustLName.Name = "txtCustLName";
             this.txtCustLName.Size = new System.Drawing.Size(100, 24);
             this.txtCustLName.TabIndex = 33;
-            
             // 
             // label9
             // 
@@ -284,7 +270,6 @@ namespace SalonManagementSystem
             this.label9.Size = new System.Drawing.Size(76, 18);
             this.label9.TabIndex = 32;
             this.label9.Text = "LastName";
-            
             // 
             // cbAppointmentTime
             // 
@@ -318,7 +303,6 @@ namespace SalonManagementSystem
             this.cbAppointmentTime.Name = "cbAppointmentTime";
             this.cbAppointmentTime.Size = new System.Drawing.Size(121, 26);
             this.cbAppointmentTime.TabIndex = 34;
-            
             this.cbAppointmentTime.SelectedValueChanged += new System.EventHandler(this.cbAppointmentTime_SelectedValueChanged);
             // 
             // label10
@@ -364,7 +348,6 @@ namespace SalonManagementSystem
             this.lblAppointmentAlert.TabIndex = 39;
             this.lblAppointmentAlert.Text = "Appointment Alert";
             this.lblAppointmentAlert.Visible = false;
-            
             // 
             // Insert_AppointmentForm
             // 
@@ -396,6 +379,7 @@ namespace SalonManagementSystem
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Insert_AppointmentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Book Appointment";

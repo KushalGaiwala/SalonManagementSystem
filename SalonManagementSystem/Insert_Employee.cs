@@ -95,7 +95,6 @@ namespace SalonManagementSystem
             rbWorkingYes.Checked = true;
             txtEmpFName.Text = null;
             txtEmpLName.Text = null;
-            txtEmpContactNo.Text = null;
             txtHouseNo.Text = null;
             txtStreet.Text = null;
             txtArea.Text = null;

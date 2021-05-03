@@ -29,6 +29,7 @@ namespace SalonManagementSystem
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lOGOUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -36,13 +37,13 @@ namespace SalonManagementSystem
             this.sERVICESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sERVICESToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.eMPLOYEEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cUSTOMERToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.appointmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.servicesToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.appointmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vIEWToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.appointmentToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.servicesToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.cUSTOMERToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,9 +55,9 @@ namespace SalonManagementSystem
             this.lOGOUTToolStripMenuItem,
             this.iNSERTToolStripMenuItem,
             this.cUSTOMERToolStripMenuItem,
+            this.appointmentToolStripMenuItem,
             this.servicesToolStripMenuItem2,
             this.employeeToolStripMenuItem1,
-            this.appointmentToolStripMenuItem,
             this.vIEWToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -92,23 +93,37 @@ namespace SalonManagementSystem
             // sERVICESToolStripMenuItem
             // 
             this.sERVICESToolStripMenuItem.Name = "sERVICESToolStripMenuItem";
-            this.sERVICESToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.sERVICESToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
             this.sERVICESToolStripMenuItem.Text = "APPOINTMENT";
             this.sERVICESToolStripMenuItem.Click += new System.EventHandler(this.sERVICESToolStripMenuItem_Click);
             // 
             // sERVICESToolStripMenuItem1
             // 
             this.sERVICESToolStripMenuItem1.Name = "sERVICESToolStripMenuItem1";
-            this.sERVICESToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.sERVICESToolStripMenuItem1.Size = new System.Drawing.Size(192, 26);
             this.sERVICESToolStripMenuItem1.Text = "SERVICES";
             this.sERVICESToolStripMenuItem1.Click += new System.EventHandler(this.sERVICESToolStripMenuItem1_Click);
             // 
             // eMPLOYEEToolStripMenuItem
             // 
             this.eMPLOYEEToolStripMenuItem.Name = "eMPLOYEEToolStripMenuItem";
-            this.eMPLOYEEToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.eMPLOYEEToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
             this.eMPLOYEEToolStripMenuItem.Text = "EMPLOYEE";
             this.eMPLOYEEToolStripMenuItem.Click += new System.EventHandler(this.eMPLOYEEToolStripMenuItem_Click);
+            // 
+            // cUSTOMERToolStripMenuItem
+            // 
+            this.cUSTOMERToolStripMenuItem.Name = "cUSTOMERToolStripMenuItem";
+            this.cUSTOMERToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
+            this.cUSTOMERToolStripMenuItem.Text = "CUSTOMER";
+            this.cUSTOMERToolStripMenuItem.Click += new System.EventHandler(this.cUSTOMERToolStripMenuItem_Click);
+            // 
+            // appointmentToolStripMenuItem
+            // 
+            this.appointmentToolStripMenuItem.Name = "appointmentToolStripMenuItem";
+            this.appointmentToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
+            this.appointmentToolStripMenuItem.Text = "APPOINTMENT";
+            this.appointmentToolStripMenuItem.Click += new System.EventHandler(this.appointmentToolStripMenuItem_Click);
             // 
             // servicesToolStripMenuItem2
             // 
@@ -121,12 +136,6 @@ namespace SalonManagementSystem
             this.employeeToolStripMenuItem1.Name = "employeeToolStripMenuItem1";
             this.employeeToolStripMenuItem1.Size = new System.Drawing.Size(89, 24);
             this.employeeToolStripMenuItem1.Text = "Employee";
-            // 
-            // appointmentToolStripMenuItem
-            // 
-            this.appointmentToolStripMenuItem.Name = "appointmentToolStripMenuItem";
-            this.appointmentToolStripMenuItem.Size = new System.Drawing.Size(111, 24);
-            this.appointmentToolStripMenuItem.Text = "Appointment";
             // 
             // vIEWToolStripMenuItem
             // 
@@ -149,19 +158,13 @@ namespace SalonManagementSystem
             this.servicesToolStripMenuItem3.Size = new System.Drawing.Size(192, 26);
             this.servicesToolStripMenuItem3.Text = "SERVICES";
             // 
-            // cUSTOMERToolStripMenuItem
-            // 
-            this.cUSTOMERToolStripMenuItem.Name = "cUSTOMERToolStripMenuItem";
-            this.cUSTOMERToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
-            this.cUSTOMERToolStripMenuItem.Text = "CUSTOMER";
-            this.cUSTOMERToolStripMenuItem.Click += new System.EventHandler(this.cUSTOMERToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(870, 579);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";

@@ -29,6 +29,7 @@ namespace SalonManagementSystem
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Insert_Employee));
             this.lblTitle = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtEmpContactNo = new System.Windows.Forms.TextBox();
@@ -392,7 +393,7 @@ namespace SalonManagementSystem
             // lblAlertExists
             // 
             this.lblAlertExists.AutoSize = true;
-            this.lblAlertExists.Location = new System.Drawing.Point(318, 52);
+            this.lblAlertExists.Location = new System.Drawing.Point(166, 29);
             this.lblAlertExists.Name = "lblAlertExists";
             this.lblAlertExists.Size = new System.Drawing.Size(110, 17);
             this.lblAlertExists.TabIndex = 28;
@@ -510,6 +511,7 @@ namespace SalonManagementSystem
             this.Controls.Add(this.txtEmpContactNo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTitle);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Insert_Employee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Employee Details";

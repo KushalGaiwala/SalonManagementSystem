@@ -29,6 +29,7 @@ namespace SalonManagementSystem
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServicesForm));
             this.label1 = new System.Windows.Forms.Label();
             this.lblServicePrice = new System.Windows.Forms.Label();
             this.txtServiceName = new System.Windows.Forms.TextBox();
@@ -203,6 +204,7 @@ namespace SalonManagementSystem
             this.Controls.Add(this.txtServiceName);
             this.Controls.Add(this.lblServicePrice);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ServicesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ServiceForm";

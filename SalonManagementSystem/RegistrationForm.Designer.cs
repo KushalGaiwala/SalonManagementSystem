@@ -29,6 +29,7 @@ namespace SalonManagementSystem
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrationForm));
             this.label1 = new System.Windows.Forms.Label();
             this.txtFname = new System.Windows.Forms.TextBox();
             this.txtLname = new System.Windows.Forms.TextBox();
@@ -266,6 +267,7 @@ namespace SalonManagementSystem
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtFname);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegistrationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registration";
