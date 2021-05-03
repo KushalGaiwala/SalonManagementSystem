@@ -64,7 +64,7 @@ namespace SalonManagementSystem
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(266, 9);
+            this.label1.Location = new System.Drawing.Point(282, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(221, 29);
             this.label1.TabIndex = 0;
@@ -72,26 +72,25 @@ namespace SalonManagementSystem
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 140);
+            this.label2.Location = new System.Drawing.Point(38, 140);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 18);
             this.label2.TabIndex = 1;
             this.label2.Text = "FirstName";
+
             // 
             // txtCustFName
             // 
-            this.txtCustFName.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtCustFName.Location = new System.Drawing.Point(123, 134);
+            this.txtCustFName.Location = new System.Drawing.Point(150, 134);
             this.txtCustFName.Name = "txtCustFName";
             this.txtCustFName.Size = new System.Drawing.Size(100, 24);
             this.txtCustFName.TabIndex = 8;
+
             // 
             // btnAdd
             // 
-            this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnAdd.Location = new System.Drawing.Point(53, 466);
+            this.btnAdd.Location = new System.Drawing.Point(80, 466);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(94, 30);
             this.btnAdd.TabIndex = 15;
@@ -113,15 +112,15 @@ namespace SalonManagementSystem
             // 
             // gbGender
             // 
-            this.gbGender.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.gbGender.Controls.Add(this.rbFemale);
             this.gbGender.Controls.Add(this.rbMale);
-            this.gbGender.Location = new System.Drawing.Point(12, 244);
+            this.gbGender.Location = new System.Drawing.Point(39, 244);
             this.gbGender.Name = "gbGender";
             this.gbGender.Size = new System.Drawing.Size(200, 95);
             this.gbGender.TabIndex = 17;
             this.gbGender.TabStop = false;
             this.gbGender.Text = "Gender";
+
             // 
             // rbFemale
             // 
@@ -137,10 +136,9 @@ namespace SalonManagementSystem
             // 
             // dtpAppointmentDate
             // 
-            this.dtpAppointmentDate.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dtpAppointmentDate.CustomFormat = "  dd / MM / yyyy";
             this.dtpAppointmentDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpAppointmentDate.Location = new System.Drawing.Point(120, 358);
+            this.dtpAppointmentDate.Location = new System.Drawing.Point(147, 358);
             this.dtpAppointmentDate.MinDate = new System.DateTime(2021, 4, 22, 0, 0, 0, 0);
             this.dtpAppointmentDate.Name = "dtpAppointmentDate";
             this.dtpAppointmentDate.Size = new System.Drawing.Size(121, 24);
@@ -149,146 +147,147 @@ namespace SalonManagementSystem
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 358);
+            this.label3.Location = new System.Drawing.Point(35, 358);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 18);
             this.label3.TabIndex = 19;
             this.label3.Text = "Select Date";
+            
             // 
             // label4
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 410);
+            this.label4.Location = new System.Drawing.Point(36, 410);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(86, 18);
             this.label4.TabIndex = 21;
             this.label4.Text = "Select Time";
+            
             // 
             // dgvPackages
             // 
-            this.dgvPackages.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dgvPackages.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPackages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPackages.Enabled = false;
-            this.dgvPackages.Location = new System.Drawing.Point(271, 111);
+            this.dgvPackages.Location = new System.Drawing.Point(308, 111);
             this.dgvPackages.Name = "dgvPackages";
             this.dgvPackages.RowHeadersWidth = 51;
             this.dgvPackages.RowTemplate.Height = 24;
-            this.dgvPackages.Size = new System.Drawing.Size(502, 349);
+            this.dgvPackages.Size = new System.Drawing.Size(497, 366);
             this.dgvPackages.TabIndex = 22;
             // 
             // label6
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(314, 87);
+            this.label6.Location = new System.Drawing.Point(341, 87);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 18);
             this.label6.TabIndex = 23;
             this.label6.Text = "Packages";
+            
             // 
             // cbPackages
             // 
-            this.cbPackages.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbPackages.FormattingEnabled = true;
-            this.cbPackages.Location = new System.Drawing.Point(404, 79);
+            this.cbPackages.Location = new System.Drawing.Point(431, 79);
             this.cbPackages.Name = "cbPackages";
             this.cbPackages.Size = new System.Drawing.Size(121, 26);
             this.cbPackages.TabIndex = 24;
+            
             this.cbPackages.SelectedValueChanged += new System.EventHandler(this.selectedValueChanged_cbPackages);
             // 
             // label8
             // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(547, 87);
+            this.label8.Location = new System.Drawing.Point(574, 87);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(41, 18);
             this.label8.TabIndex = 25;
             this.label8.Text = "Total";
+            
             // 
             // txtTotalPrice
             // 
-            this.txtTotalPrice.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtTotalPrice.Location = new System.Drawing.Point(603, 81);
+            this.txtTotalPrice.Location = new System.Drawing.Point(630, 81);
             this.txtTotalPrice.Name = "txtTotalPrice";
             this.txtTotalPrice.ReadOnly = true;
             this.txtTotalPrice.Size = new System.Drawing.Size(100, 24);
             this.txtTotalPrice.TabIndex = 26;
+            
             // 
             // lblAlertExists
             // 
-            this.lblAlertExists.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblAlertExists.AutoSize = true;
-            this.lblAlertExists.Location = new System.Drawing.Point(95, 84);
+            this.lblAlertExists.Location = new System.Drawing.Point(122, 84);
             this.lblAlertExists.Name = "lblAlertExists";
             this.lblAlertExists.Size = new System.Drawing.Size(170, 18);
             this.lblAlertExists.TabIndex = 27;
             this.lblAlertExists.Text = "Customer Already Exists";
             this.lblAlertExists.Visible = false;
+            
             // 
             // txtCustContactNo
             // 
-            this.txtCustContactNo.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtCustContactNo.Location = new System.Drawing.Point(122, 57);
+            this.txtCustContactNo.Location = new System.Drawing.Point(149, 57);
             this.txtCustContactNo.MaxLength = 10;
             this.txtCustContactNo.Name = "txtCustContactNo";
             this.txtCustContactNo.Size = new System.Drawing.Size(100, 24);
             this.txtCustContactNo.TabIndex = 29;
+            
             this.txtCustContactNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCustContactNo_KeyPress);
             this.txtCustContactNo.Leave += new System.EventHandler(this.txtCustContactNo_Leave);
             // 
             // label7
             // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(11, 63);
+            this.label7.Location = new System.Drawing.Point(38, 63);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(80, 18);
             this.label7.TabIndex = 28;
             this.label7.Text = "ContactNo";
+            
             // 
             // txtCustArea
             // 
-            this.txtCustArea.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtCustArea.Location = new System.Drawing.Point(123, 194);
+            this.txtCustArea.Location = new System.Drawing.Point(150, 194);
             this.txtCustArea.Name = "txtCustArea";
             this.txtCustArea.Size = new System.Drawing.Size(100, 24);
             this.txtCustArea.TabIndex = 31;
+            
             // 
             // label5
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 200);
+            this.label5.Location = new System.Drawing.Point(42, 200);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(38, 18);
             this.label5.TabIndex = 30;
             this.label5.Text = "Area";
+            
             // 
             // txtCustLName
             // 
-            this.txtCustLName.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtCustLName.Location = new System.Drawing.Point(123, 164);
+            this.txtCustLName.Location = new System.Drawing.Point(150, 164);
             this.txtCustLName.Name = "txtCustLName";
             this.txtCustLName.Size = new System.Drawing.Size(100, 24);
             this.txtCustLName.TabIndex = 33;
+            
             // 
             // label9
             // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(11, 170);
+            this.label9.Location = new System.Drawing.Point(38, 170);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(76, 18);
             this.label9.TabIndex = 32;
             this.label9.Text = "LastName";
+            
             // 
             // cbAppointmentTime
             // 
-            this.cbAppointmentTime.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbAppointmentTime.FormattingEnabled = true;
             this.cbAppointmentTime.Items.AddRange(new object[] {
             "9:00:00",
@@ -315,17 +314,18 @@ namespace SalonManagementSystem
             "07:30:00",
             "08:00:00",
             "08:30:00"});
-            this.cbAppointmentTime.Location = new System.Drawing.Point(120, 402);
+            this.cbAppointmentTime.Location = new System.Drawing.Point(147, 402);
             this.cbAppointmentTime.Name = "cbAppointmentTime";
             this.cbAppointmentTime.Size = new System.Drawing.Size(121, 26);
             this.cbAppointmentTime.TabIndex = 34;
+            
             this.cbAppointmentTime.SelectedValueChanged += new System.EventHandler(this.cbAppointmentTime_SelectedValueChanged);
             // 
             // label10
             // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(599, 478);
+            this.label10.Location = new System.Drawing.Point(631, 495);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(122, 18);
             this.label10.TabIndex = 38;
@@ -333,7 +333,7 @@ namespace SalonManagementSystem
             // 
             // cbMaxAppointment
             // 
-            this.cbMaxAppointment.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cbMaxAppointment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cbMaxAppointment.DisplayMember = "5";
             this.cbMaxAppointment.FormattingEnabled = true;
             this.cbMaxAppointment.Items.AddRange(new object[] {
@@ -347,30 +347,30 @@ namespace SalonManagementSystem
             "8",
             "9",
             "10"});
-            this.cbMaxAppointment.Location = new System.Drawing.Point(727, 470);
+            this.cbMaxAppointment.Location = new System.Drawing.Point(759, 487);
             this.cbMaxAppointment.Name = "cbMaxAppointment";
             this.cbMaxAppointment.Size = new System.Drawing.Size(46, 26);
             this.cbMaxAppointment.TabIndex = 37;
             // 
             // lblAppointmentAlert
             // 
-            this.lblAppointmentAlert.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblAppointmentAlert.AutoSize = true;
             this.lblAppointmentAlert.BackColor = System.Drawing.Color.Red;
             this.lblAppointmentAlert.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAppointmentAlert.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblAppointmentAlert.Location = new System.Drawing.Point(116, 431);
+            this.lblAppointmentAlert.Location = new System.Drawing.Point(143, 431);
             this.lblAppointmentAlert.Name = "lblAppointmentAlert";
             this.lblAppointmentAlert.Size = new System.Drawing.Size(142, 20);
             this.lblAppointmentAlert.TabIndex = 39;
             this.lblAppointmentAlert.Text = "Appointment Alert";
             this.lblAppointmentAlert.Visible = false;
+            
             // 
             // Insert_AppointmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(785, 508);
+            this.ClientSize = new System.Drawing.Size(817, 525);
             this.Controls.Add(this.lblAppointmentAlert);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.cbMaxAppointment);

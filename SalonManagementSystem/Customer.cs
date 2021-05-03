@@ -19,20 +19,26 @@ namespace SalonManagementSystem
         }
 
         CustomerDetail customer = new CustomerDetail();
-
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            char gender = ' ';
-            if (rbFemale.Checked)
+            try
             {
-                gender = 'f';
+                char gender = ' ';
+                if (rbFemale.Checked)
+                {
+                    gender = 'f';
+                }
+                else if (rbMale.Checked)
+                {
+                    gender = 'm';
+                }
+                customer.insertDetail(txtCustFName.Text, txtCustLName.Text, txtCustArea.Text, txtCustContactNo.Text, gender);
+                dgvDisplayData();
             }
-            else if (rbMale.Checked)
+            catch (Exception ex)
             {
-                gender = 'm';
+                MessageBox.Show("Enter Details Properly!"+ex.Message.ToString());
             }
-            customer.insertDetail(txtCustFName.Text, txtCustLName.Text, txtCustArea.Text, txtCustContactNo.Text, gender);
-            dgvDisplayData();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -78,7 +84,6 @@ namespace SalonManagementSystem
         {
             txtCustFName.Text = null;
             txtCustLName.Text = null;
-            txtCustContactNo.Text = null;
             txtCustNewContactNo.Text = null;
             txtCustArea.Text = null;
         }
@@ -122,6 +127,15 @@ namespace SalonManagementSystem
             DataTable dt = new DataTable();
             adp.Fill(dt);
             dgvCustomerDetails.DataSource = dt;
+        }
+
+        private void txtCustContactNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (!(ch >= '0' && ch <= '9' || ch == 8))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

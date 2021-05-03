@@ -70,7 +70,7 @@ namespace SalonManagementSystem
 
         private void eMPLOYEEToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (emp.IsDisposed == true) 
+            if (emp == null || emp.IsDisposed == true) 
             {
                 emp = new Insert_Employee();
             }

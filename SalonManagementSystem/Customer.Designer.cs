@@ -90,6 +90,7 @@ namespace SalonManagementSystem
             this.txtCustContactNo.Name = "txtCustContactNo";
             this.txtCustContactNo.Size = new System.Drawing.Size(100, 22);
             this.txtCustContactNo.TabIndex = 39;
+            this.txtCustContactNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCustContactNo_KeyPress);
             this.txtCustContactNo.Leave += new System.EventHandler(this.txtCustContactNo_Leave);
             // 
             // label7

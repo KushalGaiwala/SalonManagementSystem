@@ -85,8 +85,28 @@ namespace SalonManagementSystem
                 {
                     lblAlertExists.Visible = false;
                     enableAllOptions();
+                    reset_AllControls();
                 }
             }
+        }
+
+        void reset_AllControls()
+        {
+            rbWorkingYes.Checked = true;
+            txtEmpFName.Text = null;
+            txtEmpLName.Text = null;
+            txtEmpContactNo.Text = null;
+            txtHouseNo.Text = null;
+            txtStreet.Text = null;
+            txtArea.Text = null;
+            txtCity.Text = null;
+            txtPincode.Text = null;
+            dtpEmpDOB.Value = calMaxDate();
+            dtpDOJ.MinDate = DateTime.Today;
+            txtEmpExp.Text = null;
+            txtEmpSalary.Text = null;
+            txtEmpProof.Text = null;
+            txtEmpProofId.Text = null;
         }
 
         void get_EmployeeDetail()
@@ -116,6 +136,7 @@ namespace SalonManagementSystem
                 txtArea.Text = reader.GetValue(8).ToString();
                 txtCity.Text = reader.GetValue(9).ToString();
                 txtPincode.Text = reader.GetValue(10).ToString();
+                dtpDOJ.MinDate = Convert.ToDateTime(reader.GetValue(11));
                 dtpDOJ.Value = Convert.ToDateTime(reader.GetValue(11));
                 txtEmpExp.Text = reader.GetValue(12).ToString();
                 txtEmpSalary.Text = reader.GetValue(13).ToString();
@@ -178,8 +199,8 @@ namespace SalonManagementSystem
         {
             CString.cmd = new SqlCommand("Sp_Update_tblEmployee", CString.con);
             CString.cmd.CommandType = CommandType.StoredProcedure;
-            CString.cmd.Parameters.AddWithValue("@Fname", txtEmpFName.Text);
-            CString.cmd.Parameters.AddWithValue("@Lname", txtEmpLName.Text);
+            CString.cmd.Parameters.AddWithValue("@Fname", txtEmpFName.Text.ToLower());
+            CString.cmd.Parameters.AddWithValue("@Lname", txtEmpLName.Text.ToLower());
             CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToInt64(txtEmpContactNo.Text));
             CString.cmd.Parameters.AddWithValue("@HouseNo", txtHouseNo.Text);
             CString.cmd.Parameters.AddWithValue("@Street", txtStreet.Text);
@@ -196,6 +217,7 @@ namespace SalonManagementSystem
                 MessageBox.Show("Details Updated!");
                 CString.con.Close();
             }
+            dgvEmpDisplay();
         }
 
         private void btnEmpStatus_Click(object sender, EventArgs e)
@@ -219,12 +241,41 @@ namespace SalonManagementSystem
                 CString.cmd.ExecuteNonQuery();
                 MessageBox.Show("Employee Status has been changed!");
                 CString.con.Close();
+                get_EmployeeDetail();
             }
+            dgvEmpDisplay();
+        }
+
+        DateTime calMaxDate()
+        {
+            int year = DateTime.Today.Year - 18;
+            int day = DateTime.Today.Day;
+            int month = DateTime.Today.Month;
+            string datetime = month + " / " + day + " / " + year;
+            DateTime date = DateTime.Parse(datetime);
+            return date;
+        }
+
+        void dgvEmpDisplay()
+        {
+            CString.cmd = new SqlCommand("Sp_Get_AllEmployee", CString.con);
+            CString.cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adp = new SqlDataAdapter(CString.cmd);
+
+            CString.con.Open();
+            CString.cmd.ExecuteNonQuery();
+            CString.con.Close();
+
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            dgvEmployeeDetail.DataSource = dt;
         }
 
         private void Insert_Employee_Load(object sender, EventArgs e)
         {
+            dgvEmpDisplay();
             dtpDOJ.MinDate = DateTime.Today;
+            dtpEmpDOB.MaxDate = calMaxDate();
         }
     }
 }

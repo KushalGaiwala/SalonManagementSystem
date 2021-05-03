@@ -13,7 +13,7 @@ namespace SalonManagementSystem
     {
         public void insertDetail(string fname, string lname, string area, string contactNo, char gender)
         {
-            CString.cmd = new SqlCommand("Sp_Insert_Customer", CString.con);
+            CString.cmd = new SqlCommand("Sp_Insert_tblCustomer", CString.con);
             CString.cmd.CommandType = CommandType.StoredProcedure;
             CString.cmd.Parameters.AddWithValue("@FirstName", fname);
             CString.cmd.Parameters.AddWithValue("@LastName", lname);
@@ -45,7 +45,7 @@ namespace SalonManagementSystem
                 CString.cmd.Parameters.AddWithValue("@NewContactNo", Convert.ToInt64(oldContactNo));
             }
             
-                CString.cmd.Parameters.AddWithValue("@Gender", gender);
+            CString.cmd.Parameters.AddWithValue("@Gender", gender);
             
             DialogResult result = MessageBox.Show("Do you really want to Update?", "Update Custoemr Details", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (DialogResult.Yes == result)

@@ -19,17 +19,25 @@ namespace SalonManagementSystem
             InitializeComponent();
         }
 
-
+        CustomerDetail customer = new CustomerDetail();
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
             {
-                int totalApp = appointmentCount();
-                if (checkAppointment(totalApp))
+                if (checkAppointment(appointmentCount()))
                 {
-                    if (!customerExists())
+                    if (!customer.isCustomer(txtCustContactNo.Text))
                     {
-                        insert_tblCustomer();   
+                        char gender = ' ';
+                        if (rbFemale.Checked)
+                        {
+                            gender = 'f';
+                        }
+                        else if (rbMale.Checked)
+                        {
+                            gender = 'm';
+                        }
+                        customer.insertDetail(txtCustFName.Text, txtCustLName.Text, txtCustArea.Text, txtCustContactNo.Text, gender);
                     }
                     insert_tblAppointment();
                 }
@@ -38,9 +46,9 @@ namespace SalonManagementSystem
                     lblAppointmentAlert.Text = "Timing Not Available!";
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(" Enter Details Properly! "+ex.Message);
+                MessageBox.Show(" Enter Details Properly! ");
             }
             finally
             {
@@ -158,9 +166,9 @@ namespace SalonManagementSystem
 
         private void txtCustContactNo_Leave(object sender, EventArgs e)
         {
-            if(txtCustContactNo.Text != "")
+            if (txtCustContactNo.Text != "")
             {
-                if (customerExists())
+                if (customer.isCustomer(txtCustContactNo.Text))
                 {
                     if (lblAlertExists.Visible == false)
                     {
@@ -168,44 +176,20 @@ namespace SalonManagementSystem
                     }
                     lblAlertExists.Visible = true;
                     get_CustomerDetail();
-                    disableAllOptions();
+                    disableAllControls();
                 }
                 else
                 {
                     lblAlertExists.Visible = false;
-                    enableAllOptions();
+                    reset_AllFields();
+                    enableAllControls();
                 }
-            }
-        }
-
-        Boolean customerExists()
-        {
-            CString.cmd = new SqlCommand("Sp_Verify_Customer", CString.con);
-            CString.cmd.CommandType = CommandType.StoredProcedure;
-            CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToInt64(txtCustContactNo.Text));
-
-            CString.con.Open();
-            int i = Convert.ToInt32(CString.cmd.ExecuteScalar());
-            CString.con.Close();
-
-            if (i == 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
             }
         }
 
         void get_CustomerDetail()
         {
-            CString.cmd = new SqlCommand("Sp_Get_Customer", CString.con);
-            CString.cmd.CommandType = CommandType.StoredProcedure;
-            CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToInt64(txtCustContactNo.Text));
-
-            CString.con.Open();
-            SqlDataReader reader = CString.cmd.ExecuteReader();
+            SqlDataReader reader = customer.getDetail(txtCustContactNo.Text);
             while (reader.Read())
             {
                 txtCustFName.Text = reader.GetValue(0).ToString();
@@ -220,13 +204,12 @@ namespace SalonManagementSystem
                 {
                     rbFemale.Checked = true;
                 }
-                lblAppointmentAlert.Visible = false;
             }
             CString.con.Close();
         }
 
 
-        void disableAllOptions()
+        void disableAllControls()
         {
             txtCustArea.ReadOnly = true;
             txtCustFName.ReadOnly = true;
@@ -235,7 +218,7 @@ namespace SalonManagementSystem
             lblAppointmentAlert.Visible = false;
         }
 
-        void enableAllOptions()
+        void enableAllControls()
         {
             txtCustArea.ReadOnly = false;
             txtCustFName.ReadOnly = false;
@@ -287,6 +270,7 @@ namespace SalonManagementSystem
             CString.cmd.CommandType = CommandType.StoredProcedure;
             CString.cmd.Parameters.AddWithValue("@Date", dtpAppointmentDate.Value);
             CString.cmd.Parameters.AddWithValue("@Time", Convert.ToDateTime(cbAppointmentTime.Text));
+            CString.cmd.Parameters.AddWithValue("@Status", "remaining");
 
             CString.con.Open();
             SqlDataReader reader = CString.cmd.ExecuteReader();
@@ -300,7 +284,6 @@ namespace SalonManagementSystem
                 totalNum = Convert.ToInt32(reader.GetValue(0));
             }
             CString.con.Close();
-
             return totalNum;
         }
     }
