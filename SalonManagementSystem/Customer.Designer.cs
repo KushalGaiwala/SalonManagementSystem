@@ -47,6 +47,7 @@ namespace SalonManagementSystem
             this.txtCustNewContactNo = new System.Windows.Forms.TextBox();
             this.lblNewContactNo = new System.Windows.Forms.Label();
             this.dgvCustomerDetails = new System.Windows.Forms.DataGridView();
+            this.btnReset = new System.Windows.Forms.Button();
             this.gbGender.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerDetails)).BeginInit();
             this.SuspendLayout();
@@ -183,6 +184,7 @@ namespace SalonManagementSystem
             this.btnUpdate.TabIndex = 45;
             this.btnUpdate.Text = "UPDATE";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Visible = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // label1
@@ -228,11 +230,23 @@ namespace SalonManagementSystem
             this.dgvCustomerDetails.Size = new System.Drawing.Size(725, 554);
             this.dgvCustomerDetails.TabIndex = 46;
             // 
+            // btnReset
+            // 
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.Location = new System.Drawing.Point(157, 477);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(85, 31);
+            this.btnReset.TabIndex = 50;
+            this.btnReset.Text = "RESET";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // Customer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1150, 620);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.txtCustNewContactNo);
             this.Controls.Add(this.lblNewContactNo);
             this.Controls.Add(this.label1);
@@ -280,5 +294,6 @@ namespace SalonManagementSystem
         private System.Windows.Forms.TextBox txtCustNewContactNo;
         private System.Windows.Forms.Label lblNewContactNo;
         private System.Windows.Forms.DataGridView dgvCustomerDetails;
+        private System.Windows.Forms.Button btnReset;
     }
 }

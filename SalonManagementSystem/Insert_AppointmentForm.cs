@@ -20,13 +20,16 @@ namespace SalonManagementSystem
         }
 
         CustomerDetail customer = new CustomerDetail();
+        AppointmentDetail appointment = new AppointmentDetail();
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
             {
-                if (checkAppointment(appointmentCount()))
+                int count = appointment.count(dtpAppointmentDate.Value, Convert.ToDateTime(cbAppointmentTime.Text), "");
+                if (appointment.limitExceeded(Convert.ToInt32(cbMaxAppointment.Text), count))
                 {
-                    if (!customer.isCustomer(txtCustContactNo.Text))
+                    if (!customer.isCustomer(Convert.ToInt64(txtCustContactNo.Text)))
                     {
                         char gender = ' ';
                         if (rbFemale.Checked)
@@ -37,70 +40,24 @@ namespace SalonManagementSystem
                         {
                             gender = 'm';
                         }
-                        customer.insertDetail(txtCustFName.Text, txtCustLName.Text, txtCustArea.Text, txtCustContactNo.Text, gender);
+                        customer.insertDetail(txtCustFName.Text, txtCustLName.Text, txtCustArea.Text, Convert.ToInt64(txtCustContactNo.Text), gender);
                     }
-                    insert_tblAppointment();
+                    appointment.insertDetail(Convert.ToInt64(txtCustContactNo.Text), cbPackages.Text, Convert.ToDateTime(cbAppointmentTime.Text), dtpAppointmentDate.Value, "remaining");
+                    reset_AllFields();
                 }
                 else
                 {
                     lblAppointmentAlert.Text = "Timing Not Available!";
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show(" Enter Details Properly! ");
+                MessageBox.Show(" Enter Details Properly! "+ex.Message);
             }
             finally
             {
                 CString.con.Close();
             }
-        }
-
-        
-
-        void insert_tblCustomer()
-        {
-            string gender = null;
-            if (rbMale.Checked)
-            {
-                gender = "M";
-            }
-            else if (rbFemale.Checked)
-            {
-                gender = "F";
-            }
-            else
-            {
-                gender = null;
-            }
-
-            CString.cmd = new SqlCommand("Sp_Insert_tblCustomer", CString.con);
-            CString.cmd.CommandType = CommandType.StoredProcedure;
-            CString.cmd.Parameters.AddWithValue("@FirstName", txtCustFName.Text.ToLower()); // Used Lowercase in Customer FirstName
-            CString.cmd.Parameters.AddWithValue("@LastName", txtCustLName.Text.ToLower()); // Used Lowercase in LastName
-            CString.cmd.Parameters.AddWithValue("@Area", txtCustArea.Text.ToLower()); // Used Lowercase in Customer Area
-            CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToDouble(txtCustContactNo.Text));
-            CString.cmd.Parameters.AddWithValue("@gender", gender);
-
-            CString.con.Open();
-            CString.cmd.ExecuteNonQuery();
-            CString.con.Close();
-        }
-
-        void insert_tblAppointment()
-        {
-            CString.cmd = new SqlCommand("Sp_Insert_tblAppointment", CString.con);
-            CString.cmd.CommandType = CommandType.StoredProcedure;
-            CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToInt64(txtCustContactNo.Text));
-            CString.cmd.Parameters.AddWithValue("@PName", cbPackages.Text);
-            CString.cmd.Parameters.AddWithValue("@Time", Convert.ToDateTime(cbAppointmentTime.Text));
-            CString.cmd.Parameters.AddWithValue("@Date", dtpAppointmentDate.Value);
-
-            CString.con.Open();
-            CString.cmd.ExecuteNonQuery();
-            reset_AllFields();
-            MessageBox.Show("Appointment successfully Generated!");
-            CString.con.Close();
         }
 
         void reset_AllFields()
@@ -167,7 +124,7 @@ namespace SalonManagementSystem
         {
             if (txtCustContactNo.Text != "")
             {
-                if (customer.isCustomer(txtCustContactNo.Text))
+                if (customer.isCustomer(Convert.ToInt64(txtCustContactNo.Text)))
                 {
                     if (lblAlertExists.Visible == false)
                     {
@@ -188,7 +145,7 @@ namespace SalonManagementSystem
 
         void get_CustomerDetail()
         {
-            SqlDataReader reader = customer.getDetail(txtCustContactNo.Text);
+            SqlDataReader reader = customer.getDetail(Convert.ToInt64(txtCustContactNo.Text));
             while (reader.Read())
             {
                 txtCustFName.Text = reader.GetValue(0).ToString();
@@ -236,8 +193,9 @@ namespace SalonManagementSystem
 
         private void cbAppointmentTime_SelectedValueChanged(object sender, EventArgs e)
         {
-            int totalAppoint = appointmentCount();
-            if (!checkAppointment(totalAppoint))
+            
+            int totalAppoint = appointment.count(dtpAppointmentDate.Value, Convert.ToDateTime(cbAppointmentTime.Text), "remaining");
+            if (!appointment.limitExceeded(Convert.ToInt32(cbMaxAppointment.Text), totalAppoint))
             {
                 lblAppointmentAlert.Text = "Not Available!";
                 lblAppointmentAlert.Visible = true;
@@ -247,43 +205,6 @@ namespace SalonManagementSystem
                 lblAppointmentAlert.Visible = false;
                 cbAppointmentTime.Focus();
             }
-        }
-
-        Boolean checkAppointment(int count)
-        {
-            int maxAppoint = Convert.ToInt32(cbMaxAppointment.Text);
-            if(appointmentCount() < maxAppoint)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        int appointmentCount()
-        {
-            int totalNum = 0;
-            CString.cmd = new SqlCommand("Sp_Verify_Appointment", CString.con);
-            CString.cmd.CommandType = CommandType.StoredProcedure;
-            CString.cmd.Parameters.AddWithValue("@Date", dtpAppointmentDate.Value);
-            CString.cmd.Parameters.AddWithValue("@Time", Convert.ToDateTime(cbAppointmentTime.Text));
-            CString.cmd.Parameters.AddWithValue("@Status", "remaining");
-
-            CString.con.Open();
-            SqlDataReader reader = CString.cmd.ExecuteReader();
-            reader.Read();
-            if (reader.GetValue(0) == null)
-            {
-                totalNum = 0;
-            }
-            else
-            {
-                totalNum = Convert.ToInt32(reader.GetValue(0));
-            }
-            CString.con.Close();
-            return totalNum;
         }
     }
 }

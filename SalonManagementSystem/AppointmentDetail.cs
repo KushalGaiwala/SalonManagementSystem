@@ -1,64 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Data;
+using System.Data.SqlClient;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SalonManagementSystem
 {
-    public partial class AppointmentDetail : Form
+    class AppointmentDetail
     {
-        public AppointmentDetail()
+        public void insertDetail(long contactno, string package, DateTime appTime, DateTime appDate, string status)
         {
-            InitializeComponent();
-        }
-
-        private int change = 0;
-
-        private void AppointmentDetail_Load(object sender, EventArgs e)
-        {
-            dgvAppointmentDisplay();
-            CString.cmd = new SqlCommand("Sp_Get_Packages", CString.con);
+            CString.cmd = new SqlCommand("Sp_Insert_tblAppointment", CString.con);
             CString.cmd.CommandType = CommandType.StoredProcedure;
+            CString.cmd.Parameters.AddWithValue("@ContactNo", contactno);
+            CString.cmd.Parameters.AddWithValue("@PName", package);
+            CString.cmd.Parameters.AddWithValue("@Time", appTime);
+            CString.cmd.Parameters.AddWithValue("@Date", appDate);
+            CString.cmd.Parameters.AddWithValue("@Status", status);
 
             CString.con.Open();
-            SqlDataReader reader = CString.cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                cbPackage.Items.Add(reader.GetValue(0).ToString());
-            }
-            reader.Close();
+            CString.cmd.ExecuteNonQuery();
+            MessageBox.Show("Appointment successfully Generated!");
             CString.con.Close();
         }
 
-        void reset_AllControls()
-        {
-            txtStatus.Text = null;
-            txtTotalAmount.Text = null;
-            txtSearchContactNo.Text = null;
-            txtGetDetail.Text = null;
-            txtCustContactNo.Text = null;
-            txtAppointmentId.Text = null;
-            cbPackage.Text = null;
-        }
-
-        void dgvAppointmentDisplay()
+        public DataTable getAllDetail(long contactno, DateTime date, string search)
         {
             CString.cmd = new SqlCommand("Sp_Get_AllAppointment", CString.con);
             CString.cmd.CommandType = CommandType.StoredProcedure;
-            CString.cmd.Parameters.AddWithValue("@ContactNo", txtSearchContactNo.Text);
-            CString.cmd.Parameters.AddWithValue("@Date", dtpSearchDate.Value);
-            
-            if (cbSearch.Text == "Customer")
+            CString.cmd.Parameters.AddWithValue("@ContactNo", contactno);
+            CString.cmd.Parameters.AddWithValue("@Date", date);
+
+            if (search == "Customer")
             {
                 CString.cmd.Parameters.AddWithValue("@type", 1);
             }
-            else if (cbSearch.Text == "Date")
+            else if (search == "Date")
             {
                 CString.cmd.Parameters.AddWithValue("@type", 2);
             }
@@ -66,135 +46,58 @@ namespace SalonManagementSystem
             {
                 CString.cmd.Parameters.AddWithValue("@type", 0);
             }
-            
+
             SqlDataAdapter adp = new SqlDataAdapter(CString.cmd);
 
             CString.con.Open();
             CString.cmd.ExecuteNonQuery();
             CString.con.Close();
-            
+
             DataTable dt = new DataTable();
             adp.Fill(dt);
-            
-            dgvAppointmentDetail.DataSource = dt;
+            return dt;
         }
 
-        private void cbSearch_SelectedValueChanged(object sender, EventArgs e)
+        public Boolean limitExceeded(int max, int count)
         {
-            if(cbSearch.Text == "All")
+            if (count < max)
             {
-                btnSearchGet.Visible = false;
-                txtSearchContactNo.Text = null;
-                dtpSearchDate.Text = null;
-                lblSearchContactNo.Visible = false;
-                txtSearchContactNo.Visible = false;
-                lblSearchDate.Visible = false;
-                dtpSearchDate.Visible = false;
-                dgvAppointmentDisplay();
+                return true;
             }
-            if (cbSearch.Text == "Customer")
+            else
             {
-
-                lblSearchDate.Visible = false;
-                dtpSearchDate.Visible = false;
-                lblSearchContactNo.Visible = true;
-                txtSearchContactNo.Visible = true;
-                btnSearchGet.Visible = true;
-            }
-            else if(cbSearch.Text == "Date")
-            {
-                lblSearchContactNo.Visible = false;
-                txtSearchContactNo.Visible = false;
-                lblSearchDate.Visible = true;
-                dtpSearchDate.Visible = true;
-                btnSearchGet.Visible = true;
+                return false;
             }
         }
 
-        private void btnSearchGet_Click(object sender, EventArgs e)
+        public int count(DateTime date, DateTime time, string status)
         {
-            dgvAppointmentDisplay();
-        }
-
-        private void txtGetDetail_Click(object sender, EventArgs e)
-        {
-            CString.cmd = new SqlCommand("Sp_Get_Appointment", CString.con);
+            int totalNum = 0;
+            CString.cmd = new SqlCommand("Sp_Verify_Appointment", CString.con);
             CString.cmd.CommandType = CommandType.StoredProcedure;
-            CString.cmd.Parameters.AddWithValue("@Appid", Convert.ToInt32(txtAppointmentId.Text));
+            CString.cmd.Parameters.AddWithValue("@Date", date);
+            CString.cmd.Parameters.AddWithValue("@Time", time);
+            CString.cmd.Parameters.AddWithValue("@Status", status);
 
             CString.con.Open();
             SqlDataReader reader = CString.cmd.ExecuteReader();
-            while (reader.Read())
+            reader.Read();
+            if (reader.GetValue(0) == null)
             {
-                change = 0;
-                txtCustContactNo.Text = reader.GetValue(1).ToString();
-                cbPackage.Text = reader.GetValue(2).ToString();
-                cbAppointmentTime.Text = reader.GetValue(3).ToString();
-                dtpAppointmentDate.Text = reader.GetValue(4).ToString();
-                txtStatus.Text = reader.GetValue(5).ToString();
+                totalNum = 0;
+            }
+            else
+            {
+                totalNum = Convert.ToInt32(reader.GetValue(0));
             }
             CString.con.Close();
-            change = 1;
-            calTotalAmount();
+            return totalNum;
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        public void isAppointment()
         {
-            updateAppointment(txtStatus.Text);
+
         }
 
-        void updateAppointment(string status)
-        {
-            CString.cmd = new SqlCommand("Sp_Update_tblAppointment", CString.con);
-            CString.cmd.CommandType = CommandType.StoredProcedure;
-            CString.cmd.Parameters.AddWithValue("@Appid", Convert.ToInt32(txtAppointmentId.Text));
-            CString.cmd.Parameters.AddWithValue("@Pname", cbPackage.Text);
-            CString.cmd.Parameters.AddWithValue("@Time", Convert.ToDateTime(cbAppointmentTime.Text));
-            CString.cmd.Parameters.AddWithValue("@Date", Convert.ToDateTime(dtpAppointmentDate.Text));
-            CString.cmd.Parameters.AddWithValue("@Status", status);
-
-            DialogResult result = MessageBox.Show("Do you really want to Update?", "Appointment Updation", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (DialogResult.Yes == result)
-            {
-                CString.con.Open();
-                CString.cmd.ExecuteNonQuery();
-                MessageBox.Show("Appointment Updated!");
-                CString.con.Close();
-            }
-            dgvAppointmentDisplay();
-        }
-
-        void calTotalAmount()
-        {
-            CString.cmd = new SqlCommand("Sp_View_TotalPackageAmount", CString.con);
-            CString.cmd.CommandType = CommandType.StoredProcedure;
-            CString.cmd.Parameters.AddWithValue("@pckName", cbPackage.Text);
-
-            CString.con.Open();
-            SqlDataReader reader1 = CString.cmd.ExecuteReader();
-            while (reader1.Read())
-            {
-                txtTotalAmount.Text = reader1.GetValue(0).ToString();
-            }
-            CString.con.Close();
-        }
-
-        private void cbPackage_SelectedValueChanged(object sender, EventArgs e)
-        {
-            if (change != 0)
-            {
-                calTotalAmount();
-            }
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            updateAppointment("canceled");
-        }
-
-        private void btnDone_Click(object sender, EventArgs e)
-        {
-            updateAppointment("done");
-        }
     }
 }

@@ -17,7 +17,7 @@ namespace SalonManagementSystem
         HomeForm home = null;
         Insert_AppointmentForm insertAppoint = null;
         Customer customer = null;
-        AppointmentDetail appoint = null;
+        Appointment appoint = null;
         
         public Form1()
         {
@@ -82,7 +82,7 @@ namespace SalonManagementSystem
             close_AllForm(4);
         }
 
-        private void cUSTOMERToolStripMenuItem_Click(object sender, EventArgs e)
+        public void cUSTOMERToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (customer == null || customer.IsDisposed == true)
             {
@@ -97,7 +97,7 @@ namespace SalonManagementSystem
         {
             if (appoint == null || appoint.IsDisposed == true)
             {
-                appoint = new AppointmentDetail();
+                appoint = new Appointment();
             }
             appoint.Show();
             appoint.MdiParent = this;

@@ -1,7 +1,7 @@
 ﻿
 namespace SalonManagementSystem
 {
-    partial class AppointmentDetail
+    partial class Appointment
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace SalonManagementSystem
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppointmentDetail));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Appointment));
             this.dgvAppointmentDetail = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txtAppointmentId = new System.Windows.Forms.TextBox();
@@ -119,6 +119,7 @@ namespace SalonManagementSystem
             this.cbSearch.Name = "cbSearch";
             this.cbSearch.Size = new System.Drawing.Size(121, 24);
             this.cbSearch.TabIndex = 6;
+            this.cbSearch.Text = "All";
             this.cbSearch.SelectedValueChanged += new System.EventHandler(this.cbSearch_SelectedValueChanged);
             // 
             // lblSearchContactNo
@@ -137,6 +138,7 @@ namespace SalonManagementSystem
             this.txtSearchContactNo.Name = "txtSearchContactNo";
             this.txtSearchContactNo.Size = new System.Drawing.Size(100, 22);
             this.txtSearchContactNo.TabIndex = 8;
+            this.txtSearchContactNo.Text = " ";
             this.txtSearchContactNo.Visible = false;
             // 
             // txtCustContactNo
@@ -277,7 +279,7 @@ namespace SalonManagementSystem
             // 
             this.dtpSearchDate.CustomFormat = "  dd / MM / yyyy";
             this.dtpSearchDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpSearchDate.Location = new System.Drawing.Point(684, 53);
+            this.dtpSearchDate.Location = new System.Drawing.Point(670, 46);
             this.dtpSearchDate.MinDate = new System.DateTime(2021, 4, 22, 0, 0, 0, 0);
             this.dtpSearchDate.Name = "dtpSearchDate";
             this.dtpSearchDate.Size = new System.Drawing.Size(141, 22);
@@ -342,7 +344,7 @@ namespace SalonManagementSystem
             this.label9.TabIndex = 46;
             this.label9.Text = "Status";
             // 
-            // AppointmentDetail
+            // Appointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -375,7 +377,7 @@ namespace SalonManagementSystem
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvAppointmentDetail);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "AppointmentDetail";
+            this.Name = "Appointment";
             this.Text = "Appointment";
             this.Load += new System.EventHandler(this.AppointmentDetail_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointmentDetail)).EndInit();

@@ -32,7 +32,7 @@ namespace SalonManagementSystem
                 {
                     gender = 'm';
                 }
-                customer.insertDetail(txtCustFName.Text, txtCustLName.Text, txtCustArea.Text, txtCustContactNo.Text, gender);
+                customer.insertDetail(txtCustFName.Text, txtCustLName.Text, txtCustArea.Text, Convert.ToInt64(txtCustContactNo.Text), gender);
                 dgvDisplayData();
             }
             catch (Exception ex)
@@ -51,7 +51,12 @@ namespace SalonManagementSystem
             {
                 gender = 'm';
             }
-            customer.updateDetail(txtCustFName.Text, txtCustLName.Text, txtCustArea.Text, txtCustContactNo.Text, txtCustNewContactNo.Text, gender);
+            string oldCno=txtCustContactNo.Text, newCno = txtCustNewContactNo.Text;
+            if(newCno == null || newCno == "")
+            {
+                newCno = oldCno;
+            }
+            customer.updateDetail(txtCustFName.Text, txtCustLName.Text, txtCustArea.Text, Convert.ToInt64(oldCno), Convert.ToInt64(newCno), gender);
             dgvDisplayData();
         }
 
@@ -59,7 +64,7 @@ namespace SalonManagementSystem
         {
             if (txtCustContactNo.Text != "")
             {
-                if (customer.isCustomer(txtCustContactNo.Text))
+                if (customer.isCustomer(Convert.ToInt64(txtCustContactNo.Text)))
                 {
                     if (lblAlertExists.Visible == false)
                     {
@@ -67,14 +72,16 @@ namespace SalonManagementSystem
                     }
                     lblAlertExists.Visible = true;
                     lblNewContactNo.Visible = true;
+                    btnInsert.Visible = false;
+                    btnUpdate.Visible = true;
                     txtCustNewContactNo.Visible = true;
                     get_CustomerDetail();
                 }
                 else
                 {
+                    btnUpdate.Visible = false;
+                    btnInsert.Visible = true;
                     lblAlertExists.Visible = false;
-                    lblNewContactNo.Visible = false;
-                    txtCustNewContactNo.Visible = false;
                     reset_AllControls();
                 }
             }
@@ -86,11 +93,13 @@ namespace SalonManagementSystem
             txtCustLName.Text = null;
             txtCustNewContactNo.Text = null;
             txtCustArea.Text = null;
+            txtCustNewContactNo.Visible = false;
+            lblNewContactNo.Visible = false;
         }
 
         void get_CustomerDetail()
         {
-            SqlDataReader reader = customer.getDetail(txtCustContactNo.Text);
+            SqlDataReader reader = customer.getDetail(Convert.ToInt64(txtCustContactNo.Text));
             while (reader.Read())
             {
                 txtCustFName.Text = reader.GetValue(0).ToString();
@@ -136,6 +145,11 @@ namespace SalonManagementSystem
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            reset_AllControls();
         }
     }
 }

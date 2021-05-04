@@ -11,7 +11,7 @@ namespace SalonManagementSystem
 {
     class CustomerDetail
     {
-        public void insertDetail(string fname, string lname, string area, string contactNo, char gender)
+        public void insertDetail(string fname, string lname, string area, long contactNo, char gender)
         {
             CString.cmd = new SqlCommand("Sp_Insert_tblCustomer", CString.con);
             CString.cmd.CommandType = CommandType.StoredProcedure;
@@ -27,23 +27,15 @@ namespace SalonManagementSystem
             CString.con.Close();
         }
 
-        public void updateDetail(string fname, string lname, string area, string oldContactNo, string newContactNo, char gender)
+        public void updateDetail(string fname, string lname, string area, long oldContactNo, long newContactNo, char gender)
         {
             CString.cmd = new SqlCommand("Sp_Update_tblCustomer", CString.con);
             CString.cmd.CommandType = CommandType.StoredProcedure;
             CString.cmd.Parameters.AddWithValue("@Fname", fname);
             CString.cmd.Parameters.AddWithValue("@Lname", lname);
             CString.cmd.Parameters.AddWithValue("@Area", area);
-            if (newContactNo != "" && newContactNo != null)
-            {
-                CString.cmd.Parameters.AddWithValue("@OldContactNo", Convert.ToInt64(oldContactNo));
-                CString.cmd.Parameters.AddWithValue("@NewContactNo", Convert.ToInt64(newContactNo));
-            }
-            else
-            {
-                CString.cmd.Parameters.AddWithValue("@OldContactNo", Convert.ToInt64(oldContactNo));
-                CString.cmd.Parameters.AddWithValue("@NewContactNo", Convert.ToInt64(oldContactNo));
-            }
+            CString.cmd.Parameters.AddWithValue("@OldContactNo", oldContactNo);
+            CString.cmd.Parameters.AddWithValue("@NewContactNo", newContactNo);
             
             CString.cmd.Parameters.AddWithValue("@Gender", gender);
             
@@ -57,22 +49,22 @@ namespace SalonManagementSystem
             }
         }
 
-        public SqlDataReader getDetail(string contactNo)
+        public SqlDataReader getDetail(long contactNo)
         {
             CString.cmd = new SqlCommand("Sp_Get_Customer", CString.con);
             CString.cmd.CommandType = CommandType.StoredProcedure;
-            CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToInt64(contactNo));
+            CString.cmd.Parameters.AddWithValue("@ContactNo", contactNo);
 
             CString.con.Open();
             SqlDataReader reader = CString.cmd.ExecuteReader();
             return reader;
         }
 
-        public Boolean isCustomer(string contactNo)
+        public Boolean isCustomer(long contactNo)
         {
             CString.cmd = new SqlCommand("Sp_Verify_Customer", CString.con);
             CString.cmd.CommandType = CommandType.StoredProcedure;
-            CString.cmd.Parameters.AddWithValue("@ContactNo", Convert.ToInt64(contactNo));
+            CString.cmd.Parameters.AddWithValue("@ContactNo", contactNo);
 
             CString.con.Open();
             int i = Convert.ToInt32(CString.cmd.ExecuteScalar());
