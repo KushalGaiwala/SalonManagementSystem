@@ -18,7 +18,7 @@ namespace SalonManagementSystem
             InitializeComponent();
         }
 
-        int change = 0;
+        private int change = 0;
 
         private void AppointmentDetail_Load(object sender, EventArgs e)
         {
@@ -38,7 +38,13 @@ namespace SalonManagementSystem
 
         void reset_AllControls()
         {
-
+            txtStatus.Text = null;
+            txtTotalAmount.Text = null;
+            txtSearchContactNo.Text = null;
+            txtGetDetail.Text = null;
+            txtCustContactNo.Text = null;
+            txtAppointmentId.Text = null;
+            cbPackage.Text = null;
         }
 
         void dgvAppointmentDisplay()

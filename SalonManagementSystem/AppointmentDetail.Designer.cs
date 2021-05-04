@@ -29,6 +29,7 @@ namespace SalonManagementSystem
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppointmentDetail));
             this.dgvAppointmentDetail = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txtAppointmentId = new System.Windows.Forms.TextBox();
@@ -61,12 +62,15 @@ namespace SalonManagementSystem
             // 
             // dgvAppointmentDetail
             // 
+            this.dgvAppointmentDetail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvAppointmentDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAppointmentDetail.Location = new System.Drawing.Point(352, 96);
             this.dgvAppointmentDetail.Name = "dgvAppointmentDetail";
             this.dgvAppointmentDetail.RowHeadersWidth = 51;
             this.dgvAppointmentDetail.RowTemplate.Height = 24;
-            this.dgvAppointmentDetail.Size = new System.Drawing.Size(596, 507);
+            this.dgvAppointmentDetail.Size = new System.Drawing.Size(882, 507);
             this.dgvAppointmentDetail.TabIndex = 0;
             // 
             // label1
@@ -242,7 +246,7 @@ namespace SalonManagementSystem
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(93, 371);
+            this.label8.Location = new System.Drawing.Point(79, 371);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(40, 17);
             this.label8.TabIndex = 37;
@@ -325,13 +329,14 @@ namespace SalonManagementSystem
             // 
             this.txtStatus.Location = new System.Drawing.Point(148, 440);
             this.txtStatus.Name = "txtStatus";
+            this.txtStatus.ReadOnly = true;
             this.txtStatus.Size = new System.Drawing.Size(141, 22);
             this.txtStatus.TabIndex = 47;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(29, 445);
+            this.label9.Location = new System.Drawing.Point(71, 445);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(48, 17);
             this.label9.TabIndex = 46;
@@ -341,7 +346,7 @@ namespace SalonManagementSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(960, 615);
+            this.ClientSize = new System.Drawing.Size(1246, 615);
             this.Controls.Add(this.txtStatus);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btnDone);
@@ -369,6 +374,7 @@ namespace SalonManagementSystem
             this.Controls.Add(this.txtAppointmentId);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvAppointmentDetail);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AppointmentDetail";
             this.Text = "Appointment";
             this.Load += new System.EventHandler(this.AppointmentDetail_Load);

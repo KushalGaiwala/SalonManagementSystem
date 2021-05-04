@@ -12,17 +12,19 @@ namespace SalonManagementSystem
 {
     public partial class Form1 : Form
     {
-        public Form1()
-        {
-            InitializeComponent();
-        }
-
         Insert_Employee emp = null;
         ServicesForm services = null;
         HomeForm home = null;
         Insert_AppointmentForm insertAppoint = null;
         Customer customer = null;
         AppointmentDetail appoint = null;
+        
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        
 
         private void lOGOUTToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -47,7 +49,7 @@ namespace SalonManagementSystem
             Application.Exit();
         }
 
-        private void sERVICESToolStripMenuItem_Click(object sender, EventArgs e)
+        private void aDDToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (insertAppoint == null || insertAppoint.IsDisposed == true)
             {
@@ -58,7 +60,7 @@ namespace SalonManagementSystem
             close_AllForm(2);
         }
 
-        private void sERVICESToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void aDDToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (services == null || services.IsDisposed == true)
             {
@@ -69,9 +71,9 @@ namespace SalonManagementSystem
             close_AllForm(3);
         }
 
-        private void eMPLOYEEToolStripMenuItem_Click(object sender, EventArgs e)
+        private void employeeToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (emp == null || emp.IsDisposed == true) 
+            if (emp == null || emp.IsDisposed == true)
             {
                 emp = new Insert_Employee();
             }
@@ -91,8 +93,7 @@ namespace SalonManagementSystem
             close_AllForm(5);
         }
 
-
-        private void appointmentToolStripMenuItem_Click(object sender, EventArgs e)
+        private void vIEWToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (appoint == null || appoint.IsDisposed == true)
             {
@@ -131,5 +132,11 @@ namespace SalonManagementSystem
             }
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            home = new HomeForm();
+            home.Show();
+            home.MdiParent = this;
+        }
     }
 }

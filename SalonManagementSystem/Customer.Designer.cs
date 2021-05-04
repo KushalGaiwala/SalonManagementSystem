@@ -53,7 +53,7 @@ namespace SalonManagementSystem
             // 
             // txtCustLName
             // 
-            this.txtCustLName.Location = new System.Drawing.Point(207, 140);
+            this.txtCustLName.Location = new System.Drawing.Point(206, 185);
             this.txtCustLName.Name = "txtCustLName";
             this.txtCustLName.Size = new System.Drawing.Size(100, 22);
             this.txtCustLName.TabIndex = 43;
@@ -61,7 +61,7 @@ namespace SalonManagementSystem
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(95, 146);
+            this.label9.Location = new System.Drawing.Point(94, 191);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(72, 17);
             this.label9.TabIndex = 42;
@@ -69,7 +69,7 @@ namespace SalonManagementSystem
             // 
             // txtCustArea
             // 
-            this.txtCustArea.Location = new System.Drawing.Point(207, 293);
+            this.txtCustArea.Location = new System.Drawing.Point(206, 338);
             this.txtCustArea.Name = "txtCustArea";
             this.txtCustArea.Size = new System.Drawing.Size(100, 22);
             this.txtCustArea.TabIndex = 41;
@@ -77,7 +77,7 @@ namespace SalonManagementSystem
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(99, 299);
+            this.label5.Location = new System.Drawing.Point(98, 344);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(38, 17);
             this.label5.TabIndex = 40;
@@ -85,7 +85,7 @@ namespace SalonManagementSystem
             // 
             // txtCustContactNo
             // 
-            this.txtCustContactNo.Location = new System.Drawing.Point(207, 54);
+            this.txtCustContactNo.Location = new System.Drawing.Point(206, 99);
             this.txtCustContactNo.MaxLength = 10;
             this.txtCustContactNo.Name = "txtCustContactNo";
             this.txtCustContactNo.Size = new System.Drawing.Size(100, 22);
@@ -96,7 +96,7 @@ namespace SalonManagementSystem
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(96, 60);
+            this.label7.Location = new System.Drawing.Point(95, 105);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(74, 17);
             this.label7.TabIndex = 38;
@@ -105,7 +105,7 @@ namespace SalonManagementSystem
             // lblAlertExists
             // 
             this.lblAlertExists.AutoSize = true;
-            this.lblAlertExists.Location = new System.Drawing.Point(180, 81);
+            this.lblAlertExists.Location = new System.Drawing.Point(179, 126);
             this.lblAlertExists.Name = "lblAlertExists";
             this.lblAlertExists.Size = new System.Drawing.Size(160, 17);
             this.lblAlertExists.TabIndex = 37;
@@ -116,7 +116,7 @@ namespace SalonManagementSystem
             // 
             this.gbGender.Controls.Add(this.rbFemale);
             this.gbGender.Controls.Add(this.rbMale);
-            this.gbGender.Location = new System.Drawing.Point(102, 175);
+            this.gbGender.Location = new System.Drawing.Point(101, 220);
             this.gbGender.Name = "gbGender";
             this.gbGender.Size = new System.Drawing.Size(200, 95);
             this.gbGender.TabIndex = 36;
@@ -149,7 +149,7 @@ namespace SalonManagementSystem
             // 
             // txtCustFName
             // 
-            this.txtCustFName.Location = new System.Drawing.Point(207, 104);
+            this.txtCustFName.Location = new System.Drawing.Point(206, 149);
             this.txtCustFName.Name = "txtCustFName";
             this.txtCustFName.Size = new System.Drawing.Size(100, 22);
             this.txtCustFName.TabIndex = 35;
@@ -157,7 +157,7 @@ namespace SalonManagementSystem
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(95, 110);
+            this.label2.Location = new System.Drawing.Point(94, 155);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 17);
             this.label2.TabIndex = 34;
@@ -166,7 +166,7 @@ namespace SalonManagementSystem
             // btnInsert
             // 
             this.btnInsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInsert.Location = new System.Drawing.Point(98, 386);
+            this.btnInsert.Location = new System.Drawing.Point(97, 431);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(103, 40);
             this.btnInsert.TabIndex = 44;
@@ -177,7 +177,7 @@ namespace SalonManagementSystem
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(207, 386);
+            this.btnUpdate.Location = new System.Drawing.Point(206, 431);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(103, 40);
             this.btnUpdate.TabIndex = 45;
@@ -198,7 +198,7 @@ namespace SalonManagementSystem
             // 
             // txtCustNewContactNo
             // 
-            this.txtCustNewContactNo.Location = new System.Drawing.Point(207, 331);
+            this.txtCustNewContactNo.Location = new System.Drawing.Point(206, 376);
             this.txtCustNewContactNo.MaxLength = 10;
             this.txtCustNewContactNo.Name = "txtCustNewContactNo";
             this.txtCustNewContactNo.Size = new System.Drawing.Size(100, 22);
@@ -208,7 +208,7 @@ namespace SalonManagementSystem
             // lblNewContactNo
             // 
             this.lblNewContactNo.AutoSize = true;
-            this.lblNewContactNo.Location = new System.Drawing.Point(96, 337);
+            this.lblNewContactNo.Location = new System.Drawing.Point(95, 382);
             this.lblNewContactNo.Name = "lblNewContactNo";
             this.lblNewContactNo.Size = new System.Drawing.Size(105, 17);
             this.lblNewContactNo.TabIndex = 48;

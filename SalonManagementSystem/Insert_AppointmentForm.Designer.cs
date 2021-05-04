@@ -65,7 +65,7 @@ namespace SalonManagementSystem
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(282, 9);
+            this.label1.Location = new System.Drawing.Point(424, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(221, 29);
             this.label1.TabIndex = 0;
@@ -172,7 +172,7 @@ namespace SalonManagementSystem
             this.dgvPackages.Name = "dgvPackages";
             this.dgvPackages.RowHeadersWidth = 51;
             this.dgvPackages.RowTemplate.Height = 24;
-            this.dgvPackages.Size = new System.Drawing.Size(497, 366);
+            this.dgvPackages.Size = new System.Drawing.Size(780, 475);
             this.dgvPackages.TabIndex = 22;
             // 
             // label6
@@ -309,7 +309,7 @@ namespace SalonManagementSystem
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(631, 495);
+            this.label10.Location = new System.Drawing.Point(914, 604);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(122, 18);
             this.label10.TabIndex = 38;
@@ -331,7 +331,7 @@ namespace SalonManagementSystem
             "8",
             "9",
             "10"});
-            this.cbMaxAppointment.Location = new System.Drawing.Point(759, 487);
+            this.cbMaxAppointment.Location = new System.Drawing.Point(1042, 596);
             this.cbMaxAppointment.Name = "cbMaxAppointment";
             this.cbMaxAppointment.Size = new System.Drawing.Size(46, 26);
             this.cbMaxAppointment.TabIndex = 37;
@@ -353,7 +353,7 @@ namespace SalonManagementSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(817, 525);
+            this.ClientSize = new System.Drawing.Size(1100, 634);
             this.Controls.Add(this.lblAppointmentAlert);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.cbMaxAppointment);
