@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,20 +22,20 @@ namespace SalonManagementSystem
         
         private void HomeForm_Load(object sender, EventArgs e)
         {
-
+            getAllAppointmentDetails();
         }
 
         void getAllAppointmentDetails()
         {
-            appointment.getAllDetail(0, DateTime.Today,"All") ;
-        }
-
-        private void btnGoToAppointment_Click(object sender, EventArgs e)
-        {
-            Form1 form = new Form1();
-            this.Hide();
-            form.Show();
-            form.cUSTOMERToolStripMenuItem_Click(sender, e);
+            CString.cmd = new SqlCommand("Sp_Get_UpcommingAppointment", CString.con);
+            CString.cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adp = new SqlDataAdapter(CString.cmd);
+            CString.con.Open();
+            CString.cmd.ExecuteNonQuery();
+            CString.con.Close();
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            dgvAppointmentDetail.DataSource = dt;
         }
     }
 }

@@ -62,7 +62,8 @@ namespace SalonManagementSystem
                 txtSearchContactNo.Visible = false;
                 lblSearchDate.Visible = false;
                 dtpSearchDate.Visible = false;
-                dgvAppointmentDisplay(Convert.ToInt64(txtSearchContactNo.Text), dtpSearchDate.Value, cbSearch.Text);
+                // "1" and "DateTime.Today" are just for "not null" values
+                dgvAppointmentDisplay(1, DateTime.Today, cbSearch.Text); 
             }
             if (cbSearch.Text == "Customer")
             {
@@ -167,6 +168,38 @@ namespace SalonManagementSystem
         private void btnDone_Click(object sender, EventArgs e)
         {
             updateAppointment("done");
+        }
+
+        private void dtpSearchDate_ValueChanged(object sender, EventArgs e)
+        {
+            dgvAppointmentDisplay(Convert.ToInt64(txtSearchContactNo.Text), dtpSearchDate.Value, cbSearch.Text);
+        }
+
+        private void txtAppointmentId_Leave(object sender, EventArgs e)
+        {
+            CString.cmd = new SqlCommand("Sp_Get_Appointment", CString.con);
+            CString.cmd.CommandType = CommandType.StoredProcedure;
+            CString.cmd.Parameters.AddWithValue("@Appid", Convert.ToInt32(txtAppointmentId.Text));
+
+            CString.con.Open();
+            SqlDataReader reader = CString.cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                change = 0;
+                txtCustContactNo.Text = reader.GetValue(1).ToString();
+                cbPackage.Text = reader.GetValue(2).ToString();
+                cbAppointmentTime.Text = reader.GetValue(3).ToString();
+                dtpAppointmentDate.Text = reader.GetValue(4).ToString();
+                txtStatus.Text = reader.GetValue(5).ToString();
+            }
+            CString.con.Close();
+            change = 1;
+            calTotalAmount();
+        }
+
+        private void txtSearchContactNo_Leave(object sender, EventArgs e)
+        {
+            dgvAppointmentDisplay(Convert.ToInt64(txtSearchContactNo.Text), dtpSearchDate.Value, cbSearch.Text);
         }
     }
 }

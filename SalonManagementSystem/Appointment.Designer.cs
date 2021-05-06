@@ -49,7 +49,6 @@ namespace SalonManagementSystem
             this.txtTotalAmount = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtGetDetail = new System.Windows.Forms.Button();
-            this.btnSearchGet = new System.Windows.Forms.Button();
             this.dtpSearchDate = new System.Windows.Forms.DateTimePicker();
             this.lblSearchDate = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -57,6 +56,7 @@ namespace SalonManagementSystem
             this.btnDone = new System.Windows.Forms.Button();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnSearchGet = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointmentDetail)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,6 +88,7 @@ namespace SalonManagementSystem
             this.txtAppointmentId.Name = "txtAppointmentId";
             this.txtAppointmentId.Size = new System.Drawing.Size(141, 22);
             this.txtAppointmentId.TabIndex = 3;
+            this.txtAppointmentId.Leave += new System.EventHandler(this.txtAppointmentId_Leave);
             // 
             // btnUpdate
             // 
@@ -140,6 +141,7 @@ namespace SalonManagementSystem
             this.txtSearchContactNo.TabIndex = 8;
             this.txtSearchContactNo.Text = " ";
             this.txtSearchContactNo.Visible = false;
+            this.txtSearchContactNo.Leave += new System.EventHandler(this.txtSearchContactNo_Leave);
             // 
             // txtCustContactNo
             // 
@@ -264,17 +266,6 @@ namespace SalonManagementSystem
             this.txtGetDetail.UseVisualStyleBackColor = true;
             this.txtGetDetail.Click += new System.EventHandler(this.txtGetDetail_Click);
             // 
-            // btnSearchGet
-            // 
-            this.btnSearchGet.Location = new System.Drawing.Point(831, 46);
-            this.btnSearchGet.Name = "btnSearchGet";
-            this.btnSearchGet.Size = new System.Drawing.Size(46, 31);
-            this.btnSearchGet.TabIndex = 40;
-            this.btnSearchGet.Text = "Get";
-            this.btnSearchGet.UseVisualStyleBackColor = true;
-            this.btnSearchGet.Visible = false;
-            this.btnSearchGet.Click += new System.EventHandler(this.btnSearchGet_Click);
-            // 
             // dtpSearchDate
             // 
             this.dtpSearchDate.CustomFormat = "  dd / MM / yyyy";
@@ -286,6 +277,7 @@ namespace SalonManagementSystem
             this.dtpSearchDate.TabIndex = 42;
             this.dtpSearchDate.Value = new System.DateTime(2021, 5, 7, 0, 0, 0, 0);
             this.dtpSearchDate.Visible = false;
+            this.dtpSearchDate.ValueChanged += new System.EventHandler(this.dtpSearchDate_ValueChanged);
             // 
             // lblSearchDate
             // 
@@ -343,6 +335,16 @@ namespace SalonManagementSystem
             this.label9.Size = new System.Drawing.Size(48, 17);
             this.label9.TabIndex = 46;
             this.label9.Text = "Status";
+            // 
+            // btnSearchGet
+            // 
+            this.btnSearchGet.Location = new System.Drawing.Point(831, 46);
+            this.btnSearchGet.Name = "btnSearchGet";
+            this.btnSearchGet.Size = new System.Drawing.Size(46, 31);
+            this.btnSearchGet.TabIndex = 40;
+            this.btnSearchGet.Text = "Get";
+            this.btnSearchGet.UseVisualStyleBackColor = true;
+            this.btnSearchGet.Visible = false;
             // 
             // Appointment
             // 
@@ -407,7 +409,6 @@ namespace SalonManagementSystem
         private System.Windows.Forms.TextBox txtTotalAmount;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button txtGetDetail;
-        private System.Windows.Forms.Button btnSearchGet;
         private System.Windows.Forms.DateTimePicker dtpSearchDate;
         private System.Windows.Forms.Label lblSearchDate;
         private System.Windows.Forms.Label label3;
@@ -415,5 +416,6 @@ namespace SalonManagementSystem
         private System.Windows.Forms.Button btnDone;
         private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnSearchGet;
     }
 }

@@ -57,7 +57,7 @@ namespace SalonManagementSystem
             this.txtCustLName.Location = new System.Drawing.Point(206, 185);
             this.txtCustLName.Name = "txtCustLName";
             this.txtCustLName.Size = new System.Drawing.Size(100, 22);
-            this.txtCustLName.TabIndex = 43;
+            this.txtCustLName.TabIndex = 3;
             // 
             // label9
             // 
@@ -73,7 +73,7 @@ namespace SalonManagementSystem
             this.txtCustArea.Location = new System.Drawing.Point(206, 338);
             this.txtCustArea.Name = "txtCustArea";
             this.txtCustArea.Size = new System.Drawing.Size(100, 22);
-            this.txtCustArea.TabIndex = 41;
+            this.txtCustArea.TabIndex = 5;
             // 
             // label5
             // 
@@ -90,7 +90,7 @@ namespace SalonManagementSystem
             this.txtCustContactNo.MaxLength = 10;
             this.txtCustContactNo.Name = "txtCustContactNo";
             this.txtCustContactNo.Size = new System.Drawing.Size(100, 22);
-            this.txtCustContactNo.TabIndex = 39;
+            this.txtCustContactNo.TabIndex = 1;
             this.txtCustContactNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCustContactNo_KeyPress);
             this.txtCustContactNo.Leave += new System.EventHandler(this.txtCustContactNo_Leave);
             // 
@@ -120,7 +120,7 @@ namespace SalonManagementSystem
             this.gbGender.Location = new System.Drawing.Point(101, 220);
             this.gbGender.Name = "gbGender";
             this.gbGender.Size = new System.Drawing.Size(200, 95);
-            this.gbGender.TabIndex = 36;
+            this.gbGender.TabIndex = 4;
             this.gbGender.TabStop = false;
             this.gbGender.Text = "Gender";
             // 
@@ -153,7 +153,7 @@ namespace SalonManagementSystem
             this.txtCustFName.Location = new System.Drawing.Point(206, 149);
             this.txtCustFName.Name = "txtCustFName";
             this.txtCustFName.Size = new System.Drawing.Size(100, 22);
-            this.txtCustFName.TabIndex = 35;
+            this.txtCustFName.TabIndex = 2;
             // 
             // label2
             // 
@@ -177,6 +177,7 @@ namespace SalonManagementSystem
             // 
             // btnUpdate
             // 
+            this.btnUpdate.Enabled = false;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.Location = new System.Drawing.Point(206, 431);
             this.btnUpdate.Name = "btnUpdate";
@@ -184,7 +185,6 @@ namespace SalonManagementSystem
             this.btnUpdate.TabIndex = 45;
             this.btnUpdate.Text = "UPDATE";
             this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Visible = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // label1
@@ -204,7 +204,7 @@ namespace SalonManagementSystem
             this.txtCustNewContactNo.MaxLength = 10;
             this.txtCustNewContactNo.Name = "txtCustNewContactNo";
             this.txtCustNewContactNo.Size = new System.Drawing.Size(100, 22);
-            this.txtCustNewContactNo.TabIndex = 49;
+            this.txtCustNewContactNo.TabIndex = 6;
             this.txtCustNewContactNo.Visible = false;
             // 
             // lblNewContactNo
@@ -227,7 +227,7 @@ namespace SalonManagementSystem
             this.dgvCustomerDetails.Name = "dgvCustomerDetails";
             this.dgvCustomerDetails.RowHeadersWidth = 51;
             this.dgvCustomerDetails.RowTemplate.Height = 24;
-            this.dgvCustomerDetails.Size = new System.Drawing.Size(725, 554);
+            this.dgvCustomerDetails.Size = new System.Drawing.Size(725, 559);
             this.dgvCustomerDetails.TabIndex = 46;
             // 
             // btnReset
@@ -245,7 +245,7 @@ namespace SalonManagementSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1150, 620);
+            this.ClientSize = new System.Drawing.Size(1150, 625);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.txtCustNewContactNo);
             this.Controls.Add(this.lblNewContactNo);

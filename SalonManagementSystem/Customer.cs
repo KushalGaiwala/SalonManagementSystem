@@ -72,15 +72,15 @@ namespace SalonManagementSystem
                     }
                     lblAlertExists.Visible = true;
                     lblNewContactNo.Visible = true;
-                    btnInsert.Visible = false;
-                    btnUpdate.Visible = true;
+                    btnInsert.Enabled = false;
+                    btnUpdate.Enabled = true;
                     txtCustNewContactNo.Visible = true;
                     get_CustomerDetail();
                 }
                 else
                 {
-                    btnUpdate.Visible = false;
-                    btnInsert.Visible = true;
+                    btnUpdate.Enabled = false;
+                    btnInsert.Enabled = true;
                     lblAlertExists.Visible = false;
                     reset_AllControls();
                 }
@@ -95,6 +95,7 @@ namespace SalonManagementSystem
             txtCustArea.Text = null;
             txtCustNewContactNo.Visible = false;
             lblNewContactNo.Visible = false;
+            lblAlertExists.Visible = false;
         }
 
         void get_CustomerDetail()
