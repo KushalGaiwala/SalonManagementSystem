@@ -37,7 +37,6 @@ namespace SalonManagementSystem
             this.label2 = new System.Windows.Forms.Label();
             this.cbSearch = new System.Windows.Forms.ComboBox();
             this.lblSearchContactNo = new System.Windows.Forms.Label();
-            this.txtSearchContactNo = new System.Windows.Forms.TextBox();
             this.txtCustContactNo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cbPackage = new System.Windows.Forms.ComboBox();
@@ -56,7 +55,7 @@ namespace SalonManagementSystem
             this.btnDone = new System.Windows.Forms.Button();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.btnSearchGet = new System.Windows.Forms.Button();
+            this.cbSearchContactNo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointmentDetail)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,7 +86,8 @@ namespace SalonManagementSystem
             this.txtAppointmentId.Location = new System.Drawing.Point(148, 96);
             this.txtAppointmentId.Name = "txtAppointmentId";
             this.txtAppointmentId.Size = new System.Drawing.Size(141, 22);
-            this.txtAppointmentId.TabIndex = 3;
+            this.txtAppointmentId.TabIndex = 1;
+            this.txtAppointmentId.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAppointmentId_KeyDown);
             this.txtAppointmentId.Leave += new System.EventHandler(this.txtAppointmentId_Leave);
             // 
             // btnUpdate
@@ -95,7 +95,7 @@ namespace SalonManagementSystem
             this.btnUpdate.Location = new System.Drawing.Point(123, 526);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(99, 46);
-            this.btnUpdate.TabIndex = 4;
+            this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -119,36 +119,26 @@ namespace SalonManagementSystem
             this.cbSearch.Location = new System.Drawing.Point(441, 53);
             this.cbSearch.Name = "cbSearch";
             this.cbSearch.Size = new System.Drawing.Size(121, 24);
-            this.cbSearch.TabIndex = 6;
+            this.cbSearch.TabIndex = 10;
             this.cbSearch.Text = "All";
             this.cbSearch.SelectedValueChanged += new System.EventHandler(this.cbSearch_SelectedValueChanged);
             // 
             // lblSearchContactNo
             // 
             this.lblSearchContactNo.AutoSize = true;
-            this.lblSearchContactNo.Location = new System.Drawing.Point(637, 60);
+            this.lblSearchContactNo.Location = new System.Drawing.Point(602, 57);
             this.lblSearchContactNo.Name = "lblSearchContactNo";
             this.lblSearchContactNo.Size = new System.Drawing.Size(82, 17);
             this.lblSearchContactNo.TabIndex = 7;
             this.lblSearchContactNo.Text = "Contact No:";
             this.lblSearchContactNo.Visible = false;
             // 
-            // txtSearchContactNo
-            // 
-            this.txtSearchContactNo.Location = new System.Drawing.Point(725, 53);
-            this.txtSearchContactNo.Name = "txtSearchContactNo";
-            this.txtSearchContactNo.Size = new System.Drawing.Size(100, 22);
-            this.txtSearchContactNo.TabIndex = 8;
-            this.txtSearchContactNo.Text = " ";
-            this.txtSearchContactNo.Visible = false;
-            this.txtSearchContactNo.Leave += new System.EventHandler(this.txtSearchContactNo_Leave);
-            // 
             // txtCustContactNo
             // 
             this.txtCustContactNo.Location = new System.Drawing.Point(148, 163);
             this.txtCustContactNo.Name = "txtCustContactNo";
             this.txtCustContactNo.Size = new System.Drawing.Size(141, 22);
-            this.txtCustContactNo.TabIndex = 10;
+            this.txtCustContactNo.TabIndex = 2;
             // 
             // label4
             // 
@@ -165,7 +155,7 @@ namespace SalonManagementSystem
             this.cbPackage.Location = new System.Drawing.Point(148, 211);
             this.cbPackage.Name = "cbPackage";
             this.cbPackage.Size = new System.Drawing.Size(141, 24);
-            this.cbPackage.TabIndex = 14;
+            this.cbPackage.TabIndex = 3;
             this.cbPackage.SelectedValueChanged += new System.EventHandler(this.cbPackage_SelectedValueChanged);
             // 
             // label6
@@ -194,7 +184,7 @@ namespace SalonManagementSystem
             this.dtpAppointmentDate.MinDate = new System.DateTime(2021, 3, 1, 0, 0, 0, 0);
             this.dtpAppointmentDate.Name = "dtpAppointmentDate";
             this.dtpAppointmentDate.Size = new System.Drawing.Size(164, 22);
-            this.dtpAppointmentDate.TabIndex = 19;
+            this.dtpAppointmentDate.TabIndex = 4;
             this.dtpAppointmentDate.Value = new System.DateTime(2021, 5, 7, 0, 0, 0, 0);
             // 
             // cbAppointmentTime
@@ -228,7 +218,7 @@ namespace SalonManagementSystem
             this.cbAppointmentTime.Location = new System.Drawing.Point(148, 309);
             this.cbAppointmentTime.Name = "cbAppointmentTime";
             this.cbAppointmentTime.Size = new System.Drawing.Size(141, 24);
-            this.cbAppointmentTime.TabIndex = 36;
+            this.cbAppointmentTime.TabIndex = 5;
             // 
             // label5
             // 
@@ -274,7 +264,7 @@ namespace SalonManagementSystem
             this.dtpSearchDate.MinDate = new System.DateTime(2021, 4, 22, 0, 0, 0, 0);
             this.dtpSearchDate.Name = "dtpSearchDate";
             this.dtpSearchDate.Size = new System.Drawing.Size(141, 22);
-            this.dtpSearchDate.TabIndex = 42;
+            this.dtpSearchDate.TabIndex = 11;
             this.dtpSearchDate.Value = new System.DateTime(2021, 5, 7, 0, 0, 0, 0);
             this.dtpSearchDate.Visible = false;
             this.dtpSearchDate.ValueChanged += new System.EventHandler(this.dtpSearchDate_ValueChanged);
@@ -304,7 +294,7 @@ namespace SalonManagementSystem
             this.btnCancel.Location = new System.Drawing.Point(12, 526);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(96, 46);
-            this.btnCancel.TabIndex = 44;
+            this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -314,7 +304,7 @@ namespace SalonManagementSystem
             this.btnDone.Location = new System.Drawing.Point(242, 526);
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(99, 46);
-            this.btnDone.TabIndex = 45;
+            this.btnDone.TabIndex = 7;
             this.btnDone.Text = "Done";
             this.btnDone.UseVisualStyleBackColor = true;
             this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
@@ -336,21 +326,23 @@ namespace SalonManagementSystem
             this.label9.TabIndex = 46;
             this.label9.Text = "Status";
             // 
-            // btnSearchGet
+            // cbSearchContactNo
             // 
-            this.btnSearchGet.Location = new System.Drawing.Point(831, 46);
-            this.btnSearchGet.Name = "btnSearchGet";
-            this.btnSearchGet.Size = new System.Drawing.Size(46, 31);
-            this.btnSearchGet.TabIndex = 40;
-            this.btnSearchGet.Text = "Get";
-            this.btnSearchGet.UseVisualStyleBackColor = true;
-            this.btnSearchGet.Visible = false;
+            this.cbSearchContactNo.FormattingEnabled = true;
+            this.cbSearchContactNo.Location = new System.Drawing.Point(690, 50);
+            this.cbSearchContactNo.Name = "cbSearchContactNo";
+            this.cbSearchContactNo.Size = new System.Drawing.Size(121, 24);
+            this.cbSearchContactNo.TabIndex = 11;
+            this.cbSearchContactNo.Text = " ";
+            this.cbSearchContactNo.Visible = false;
+            this.cbSearchContactNo.SelectedValueChanged += new System.EventHandler(this.cbSearchContactNo_SelectedValueChanged);
             // 
             // Appointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1246, 615);
+            this.Controls.Add(this.cbSearchContactNo);
             this.Controls.Add(this.txtStatus);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btnDone);
@@ -358,7 +350,6 @@ namespace SalonManagementSystem
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dtpSearchDate);
             this.Controls.Add(this.lblSearchDate);
-            this.Controls.Add(this.btnSearchGet);
             this.Controls.Add(this.txtGetDetail);
             this.Controls.Add(this.txtTotalAmount);
             this.Controls.Add(this.label8);
@@ -370,7 +361,6 @@ namespace SalonManagementSystem
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtCustContactNo);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtSearchContactNo);
             this.Controls.Add(this.lblSearchContactNo);
             this.Controls.Add(this.cbSearch);
             this.Controls.Add(this.label2);
@@ -397,7 +387,6 @@ namespace SalonManagementSystem
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbSearch;
         private System.Windows.Forms.Label lblSearchContactNo;
-        private System.Windows.Forms.TextBox txtSearchContactNo;
         private System.Windows.Forms.TextBox txtCustContactNo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbPackage;
@@ -416,6 +405,6 @@ namespace SalonManagementSystem
         private System.Windows.Forms.Button btnDone;
         private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button btnSearchGet;
+        private System.Windows.Forms.ComboBox cbSearchContactNo;
     }
 }

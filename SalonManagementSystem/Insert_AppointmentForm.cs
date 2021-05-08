@@ -40,35 +40,53 @@ namespace SalonManagementSystem
                         {
                             gender = 'm';
                         }
-                        customer.insertDetail(txtCustFName.Text, txtCustLName.Text, txtCustArea.Text, Convert.ToInt64(txtCustContactNo.Text), gender);
+                        try
+                        {
+                            customer.insertDetail(txtCustFName.Text, txtCustLName.Text, txtCustArea.Text, Convert.ToInt64(txtCustContactNo.Text), gender);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Enter Customer Details Properly!" + ex.Message);
+                        }
+                        finally
+                        {
+                            CString.con.Close();
+                        }
                     }
-                    appointment.insertDetail(Convert.ToInt64(txtCustContactNo.Text), cbPackages.Text, Convert.ToDateTime(cbAppointmentTime.Text), dtpAppointmentDate.Value, "remaining");
+                    try
+                    {
+                        appointment.insertDetail(Convert.ToInt64(txtCustContactNo.Text), cbPackages.Text, Convert.ToDateTime(cbAppointmentTime.Text), dtpAppointmentDate.Value, "remaining");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Enter Appointment Details Properly!" + ex.Message);
+                    }
+                    finally
+                    {
+                        CString.con.Close();
+                    }
+
                     reset_AllFields();
                 }
                 else
                 {
                     lblAppointmentAlert.Text = "Timing Not Available!";
                 }
-            }
-            catch (Exception ex)
+            }catch(Exception ex)
             {
-                MessageBox.Show(" Enter Details Properly! "+ex.Message);
-            }
-            finally
-            {
-                CString.con.Close();
+                MessageBox.Show("Add Timing properly!"+ex.Message);
             }
         }
 
         void reset_AllFields()
         {
-            txtCustArea.Text = null;
-            txtCustFName.Text = null;
-            txtCustLName.Text = null;
+            txtCustArea.Text = "";
+            txtCustFName.Text = "";
+            txtCustLName.Text = "";
             rbFemale.Checked = false;
-            rbMale.Checked = false;
-            cbPackages.Text = " ";
-            txtTotalPrice.Text = null;
+            rbMale.Checked = true;
+            cbPackages.Text = "";
+            txtTotalPrice.Text = "";
             lblAlertExists.Visible = false;
         }
 

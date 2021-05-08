@@ -35,13 +35,26 @@ namespace SalonManagementSystem
             }
             reader.Close();
             CString.con.Close();
+
+            CString.cmd = new SqlCommand("Sp_Get_AllCustomer", CString.con);
+            CString.cmd.CommandType = CommandType.StoredProcedure;
+
+            CString.con.Open();
+            reader = CString.cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                // Retriving Customer Contact No at column 4
+                cbSearchContactNo.Items.Add(reader.GetValue(3).ToString());
+            }
+            CString.con.Close();
+            
         }
 
         void reset_AllControls()
         {
             txtStatus.Text = null;
             txtTotalAmount.Text = null;
-            txtSearchContactNo.Text = null;
+            cbSearchContactNo.Text = null;
             txtGetDetail.Text = null;
             txtCustContactNo.Text = null;
             txtAppointmentId.Text = null;
@@ -55,15 +68,14 @@ namespace SalonManagementSystem
 
         private void cbSearch_SelectedValueChanged(object sender, EventArgs e)
         {
-            if(cbSearch.Text == "All")
+            if (cbSearch.Text == "All")
             {
-                btnSearchGet.Visible = false;
                 lblSearchContactNo.Visible = false;
-                txtSearchContactNo.Visible = false;
+                cbSearchContactNo.Visible = false;
                 lblSearchDate.Visible = false;
                 dtpSearchDate.Visible = false;
                 // "1" and "DateTime.Today" are just for "not null" values
-                dgvAppointmentDisplay(1, DateTime.Today, cbSearch.Text); 
+                dgvAppointmentDisplay(1, DateTime.Today, cbSearch.Text);
             }
             if (cbSearch.Text == "Customer")
             {
@@ -71,22 +83,15 @@ namespace SalonManagementSystem
                 lblSearchDate.Visible = false;
                 dtpSearchDate.Visible = false;
                 lblSearchContactNo.Visible = true;
-                txtSearchContactNo.Visible = true;
-                btnSearchGet.Visible = true;
+                cbSearchContactNo.Visible = true;
             }
-            else if(cbSearch.Text == "Date")
+            else if (cbSearch.Text == "Date")
             {
                 lblSearchContactNo.Visible = false;
-                txtSearchContactNo.Visible = false;
+                cbSearchContactNo.Visible = false;
                 lblSearchDate.Visible = true;
                 dtpSearchDate.Visible = true;
-                btnSearchGet.Visible = true;
             }
-        }
-
-        private void btnSearchGet_Click(object sender, EventArgs e)
-        {
-            dgvAppointmentDisplay(Convert.ToInt64(txtSearchContactNo.Text), dtpSearchDate.Value, cbSearch.Text);
         }
 
         private void txtGetDetail_Click(object sender, EventArgs e)
@@ -134,7 +139,7 @@ namespace SalonManagementSystem
                 MessageBox.Show("Appointment Updated!");
                 CString.con.Close();
             }
-            dgvAppointmentDisplay(Convert.ToInt64(txtSearchContactNo.Text), dtpSearchDate.Value, cbSearch.Text);
+            //dgvAppointmentDisplay(Convert.ToInt64(cbSearchContactNo.Text), dtpSearchDate.Value, cbSearch.Text);
         }
 
         void calTotalAmount()
@@ -172,7 +177,7 @@ namespace SalonManagementSystem
 
         private void dtpSearchDate_ValueChanged(object sender, EventArgs e)
         {
-            dgvAppointmentDisplay(Convert.ToInt64(txtSearchContactNo.Text), dtpSearchDate.Value, cbSearch.Text);
+            dgvAppointmentDisplay(Convert.ToInt64(cbSearchContactNo.Text), dtpSearchDate.Value, cbSearch.Text);
         }
 
         private void txtAppointmentId_Leave(object sender, EventArgs e)
@@ -197,9 +202,17 @@ namespace SalonManagementSystem
             calTotalAmount();
         }
 
-        private void txtSearchContactNo_Leave(object sender, EventArgs e)
+        private void txtAppointmentId_KeyDown(object sender, KeyEventArgs e)
         {
-            dgvAppointmentDisplay(Convert.ToInt64(txtSearchContactNo.Text), dtpSearchDate.Value, cbSearch.Text);
+            if(e.KeyData == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void cbSearchContactNo_SelectedValueChanged(object sender, EventArgs e)
+        {
+            dgvAppointmentDisplay(Convert.ToInt64(cbSearchContactNo.Text), dtpSearchDate.Value, cbSearch.Text);
         }
     }
 }

@@ -82,7 +82,7 @@ namespace SalonManagementSystem
             this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(823, 9);
+            this.lblTitle.Location = new System.Drawing.Point(562, 9);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(263, 37);
             this.lblTitle.TabIndex = 0;
@@ -475,7 +475,7 @@ namespace SalonManagementSystem
             this.dgvEmployeeDetail.Name = "dgvEmployeeDetail";
             this.dgvEmployeeDetail.RowHeadersWidth = 51;
             this.dgvEmployeeDetail.RowTemplate.Height = 24;
-            this.dgvEmployeeDetail.Size = new System.Drawing.Size(1524, 770);
+            this.dgvEmployeeDetail.Size = new System.Drawing.Size(1003, 770);
             this.dgvEmployeeDetail.TabIndex = 32;
             // 
             // Insert_Employee
@@ -483,7 +483,7 @@ namespace SalonManagementSystem
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1924, 831);
+            this.ClientSize = new System.Drawing.Size(1403, 831);
             this.Controls.Add(this.dgvEmployeeDetail);
             this.Controls.Add(this.gbWorkingStatus);
             this.Controls.Add(this.txtEmpProofId);
