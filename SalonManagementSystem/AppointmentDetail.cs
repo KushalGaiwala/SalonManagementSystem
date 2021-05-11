@@ -11,7 +11,7 @@ namespace SalonManagementSystem
 {
     class AppointmentDetail
     {
-        public void insertDetail(long contactno, string package, DateTime appTime, DateTime appDate, string status)
+        public void insertDetail(long contactno, string package, DateTime appTime, DateTime appDate, char status)
         {
             CString.cmd = new SqlCommand("Sp_Insert_tblAppointment", CString.con);
             CString.cmd.CommandType = CommandType.StoredProcedure;
@@ -27,26 +27,91 @@ namespace SalonManagementSystem
             CString.con.Close();
         }
 
-        public DataTable getAllDetail(long contactno, DateTime date, string search)
+        public void updateDetail(int id, string package, DateTime date, DateTime time, char status)
+        {
+            CString.cmd = new SqlCommand("Sp_Update_tblAppointment", CString.con);
+            CString.cmd.CommandType = CommandType.StoredProcedure;
+            CString.cmd.Parameters.AddWithValue("@Appid", id);
+            CString.cmd.Parameters.AddWithValue("@Pname", package);
+            CString.cmd.Parameters.AddWithValue("@Time", time);
+            CString.cmd.Parameters.AddWithValue("@Date", date);
+            CString.cmd.Parameters.AddWithValue("@Status", status);
+
+            DialogResult result = MessageBox.Show("Do you really want to Update?", "Appointment Updation", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (DialogResult.Yes == result)
+            {
+                CString.con.Open();
+                CString.cmd.ExecuteNonQuery();
+                MessageBox.Show("Appointment Updated!");
+                CString.con.Close();
+            }
+        }
+
+        public DataTable getAllDetail(long contactno)
         {
             CString.cmd = new SqlCommand("Sp_Get_AllAppointment", CString.con);
             CString.cmd.CommandType = CommandType.StoredProcedure;
             CString.cmd.Parameters.AddWithValue("@ContactNo", contactno);
+            // Passed "DateTime.Now" in "@Date" as per parameters to be Mandatory passed
+            CString.cmd.Parameters.AddWithValue("@Date", DateTime.Now);
+            CString.cmd.Parameters.AddWithValue("@type", 1);
+
+            SqlDataAdapter adp = new SqlDataAdapter(CString.cmd);
+
+            CString.con.Open();
+            CString.cmd.ExecuteNonQuery();
+            CString.con.Close();
+
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            return dt;
+        }
+
+        public DataTable getAllDetail(DateTime date)
+        {
+            CString.cmd = new SqlCommand("Sp_Get_AllAppointment", CString.con);
+            CString.cmd.CommandType = CommandType.StoredProcedure;
+            // Passed "1" in "@ContactNo" as per parameter to be Mandatory passed
+            CString.cmd.Parameters.AddWithValue("@ContactNo", 1);
             CString.cmd.Parameters.AddWithValue("@Date", date);
+            CString.cmd.Parameters.AddWithValue("@type", 2);
 
-            if (search == "Customer")
-            {
-                CString.cmd.Parameters.AddWithValue("@type", 1);
-            }
-            else if (search == "Date")
-            {
-                CString.cmd.Parameters.AddWithValue("@type", 2);
-            }
-            else
-            {
-                CString.cmd.Parameters.AddWithValue("@type", 0);
-            }
+            SqlDataAdapter adp = new SqlDataAdapter(CString.cmd);
 
+            CString.con.Open();
+            CString.cmd.ExecuteNonQuery();
+            CString.con.Close();
+
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            return dt;
+        }
+
+        public DataTable getAllDetail()
+        {
+            CString.cmd = new SqlCommand("Sp_Get_AllAppointment", CString.con);
+            CString.cmd.CommandType = CommandType.StoredProcedure;
+            // Passed "1" in "@ContactNo" as per parameter to be Mandatory passed
+            CString.cmd.Parameters.AddWithValue("@ContactNo", 1);
+            // Passed "DateTime.Now" in "@Date" as per parameters to be Mandatory passed
+            CString.cmd.Parameters.AddWithValue("@Date", DateTime.Now);
+            CString.cmd.Parameters.AddWithValue("@type", 0);
+
+            SqlDataAdapter adp = new SqlDataAdapter(CString.cmd);
+
+            CString.con.Open();
+            CString.cmd.ExecuteNonQuery();
+            CString.con.Close();
+
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            return dt;
+        }
+
+        public DataTable getUpcommingAppointment()
+        {
+            CString.cmd = new SqlCommand("Sp_Get_UpcommingAppointment", CString.con);
+            CString.cmd.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter adp = new SqlDataAdapter(CString.cmd);
 
             CString.con.Open();

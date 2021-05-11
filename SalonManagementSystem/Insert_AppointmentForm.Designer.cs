@@ -56,8 +56,10 @@ namespace SalonManagementSystem
             this.label10 = new System.Windows.Forms.Label();
             this.cbMaxAppointment = new System.Windows.Forms.ComboBox();
             this.lblAppointmentAlert = new System.Windows.Forms.Label();
+            this.dgvAppointmentDetail = new System.Windows.Forms.DataGridView();
             this.gbGender.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPackages)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAppointmentDetail)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -65,7 +67,7 @@ namespace SalonManagementSystem
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(424, 9);
+            this.label1.Location = new System.Drawing.Point(379, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(221, 29);
             this.label1.TabIndex = 0;
@@ -168,17 +170,18 @@ namespace SalonManagementSystem
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPackages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPackages.Enabled = false;
-            this.dgvPackages.Location = new System.Drawing.Point(308, 111);
+            this.dgvPackages.Location = new System.Drawing.Point(308, 84);
             this.dgvPackages.Name = "dgvPackages";
+            this.dgvPackages.ReadOnly = true;
             this.dgvPackages.RowHeadersWidth = 51;
             this.dgvPackages.RowTemplate.Height = 24;
-            this.dgvPackages.Size = new System.Drawing.Size(780, 475);
+            this.dgvPackages.Size = new System.Drawing.Size(691, 241);
             this.dgvPackages.TabIndex = 22;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(341, 87);
+            this.label6.Location = new System.Drawing.Point(341, 60);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 18);
             this.label6.TabIndex = 23;
@@ -187,7 +190,7 @@ namespace SalonManagementSystem
             // cbPackages
             // 
             this.cbPackages.FormattingEnabled = true;
-            this.cbPackages.Location = new System.Drawing.Point(431, 79);
+            this.cbPackages.Location = new System.Drawing.Point(431, 52);
             this.cbPackages.Name = "cbPackages";
             this.cbPackages.Size = new System.Drawing.Size(121, 26);
             this.cbPackages.TabIndex = 24;
@@ -196,7 +199,7 @@ namespace SalonManagementSystem
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(574, 87);
+            this.label8.Location = new System.Drawing.Point(574, 60);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(41, 18);
             this.label8.TabIndex = 25;
@@ -204,7 +207,7 @@ namespace SalonManagementSystem
             // 
             // txtTotalPrice
             // 
-            this.txtTotalPrice.Location = new System.Drawing.Point(630, 81);
+            this.txtTotalPrice.Location = new System.Drawing.Point(630, 54);
             this.txtTotalPrice.Name = "txtTotalPrice";
             this.txtTotalPrice.ReadOnly = true;
             this.txtTotalPrice.Size = new System.Drawing.Size(100, 24);
@@ -309,7 +312,7 @@ namespace SalonManagementSystem
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(914, 604);
+            this.label10.Location = new System.Drawing.Point(825, 618);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(122, 18);
             this.label10.TabIndex = 38;
@@ -331,7 +334,7 @@ namespace SalonManagementSystem
             "8",
             "9",
             "10"});
-            this.cbMaxAppointment.Location = new System.Drawing.Point(1042, 596);
+            this.cbMaxAppointment.Location = new System.Drawing.Point(953, 610);
             this.cbMaxAppointment.Name = "cbMaxAppointment";
             this.cbMaxAppointment.Size = new System.Drawing.Size(46, 26);
             this.cbMaxAppointment.TabIndex = 37;
@@ -349,11 +352,27 @@ namespace SalonManagementSystem
             this.lblAppointmentAlert.Text = "Appointment Alert";
             this.lblAppointmentAlert.Visible = false;
             // 
+            // dgvAppointmentDetail
+            // 
+            this.dgvAppointmentDetail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvAppointmentDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAppointmentDetail.Enabled = false;
+            this.dgvAppointmentDetail.Location = new System.Drawing.Point(308, 331);
+            this.dgvAppointmentDetail.Name = "dgvAppointmentDetail";
+            this.dgvAppointmentDetail.ReadOnly = true;
+            this.dgvAppointmentDetail.RowHeadersWidth = 51;
+            this.dgvAppointmentDetail.RowTemplate.Height = 24;
+            this.dgvAppointmentDetail.Size = new System.Drawing.Size(691, 273);
+            this.dgvAppointmentDetail.TabIndex = 40;
+            // 
             // Insert_AppointmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1100, 634);
+            this.ClientSize = new System.Drawing.Size(1011, 648);
+            this.Controls.Add(this.dgvAppointmentDetail);
             this.Controls.Add(this.lblAppointmentAlert);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.cbMaxAppointment);
@@ -387,6 +406,7 @@ namespace SalonManagementSystem
             this.gbGender.ResumeLayout(false);
             this.gbGender.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPackages)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAppointmentDetail)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -420,5 +440,6 @@ namespace SalonManagementSystem
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cbMaxAppointment;
         private System.Windows.Forms.Label lblAppointmentAlert;
+        private System.Windows.Forms.DataGridView dgvAppointmentDetail;
     }
 }

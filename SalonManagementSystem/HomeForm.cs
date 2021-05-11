@@ -22,20 +22,7 @@ namespace SalonManagementSystem
         
         private void HomeForm_Load(object sender, EventArgs e)
         {
-            getAllAppointmentDetails();
-        }
-
-        void getAllAppointmentDetails()
-        {
-            CString.cmd = new SqlCommand("Sp_Get_UpcommingAppointment", CString.con);
-            CString.cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter adp = new SqlDataAdapter(CString.cmd);
-            CString.con.Open();
-            CString.cmd.ExecuteNonQuery();
-            CString.con.Close();
-            DataTable dt = new DataTable();
-            adp.Fill(dt);
-            dgvAppointmentDetail.DataSource = dt;
+            dgvAppointmentDetail.DataSource = appointment.getUpcommingAppointment();
         }
     }
 }

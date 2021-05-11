@@ -55,7 +55,7 @@ namespace SalonManagementSystem
                     }
                     try
                     {
-                        appointment.insertDetail(Convert.ToInt64(txtCustContactNo.Text), cbPackages.Text, Convert.ToDateTime(cbAppointmentTime.Text), dtpAppointmentDate.Value, "remaining");
+                        appointment.insertDetail(Convert.ToInt64(txtCustContactNo.Text), cbPackages.Text, Convert.ToDateTime(cbAppointmentTime.Text), dtpAppointmentDate.Value, 'r');
                     }
                     catch (Exception ex)
                     {
@@ -93,8 +93,8 @@ namespace SalonManagementSystem
         private void Insert_AppointmentForm_Load(object sender, EventArgs e)
         {
             cbMaxAppointment.Text = "3";
-            dtpAppointmentDate.MinDate = DateTime.Today;
-            dtpAppointmentDate.Value = DateTime.Today;
+            dtpAppointmentDate.MinDate = DateTime.Now;
+            dtpAppointmentDate.Value = DateTime.Now;
 
             CString.cmd = new SqlCommand("Sp_Get_Packages", CString.con);
             CString.cmd.CommandType = CommandType.StoredProcedure;
@@ -107,6 +107,8 @@ namespace SalonManagementSystem
             }
             reader.Close();
             CString.con.Close();
+
+            dgvAppointmentDetail.DataSource = appointment.getUpcommingAppointment();
         }
 
         private void selectedValueChanged_cbPackages(object sender, EventArgs e)
