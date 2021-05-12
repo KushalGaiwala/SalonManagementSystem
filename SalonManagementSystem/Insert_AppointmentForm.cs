@@ -53,9 +53,11 @@ namespace SalonManagementSystem
                             CString.con.Close();
                         }
                     }
+
                     try
                     {
                         appointment.insertDetail(Convert.ToInt64(txtCustContactNo.Text), cbPackages.Text, Convert.ToDateTime(cbAppointmentTime.Text), dtpAppointmentDate.Value, 'r');
+                        dgvAppointmentDetail.DataSource = appointment.getUpcommingAppointment();
                     }
                     catch (Exception ex)
                     {
@@ -190,7 +192,8 @@ namespace SalonManagementSystem
             txtCustArea.ReadOnly = true;
             txtCustFName.ReadOnly = true;
             txtCustLName.ReadOnly = true;
-            gbGender.Enabled = false;
+            rbFemale.Enabled = false;
+            rbMale.Enabled = false;
             lblAppointmentAlert.Visible = false;
         }
 
@@ -199,7 +202,8 @@ namespace SalonManagementSystem
             txtCustArea.ReadOnly = false;
             txtCustFName.ReadOnly = false;
             txtCustLName.ReadOnly = false;
-            gbGender.Enabled = true;
+            rbFemale.Enabled = true;
+            rbMale.Enabled = true;
         }
 
         private void txtCustContactNo_KeyPress(object sender, KeyPressEventArgs e)

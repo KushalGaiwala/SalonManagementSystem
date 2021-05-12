@@ -17,19 +17,16 @@ namespace SalonManagementSystem
         {
             InitializeComponent();
         }
-
-        private SqlConnection con = new SqlConnection(@"Data Source=KUSHAL\MSSQLSERVER01;Initial Catalog=DB_SalonManagementSystem;Integrated Security=True");
-        private SqlCommand cmd;
         
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            cmd = new SqlCommand("Sp_tblLogin",con);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@Lname", txtName.Text);
-            cmd.Parameters.AddWithValue("@Lpass",txtPassword.Text);
-            con.Open();
-            int i = Convert.ToInt32(cmd.ExecuteScalar());
-            con.Close();
+            CString.cmd = new SqlCommand("Sp_tblLogin",CString.con);
+            CString.cmd.CommandType = CommandType.StoredProcedure;
+            CString.cmd.Parameters.AddWithValue("@Lname", txtName.Text);
+            CString.cmd.Parameters.AddWithValue("@Lpass",txtPassword.Text);
+            CString.con.Open();
+            int i = Convert.ToInt32(CString.cmd.ExecuteScalar());
+            CString.con.Close();
             if (i == 0)
             {
                 reset_LoginForm();

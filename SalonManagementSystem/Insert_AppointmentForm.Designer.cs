@@ -57,6 +57,8 @@ namespace SalonManagementSystem
             this.cbMaxAppointment = new System.Windows.Forms.ComboBox();
             this.lblAppointmentAlert = new System.Windows.Forms.Label();
             this.dgvAppointmentDetail = new System.Windows.Forms.DataGridView();
+            this.cbServiceChoice = new System.Windows.Forms.ComboBox();
+            this.cbCategory = new System.Windows.Forms.ComboBox();
             this.gbGender.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPackages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointmentDetail)).BeginInit();
@@ -189,8 +191,9 @@ namespace SalonManagementSystem
             // 
             // cbPackages
             // 
+            this.cbPackages.Enabled = false;
             this.cbPackages.FormattingEnabled = true;
-            this.cbPackages.Location = new System.Drawing.Point(431, 52);
+            this.cbPackages.Location = new System.Drawing.Point(548, 52);
             this.cbPackages.Name = "cbPackages";
             this.cbPackages.Size = new System.Drawing.Size(121, 26);
             this.cbPackages.TabIndex = 24;
@@ -199,7 +202,7 @@ namespace SalonManagementSystem
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(574, 60);
+            this.label8.Location = new System.Drawing.Point(843, 60);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(41, 18);
             this.label8.TabIndex = 25;
@@ -207,7 +210,7 @@ namespace SalonManagementSystem
             // 
             // txtTotalPrice
             // 
-            this.txtTotalPrice.Location = new System.Drawing.Point(630, 54);
+            this.txtTotalPrice.Location = new System.Drawing.Point(899, 54);
             this.txtTotalPrice.Name = "txtTotalPrice";
             this.txtTotalPrice.ReadOnly = true;
             this.txtTotalPrice.Size = new System.Drawing.Size(100, 24);
@@ -216,7 +219,7 @@ namespace SalonManagementSystem
             // lblAlertExists
             // 
             this.lblAlertExists.AutoSize = true;
-            this.lblAlertExists.Location = new System.Drawing.Point(122, 84);
+            this.lblAlertExists.Location = new System.Drawing.Point(123, 81);
             this.lblAlertExists.Name = "lblAlertExists";
             this.lblAlertExists.Size = new System.Drawing.Size(170, 18);
             this.lblAlertExists.TabIndex = 27;
@@ -225,7 +228,7 @@ namespace SalonManagementSystem
             // 
             // txtCustContactNo
             // 
-            this.txtCustContactNo.Location = new System.Drawing.Point(149, 57);
+            this.txtCustContactNo.Location = new System.Drawing.Point(150, 54);
             this.txtCustContactNo.MaxLength = 10;
             this.txtCustContactNo.Name = "txtCustContactNo";
             this.txtCustContactNo.Size = new System.Drawing.Size(100, 24);
@@ -236,7 +239,7 @@ namespace SalonManagementSystem
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(38, 63);
+            this.label7.Location = new System.Drawing.Point(39, 60);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(80, 18);
             this.label7.TabIndex = 28;
@@ -367,11 +370,36 @@ namespace SalonManagementSystem
             this.dgvAppointmentDetail.Size = new System.Drawing.Size(691, 273);
             this.dgvAppointmentDetail.TabIndex = 40;
             // 
+            // cbServiceChoice
+            // 
+            this.cbServiceChoice.FormattingEnabled = true;
+            this.cbServiceChoice.Items.AddRange(new object[] {
+            "Service",
+            "Package"});
+            this.cbServiceChoice.Location = new System.Drawing.Point(421, 52);
+            this.cbServiceChoice.Name = "cbServiceChoice";
+            this.cbServiceChoice.Size = new System.Drawing.Size(121, 26);
+            this.cbServiceChoice.TabIndex = 41;
+            // 
+            // cbCategory
+            // 
+            this.cbCategory.Enabled = false;
+            this.cbCategory.FormattingEnabled = true;
+            this.cbCategory.Items.AddRange(new object[] {
+            "All",
+            "Category"});
+            this.cbCategory.Location = new System.Drawing.Point(675, 52);
+            this.cbCategory.Name = "cbCategory";
+            this.cbCategory.Size = new System.Drawing.Size(121, 26);
+            this.cbCategory.TabIndex = 42;
+            // 
             // Insert_AppointmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1011, 648);
+            this.Controls.Add(this.cbCategory);
+            this.Controls.Add(this.cbServiceChoice);
             this.Controls.Add(this.dgvAppointmentDetail);
             this.Controls.Add(this.lblAppointmentAlert);
             this.Controls.Add(this.label10);
@@ -441,5 +469,7 @@ namespace SalonManagementSystem
         private System.Windows.Forms.ComboBox cbMaxAppointment;
         private System.Windows.Forms.Label lblAppointmentAlert;
         private System.Windows.Forms.DataGridView dgvAppointmentDetail;
+        private System.Windows.Forms.ComboBox cbServiceChoice;
+        private System.Windows.Forms.ComboBox cbCategory;
     }
 }
