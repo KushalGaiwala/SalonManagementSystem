@@ -29,6 +29,7 @@ namespace SalonManagementSystem
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.lblName = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
@@ -37,16 +38,18 @@ namespace SalonManagementSystem
             this.btnLogin = new System.Windows.Forms.Button();
             this.lblLogin = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.epAllError = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.epAllError)).BeginInit();
             this.SuspendLayout();
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(303, 181);
+            this.lblName.Location = new System.Drawing.Point(274, 181);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(48, 18);
+            this.lblName.Size = new System.Drawing.Size(77, 18);
             this.lblName.TabIndex = 0;
-            this.lblName.Text = "Name";
+            this.lblName.Text = "Username";
             // 
             // lblPassword
             // 
@@ -63,6 +66,7 @@ namespace SalonManagementSystem
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(112, 24);
             this.txtName.TabIndex = 2;
+            this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
             // 
             // txtPassword
             // 
@@ -71,6 +75,7 @@ namespace SalonManagementSystem
             this.txtPassword.Size = new System.Drawing.Size(112, 24);
             this.txtPassword.TabIndex = 3;
             this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // btnLogin
             // 
@@ -105,6 +110,10 @@ namespace SalonManagementSystem
             this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // epAllError
+            // 
+            this.epAllError.ContainerControl = this;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -123,6 +132,7 @@ namespace SalonManagementSystem
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Closed_LoginForm);
+            ((System.ComponentModel.ISupportInitialize)(this.epAllError)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,5 +147,6 @@ namespace SalonManagementSystem
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label lblLogin;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.ErrorProvider epAllError;
     }
 }

@@ -57,5 +57,29 @@ namespace SalonManagementSystem
             RegistrationForm registration = new RegistrationForm();
             registration.Show();
         }
+
+        void checkAllError()
+        {
+            if(txtName.Text == "" || txtName.Text == null)
+            {
+                epAllError.SetError(txtName, "Username Remaining!");
+                txtName.Focus();
+            }
+            else if(txtPassword.Text == "" || txtPassword.Text == null)
+            {
+                epAllError.SetError(txtPassword, "Password Remaining!");
+                txtPassword.Focus();
+            }
+        }
+
+        private void txtName_Leave(object sender, EventArgs e)
+        {
+            checkAllError();
+        }
+
+        private void txtPassword_Leave(object sender, EventArgs e)
+        {
+            checkAllError();
+        }
     }
 }

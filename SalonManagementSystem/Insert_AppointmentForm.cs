@@ -26,10 +26,9 @@ namespace SalonManagementSystem
         {
             try
             {
-                int count = appointment.count(dtpAppointmentDate.Value, Convert.ToDateTime(cbAppointmentTime.Text), "");
-                if (appointment.limitExceeded(Convert.ToInt32(cbMaxAppointment.Text), count))
+                if (!customer.isCustomer(Convert.ToInt64(txtCustContactNo.Text)))
                 {
-                    if (!customer.isCustomer(Convert.ToInt64(txtCustContactNo.Text)))
+                    try
                     {
                         char gender = ' ';
                         if (rbFemale.Checked)
@@ -40,44 +39,49 @@ namespace SalonManagementSystem
                         {
                             gender = 'm';
                         }
-                        try
-                        {
-                            customer.insertDetail(txtCustFName.Text, txtCustLName.Text, txtCustArea.Text, Convert.ToInt64(txtCustContactNo.Text), gender);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Enter Customer Details Properly!" + ex.Message);
-                        }
-                        finally
-                        {
-                            CString.con.Close();
-                        }
+                        customer.insertDetail(txtCustFName.Text, txtCustLName.Text, txtCustArea.Text, Convert.ToInt64(txtCustContactNo.Text), gender);
                     }
-
-                    try
+                    catch (Exception)
                     {
-                        appointment.insertDetail(Convert.ToInt64(txtCustContactNo.Text), cbPackages.Text, Convert.ToDateTime(cbAppointmentTime.Text), dtpAppointmentDate.Value, 'r');
-                        dgvAppointmentDetail.DataSource = appointment.getUpcommingAppointment();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Enter Appointment Details Properly!" + ex.Message);
+                        epAllError.SetError(gbCustomerDetail, "Enter Custoemr Details Properly!");
                     }
                     finally
                     {
                         CString.con.Close();
                     }
-
-                    reset_AllFields();
                 }
                 else
                 {
-                    lblAppointmentAlert.Text = "Timing Not Available!";
+                    epAllError.SetError(txtCustContactNo, "Enter Customer Details Properly!");
                 }
-            }catch(Exception ex)
-            {
-                MessageBox.Show("Add Timing properly!"+ex.Message);
             }
+            catch (Exception)
+            {
+                epAllError.SetError(txtCustContactNo, "Enter Contact No");
+            }
+
+            try
+            {
+                int count = appointment.count(dtpAppointmentDate.Value, Convert.ToDateTime(cbAppointmentTime.Text), "");
+                if(appointment.limitExceeded(Convert.ToInt32(cbMaxAppointment.Text), count))
+                {
+                    appointment.insertDetail(Convert.ToInt64(txtCustContactNo.Text), cbPackages.Text, Convert.ToDateTime(cbAppointmentTime.Text), dtpAppointmentDate.Value, 'r');
+                    dgvAppointmentDetail.DataSource = appointment.getUpcommingAppointment();
+                }
+                else
+                {
+                    epAllError.SetError(cbAppointmentTime, "Timing Not Available");
+                }
+            }
+            catch (Exception)
+            {
+                epAllError.SetError(gbAppointmentDetail, "Enter Appointment Details Properly!");
+            }
+            finally
+            {
+                CString.con.Close();
+            }
+            reset_AllFields();
         }
 
         void reset_AllFields()
@@ -194,7 +198,7 @@ namespace SalonManagementSystem
             txtCustLName.ReadOnly = true;
             rbFemale.Enabled = false;
             rbMale.Enabled = false;
-            lblAppointmentAlert.Visible = false;
+            epAllError.Clear();
         }
 
         void enableAllControls()
@@ -217,17 +221,47 @@ namespace SalonManagementSystem
 
         private void cbAppointmentTime_SelectedValueChanged(object sender, EventArgs e)
         {
-            
             int totalAppoint = appointment.count(dtpAppointmentDate.Value, Convert.ToDateTime(cbAppointmentTime.Text), "remaining");
             if (!appointment.limitExceeded(Convert.ToInt32(cbMaxAppointment.Text), totalAppoint))
             {
-                lblAppointmentAlert.Text = "Not Available!";
-                lblAppointmentAlert.Visible = true;
+                epAllError.SetError(cbAppointmentTime, "Time Not Available");
             }
             else
             {
-                lblAppointmentAlert.Visible = false;
+                epAllError.Clear();
                 cbAppointmentTime.Focus();
+            }
+        }
+
+        void checkControls()
+        {
+            if(txtCustContactNo.Text == null || txtCustContactNo.Text == "")
+            {
+                epAllError.SetError(txtCustLName, "Field Empty!");
+            }
+            else if(txtCustFName.Text == null || txtCustFName.Text == "")
+            {
+                epAllError.SetError(txtCustFName, "Field Empty!");
+            }
+            else if(txtCustLName.Text == null || txtCustLName.Text == "")
+            {
+                epAllError.SetError(txtCustLName, "Field Empty!");
+            }
+            else if(txtCustArea.Text == null || txtCustArea.Text == "")
+            {
+                epAllError.SetError(txtCustArea, "Field Empty!");
+            }
+            else if(cbAppointmentTime.Text == null || cbAppointmentTime.Text == "")
+            {
+                epAllError.SetError(cbAppointmentTime, "Field Empty!");
+            }
+        }
+
+        private void txtCustLName_Leave(object sender, EventArgs e)
+        {
+            if (txtCustLName.Text == null || txtCustLName.Text == "")
+            {
+                epAllError.SetError(txtCustLName, "Remaining Field");
             }
         }
     }
