@@ -40,7 +40,6 @@ namespace SalonManagementSystem
             this.servicesToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.aDDToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.rEGISTRATIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,8 +52,7 @@ namespace SalonManagementSystem
             this.cUSTOMERToolStripMenuItem,
             this.appointmentToolStripMenuItem,
             this.servicesToolStripMenuItem2,
-            this.employeeToolStripMenuItem1,
-            this.rEGISTRATIONToolStripMenuItem});
+            this.employeeToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(870, 28);
@@ -128,14 +126,6 @@ namespace SalonManagementSystem
             this.employeeToolStripMenuItem1.Text = "EMPLOYEE";
             this.employeeToolStripMenuItem1.Click += new System.EventHandler(this.employeeToolStripMenuItem1_Click);
             // 
-            // rEGISTRATIONToolStripMenuItem
-            // 
-            this.rEGISTRATIONToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.rEGISTRATIONToolStripMenuItem.Name = "rEGISTRATIONToolStripMenuItem";
-            this.rEGISTRATIONToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
-            this.rEGISTRATIONToolStripMenuItem.Text = "REGISTRATION";
-            this.rEGISTRATIONToolStripMenuItem.Click += new System.EventHandler(this.rEGISTRATIONToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -169,7 +159,6 @@ namespace SalonManagementSystem
         private System.Windows.Forms.ToolStripMenuItem aDDToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vIEWToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem aDDToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem rEGISTRATIONToolStripMenuItem;
     }
 }
 

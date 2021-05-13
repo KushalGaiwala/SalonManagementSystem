@@ -64,14 +64,22 @@ namespace SalonManagementSystem
             registration.Show();
         }
 
-        void checkAllError()
+        private void txtName_Leave(object sender, EventArgs e)
         {
-            if(txtName.Text == "" || txtName.Text == null)
+            if (txtName.Text == "" || txtName.Text == null)
             {
                 epAllError.SetError(txtName, "Username Remaining!");
                 txtName.Focus();
             }
-            else if(txtPassword.Text == "" || txtPassword.Text == null)
+            else
+            {
+                epAllError.Clear();
+            }
+        }
+
+        private void txtPassword_Leave(object sender, EventArgs e)
+        {
+            if (txtPassword.Text == "" || txtPassword.Text == null)
             {
                 epAllError.SetError(txtPassword, "Password Remaining!");
                 txtPassword.Focus();
@@ -80,16 +88,6 @@ namespace SalonManagementSystem
             {
                 epAllError.Clear();
             }
-        }
-
-        private void txtName_Leave(object sender, EventArgs e)
-        {
-            checkAllError();
-        }
-
-        private void txtPassword_Leave(object sender, EventArgs e)
-        {
-            checkAllError();
         }
     }
 }

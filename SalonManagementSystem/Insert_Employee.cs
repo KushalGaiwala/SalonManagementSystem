@@ -100,8 +100,6 @@ namespace SalonManagementSystem
             txtArea.Text = null;
             txtCity.Text = null;
             txtPincode.Text = null;
-            dtpEmpDOB.Value = calMaxDate();
-            dtpDOJ.MinDate = DateTime.Today;
             txtEmpExp.Text = null;
             txtEmpSalary.Text = null;
             txtEmpProof.Text = null;
@@ -245,16 +243,6 @@ namespace SalonManagementSystem
             dgvEmpDisplay();
         }
 
-        DateTime calMaxDate()
-        {
-            int year = DateTime.Today.Year - 18;
-            int day = DateTime.Today.Day;
-            int month = DateTime.Today.Month;
-            string datetime = month + " / " + day + " / " + year;
-            DateTime date = DateTime.Parse(datetime);
-            return date;
-        }
-
         void dgvEmpDisplay()
         {
             CString.cmd = new SqlCommand("Sp_Get_AllEmployee", CString.con);
@@ -273,8 +261,8 @@ namespace SalonManagementSystem
         private void Insert_Employee_Load(object sender, EventArgs e)
         {
             dgvEmpDisplay();
-            dtpDOJ.MinDate = DateTime.Today;
-            dtpEmpDOB.MaxDate = calMaxDate();
+            dtpDOJ.MinDate = DateTime.Now;
+            dtpEmpDOB.MaxDate = DateTime.Now.AddYears(-18);
         }
     }
 }

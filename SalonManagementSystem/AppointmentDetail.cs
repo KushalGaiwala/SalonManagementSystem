@@ -125,17 +125,17 @@ namespace SalonManagementSystem
 
         public Boolean limitExceeded(int max, int count)
         {
-            if (count < max)
-            {
-                return true;
-            }
-            else
+            if (max < count)
             {
                 return false;
             }
+            else
+            {
+                return true;
+            }
         }
 
-        public int count(DateTime date, DateTime time, string status)
+        public int count(DateTime date, DateTime time, char status)
         {
             int totalNum = 0;
             CString.cmd = new SqlCommand("Sp_Verify_Appointment", CString.con);

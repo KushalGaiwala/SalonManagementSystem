@@ -19,7 +19,9 @@ namespace SalonManagementSystem
         Insert_AppointmentForm insertAppoint = null;
         Customer customer = null;
         Appointment appoint = null;
-        
+        //RegistrationForm registration = null;
+
+
         public Form1()
         {
             InitializeComponent();
@@ -137,16 +139,11 @@ namespace SalonManagementSystem
         {
             if(LoginForm.type != 'a')
             {
-                rEGISTRATIONToolStripMenuItem.Visible = false;
+                employeeToolStripMenuItem1.Visible = false;
             }
             home = new HomeForm();
             home.Show();
             home.MdiParent = this;
-        }
-
-        private void rEGISTRATIONToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

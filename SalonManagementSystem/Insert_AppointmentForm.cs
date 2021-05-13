@@ -62,7 +62,7 @@ namespace SalonManagementSystem
 
             try
             {
-                int count = appointment.count(dtpAppointmentDate.Value, Convert.ToDateTime(cbAppointmentTime.Text), "");
+                int count = appointment.count(dtpAppointmentDate.Value, Convert.ToDateTime(cbAppointmentTime.Text), 'r');
                 if(appointment.limitExceeded(Convert.ToInt32(cbMaxAppointment.Text), count))
                 {
                     appointment.insertDetail(Convert.ToInt64(txtCustContactNo.Text), cbPackages.Text, Convert.ToDateTime(cbAppointmentTime.Text), dtpAppointmentDate.Value, 'r');
@@ -221,7 +221,7 @@ namespace SalonManagementSystem
 
         private void cbAppointmentTime_SelectedValueChanged(object sender, EventArgs e)
         {
-            int totalAppoint = appointment.count(dtpAppointmentDate.Value, Convert.ToDateTime(cbAppointmentTime.Text), "remaining");
+            int totalAppoint = appointment.count(dtpAppointmentDate.Value, Convert.ToDateTime(cbAppointmentTime.Text), 'r');
             if (!appointment.limitExceeded(Convert.ToInt32(cbMaxAppointment.Text), totalAppoint))
             {
                 epAllError.SetError(cbAppointmentTime, "Time Not Available");

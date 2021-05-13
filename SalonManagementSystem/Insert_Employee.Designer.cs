@@ -152,7 +152,7 @@ namespace SalonManagementSystem
             this.dtpEmpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpEmpDOB.Location = new System.Drawing.Point(132, 164);
             this.dtpEmpDOB.Name = "dtpEmpDOB";
-            this.dtpEmpDOB.Size = new System.Drawing.Size(124, 22);
+            this.dtpEmpDOB.Size = new System.Drawing.Size(144, 22);
             this.dtpEmpDOB.TabIndex = 8;
             this.dtpEmpDOB.Value = new System.DateTime(2021, 4, 25, 0, 0, 0, 0);
             // 
@@ -374,7 +374,7 @@ namespace SalonManagementSystem
             this.dtpDOJ.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDOJ.Location = new System.Drawing.Point(129, 508);
             this.dtpDOJ.Name = "dtpDOJ";
-            this.dtpDOJ.Size = new System.Drawing.Size(117, 22);
+            this.dtpDOJ.Size = new System.Drawing.Size(147, 22);
             this.dtpDOJ.TabIndex = 20;
             this.dtpDOJ.Value = new System.DateTime(2021, 4, 25, 0, 0, 0, 0);
             // 
