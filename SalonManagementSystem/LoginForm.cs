@@ -13,6 +13,7 @@ namespace SalonManagementSystem
 {
     public partial class LoginForm : Form
     {
+        public static char type = ' ';
         public LoginForm()
         {
             InitializeComponent();
@@ -26,19 +27,24 @@ namespace SalonManagementSystem
             CString.cmd.Parameters.AddWithValue("@Lpass",txtPassword.Text);
             CString.con.Open();
             int i = Convert.ToInt32(CString.cmd.ExecuteScalar());
-            CString.con.Close();
+            SqlDataReader reader = CString.cmd.ExecuteReader();
+            reader.Read();
             if (i == 0)
             {
+                CString.con.Close();
                 reset_LoginForm();
                 MessageBox.Show("Login failed!");
             }
             else
             {
+                type = Convert.ToChar(reader.GetValue(1));
                 MessageBox.Show("Successfully logged in!");
                 Form1 form = new Form1();
+                CString.con.Close();
                 form.Show();
                 this.Hide();
             }
+            
         }
 
         private void reset_LoginForm()
@@ -69,6 +75,10 @@ namespace SalonManagementSystem
             {
                 epAllError.SetError(txtPassword, "Password Remaining!");
                 txtPassword.Focus();
+            }
+            else
+            {
+                epAllError.Clear();
             }
         }
 

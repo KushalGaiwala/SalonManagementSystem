@@ -50,7 +50,7 @@ namespace SalonManagementSystem
                 MailMessage mail;
                 string email, pass;
                 email = "kushal8217@gmail.com";
-                pass = "kushalkushal";
+                pass = "kushalkushal3217";
             
                 Random rand = new Random();
                 int otp = rand.Next(100000, 999999);

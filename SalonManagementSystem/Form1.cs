@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -122,11 +123,11 @@ namespace SalonManagementSystem
             {
                 emp.Hide();
             }
-            if(customer != null && open != 5)
+            if (customer != null && open != 5)
             {
                 customer.Hide();
             }
-            if(appoint != null && open != 6)
+            if (appoint != null && open != 6)
             {
                 appoint.Hide();
             }
@@ -134,9 +135,18 @@ namespace SalonManagementSystem
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            if(LoginForm.type != 'a')
+            {
+                rEGISTRATIONToolStripMenuItem.Visible = false;
+            }
             home = new HomeForm();
             home.Show();
             home.MdiParent = this;
+        }
+
+        private void rEGISTRATIONToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
