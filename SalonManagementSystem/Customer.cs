@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace SalonManagementSystem
 {
-    public partial class Customer : Form
+    public partial class Customers : Form
     {
-        public Customer()
+        public Customers()
         {
             InitializeComponent();
         }

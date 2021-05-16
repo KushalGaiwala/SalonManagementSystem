@@ -47,6 +47,18 @@ namespace SalonManagementSystem
             }
         }
 
+        public void changeStatus(long contactno, DateTime date, char status)
+        {
+            CString.cmd = new System.Data.SqlClient.SqlCommand("Sp_Update_AppointmentStatus", CString.con);
+            CString.cmd.CommandType = CommandType.StoredProcedure;
+            CString.cmd.Parameters.AddWithValue("@ContactNo", contactno);
+            CString.cmd.Parameters.AddWithValue("@Date", date);
+            CString.cmd.Parameters.AddWithValue("@Status", status);
+            CString.con.Open();
+            CString.cmd.ExecuteNonQuery();
+            CString.con.Close();
+        }
+
         public DataTable getAllDetail(long contactno)
         {
             CString.cmd = new SqlCommand("Sp_Get_AllAppointment", CString.con);

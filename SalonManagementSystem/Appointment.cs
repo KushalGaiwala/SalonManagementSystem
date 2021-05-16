@@ -162,19 +162,7 @@ namespace SalonManagementSystem
                 cbPackage.Text = dgvAppointmentDetail.SelectedRows[0].Cells["Package"].Value.ToString();
                 dtpAppointmentDate.Value = Convert.ToDateTime(dgvAppointmentDetail.SelectedRows[0].Cells["date"].Value);
                 cbAppointmentTime.Text = dgvAppointmentDetail.SelectedRows[0].Cells["time"].Value.ToString();
-                char status = Convert.ToChar(dgvAppointmentDetail.SelectedRows[0].Cells["status"].Value);
-                if(status == 'r')
-                {
-                    cbStatus.Text = "Remaining";
-                }
-                else if(status == 'd')
-                {
-                    cbStatus.Text = "Done";
-                }
-                else if(status == 'c')
-                {
-                    cbStatus.Text = "Cancel";
-                }
+                cbStatus.Text = dgvAppointmentDetail.SelectedRows[0].Cells["status"].Value.ToString();
             }
             catch (Exception)
             {

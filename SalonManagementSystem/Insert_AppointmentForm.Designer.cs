@@ -62,12 +62,18 @@ namespace SalonManagementSystem
             this.gbCustomerDetail = new System.Windows.Forms.GroupBox();
             this.gbAppointmentDetail = new System.Windows.Forms.GroupBox();
             this.epAllError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.gbServices = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.gbGender.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPackages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointmentDetail)).BeginInit();
             this.gbCustomerDetail.SuspendLayout();
             this.gbAppointmentDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.epAllError)).BeginInit();
+            this.gbServices.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -75,7 +81,7 @@ namespace SalonManagementSystem
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(379, 9);
+            this.label1.Location = new System.Drawing.Point(444, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(221, 29);
             this.label1.TabIndex = 0;
@@ -84,7 +90,7 @@ namespace SalonManagementSystem
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 109);
+            this.label2.Location = new System.Drawing.Point(31, 97);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 18);
             this.label2.TabIndex = 1;
@@ -92,16 +98,16 @@ namespace SalonManagementSystem
             // 
             // txtCustFName
             // 
-            this.txtCustFName.Location = new System.Drawing.Point(126, 103);
+            this.txtCustFName.Location = new System.Drawing.Point(143, 91);
             this.txtCustFName.Name = "txtCustFName";
             this.txtCustFName.Size = new System.Drawing.Size(100, 24);
             this.txtCustFName.TabIndex = 8;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(84, 555);
+            this.btnAdd.Location = new System.Drawing.Point(491, 239);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(94, 30);
+            this.btnAdd.Size = new System.Drawing.Size(110, 46);
             this.btnAdd.TabIndex = 15;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -124,9 +130,9 @@ namespace SalonManagementSystem
             // 
             this.gbGender.Controls.Add(this.rbFemale);
             this.gbGender.Controls.Add(this.rbMale);
-            this.gbGender.Location = new System.Drawing.Point(15, 213);
+            this.gbGender.Location = new System.Drawing.Point(35, 181);
             this.gbGender.Name = "gbGender";
-            this.gbGender.Size = new System.Drawing.Size(200, 95);
+            this.gbGender.Size = new System.Drawing.Size(200, 98);
             this.gbGender.TabIndex = 17;
             this.gbGender.TabStop = false;
             this.gbGender.Text = "Gender";
@@ -178,28 +184,27 @@ namespace SalonManagementSystem
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPackages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPackages.Enabled = false;
-            this.dgvPackages.Location = new System.Drawing.Point(308, 84);
+            this.dgvPackages.Location = new System.Drawing.Point(4, 326);
             this.dgvPackages.Name = "dgvPackages";
             this.dgvPackages.ReadOnly = true;
             this.dgvPackages.RowHeadersWidth = 51;
             this.dgvPackages.RowTemplate.Height = 24;
-            this.dgvPackages.Size = new System.Drawing.Size(691, 241);
+            this.dgvPackages.Size = new System.Drawing.Size(985, 207);
             this.dgvPackages.TabIndex = 22;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(341, 60);
+            this.label6.Location = new System.Drawing.Point(23, 86);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 18);
+            this.label6.Size = new System.Drawing.Size(68, 18);
             this.label6.TabIndex = 23;
-            this.label6.Text = "Packages";
+            this.label6.Text = "Category";
             // 
             // cbPackages
             // 
-            this.cbPackages.Enabled = false;
             this.cbPackages.FormattingEnabled = true;
-            this.cbPackages.Location = new System.Drawing.Point(548, 52);
+            this.cbPackages.Location = new System.Drawing.Point(103, 122);
             this.cbPackages.Name = "cbPackages";
             this.cbPackages.Size = new System.Drawing.Size(121, 26);
             this.cbPackages.TabIndex = 24;
@@ -208,7 +213,7 @@ namespace SalonManagementSystem
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(843, 60);
+            this.label8.Location = new System.Drawing.Point(777, 273);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(41, 18);
             this.label8.TabIndex = 25;
@@ -216,16 +221,16 @@ namespace SalonManagementSystem
             // 
             // txtTotalPrice
             // 
-            this.txtTotalPrice.Location = new System.Drawing.Point(899, 54);
+            this.txtTotalPrice.Location = new System.Drawing.Point(833, 267);
             this.txtTotalPrice.Name = "txtTotalPrice";
             this.txtTotalPrice.ReadOnly = true;
-            this.txtTotalPrice.Size = new System.Drawing.Size(100, 24);
+            this.txtTotalPrice.Size = new System.Drawing.Size(121, 24);
             this.txtTotalPrice.TabIndex = 26;
             // 
             // lblAlertExists
             // 
             this.lblAlertExists.AutoSize = true;
-            this.lblAlertExists.Location = new System.Drawing.Point(99, 75);
+            this.lblAlertExists.Location = new System.Drawing.Point(116, 63);
             this.lblAlertExists.Name = "lblAlertExists";
             this.lblAlertExists.Size = new System.Drawing.Size(170, 18);
             this.lblAlertExists.TabIndex = 27;
@@ -234,7 +239,7 @@ namespace SalonManagementSystem
             // 
             // txtCustContactNo
             // 
-            this.txtCustContactNo.Location = new System.Drawing.Point(126, 48);
+            this.txtCustContactNo.Location = new System.Drawing.Point(143, 36);
             this.txtCustContactNo.MaxLength = 10;
             this.txtCustContactNo.Name = "txtCustContactNo";
             this.txtCustContactNo.Size = new System.Drawing.Size(100, 24);
@@ -245,7 +250,7 @@ namespace SalonManagementSystem
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(15, 54);
+            this.label7.Location = new System.Drawing.Point(32, 42);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(80, 18);
             this.label7.TabIndex = 28;
@@ -253,7 +258,7 @@ namespace SalonManagementSystem
             // 
             // txtCustArea
             // 
-            this.txtCustArea.Location = new System.Drawing.Point(126, 163);
+            this.txtCustArea.Location = new System.Drawing.Point(143, 151);
             this.txtCustArea.Name = "txtCustArea";
             this.txtCustArea.Size = new System.Drawing.Size(100, 24);
             this.txtCustArea.TabIndex = 31;
@@ -261,7 +266,7 @@ namespace SalonManagementSystem
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 169);
+            this.label5.Location = new System.Drawing.Point(35, 157);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(38, 18);
             this.label5.TabIndex = 30;
@@ -269,16 +274,15 @@ namespace SalonManagementSystem
             // 
             // txtCustLName
             // 
-            this.txtCustLName.Location = new System.Drawing.Point(126, 133);
+            this.txtCustLName.Location = new System.Drawing.Point(143, 121);
             this.txtCustLName.Name = "txtCustLName";
             this.txtCustLName.Size = new System.Drawing.Size(100, 24);
             this.txtCustLName.TabIndex = 33;
-            this.txtCustLName.Leave += new System.EventHandler(this.txtCustLName_Leave);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(14, 139);
+            this.label9.Location = new System.Drawing.Point(31, 127);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(76, 18);
             this.label9.TabIndex = 32;
@@ -322,7 +326,7 @@ namespace SalonManagementSystem
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(825, 618);
+            this.label10.Location = new System.Drawing.Point(815, 18);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(122, 18);
             this.label10.TabIndex = 38;
@@ -344,7 +348,7 @@ namespace SalonManagementSystem
             "8",
             "9",
             "10"});
-            this.cbMaxAppointment.Location = new System.Drawing.Point(953, 610);
+            this.cbMaxAppointment.Location = new System.Drawing.Point(943, 10);
             this.cbMaxAppointment.Name = "cbMaxAppointment";
             this.cbMaxAppointment.Size = new System.Drawing.Size(46, 26);
             this.cbMaxAppointment.TabIndex = 37;
@@ -356,12 +360,12 @@ namespace SalonManagementSystem
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvAppointmentDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAppointmentDetail.Enabled = false;
-            this.dgvAppointmentDetail.Location = new System.Drawing.Point(308, 331);
+            this.dgvAppointmentDetail.Location = new System.Drawing.Point(4, 541);
             this.dgvAppointmentDetail.Name = "dgvAppointmentDetail";
             this.dgvAppointmentDetail.ReadOnly = true;
             this.dgvAppointmentDetail.RowHeadersWidth = 51;
             this.dgvAppointmentDetail.RowTemplate.Height = 24;
-            this.dgvAppointmentDetail.Size = new System.Drawing.Size(691, 273);
+            this.dgvAppointmentDetail.Size = new System.Drawing.Size(985, 188);
             this.dgvAppointmentDetail.TabIndex = 40;
             // 
             // cbServiceChoice
@@ -370,19 +374,15 @@ namespace SalonManagementSystem
             this.cbServiceChoice.Items.AddRange(new object[] {
             "Service",
             "Package"});
-            this.cbServiceChoice.Location = new System.Drawing.Point(421, 52);
+            this.cbServiceChoice.Location = new System.Drawing.Point(103, 78);
             this.cbServiceChoice.Name = "cbServiceChoice";
             this.cbServiceChoice.Size = new System.Drawing.Size(121, 26);
             this.cbServiceChoice.TabIndex = 41;
             // 
             // cbCategory
             // 
-            this.cbCategory.Enabled = false;
             this.cbCategory.FormattingEnabled = true;
-            this.cbCategory.Items.AddRange(new object[] {
-            "All",
-            "Category"});
-            this.cbCategory.Location = new System.Drawing.Point(675, 52);
+            this.cbCategory.Location = new System.Drawing.Point(103, 164);
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(121, 26);
             this.cbCategory.TabIndex = 42;
@@ -399,9 +399,9 @@ namespace SalonManagementSystem
             this.gbCustomerDetail.Controls.Add(this.txtCustArea);
             this.gbCustomerDetail.Controls.Add(this.txtCustLName);
             this.gbCustomerDetail.Controls.Add(this.label9);
-            this.gbCustomerDetail.Location = new System.Drawing.Point(-2, 12);
+            this.gbCustomerDetail.Location = new System.Drawing.Point(79, 9);
             this.gbCustomerDetail.Name = "gbCustomerDetail";
-            this.gbCustomerDetail.Size = new System.Drawing.Size(280, 323);
+            this.gbCustomerDetail.Size = new System.Drawing.Size(302, 296);
             this.gbCustomerDetail.TabIndex = 43;
             this.gbCustomerDetail.TabStop = false;
             this.gbCustomerDetail.Text = "Customer Details";
@@ -412,7 +412,7 @@ namespace SalonManagementSystem
             this.gbAppointmentDetail.Controls.Add(this.label3);
             this.gbAppointmentDetail.Controls.Add(this.label4);
             this.gbAppointmentDetail.Controls.Add(this.cbAppointmentTime);
-            this.gbAppointmentDetail.Location = new System.Drawing.Point(-2, 361);
+            this.gbAppointmentDetail.Location = new System.Drawing.Point(416, 45);
             this.gbAppointmentDetail.Name = "gbAppointmentDetail";
             this.gbAppointmentDetail.Size = new System.Drawing.Size(281, 148);
             this.gbAppointmentDetail.TabIndex = 44;
@@ -423,23 +423,75 @@ namespace SalonManagementSystem
             // 
             this.epAllError.ContainerControl = this;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(26, 130);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(66, 18);
+            this.label11.TabIndex = 45;
+            this.label11.Text = "Package";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(26, 172);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(65, 18);
+            this.label12.TabIndex = 46;
+            this.label12.Text = "Services";
+            // 
+            // gbServices
+            // 
+            this.gbServices.Controls.Add(this.comboBox1);
+            this.gbServices.Controls.Add(this.label13);
+            this.gbServices.Controls.Add(this.cbServiceChoice);
+            this.gbServices.Controls.Add(this.label12);
+            this.gbServices.Controls.Add(this.label6);
+            this.gbServices.Controls.Add(this.label11);
+            this.gbServices.Controls.Add(this.cbPackages);
+            this.gbServices.Controls.Add(this.cbCategory);
+            this.gbServices.Location = new System.Drawing.Point(730, 45);
+            this.gbServices.Name = "gbServices";
+            this.gbServices.Size = new System.Drawing.Size(256, 216);
+            this.gbServices.TabIndex = 47;
+            this.gbServices.TabStop = false;
+            this.gbServices.Text = "Services";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Service",
+            "Package"});
+            this.comboBox1.Location = new System.Drawing.Point(103, 36);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 26);
+            this.comboBox1.TabIndex = 48;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(48, 44);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(40, 18);
+            this.label13.TabIndex = 47;
+            this.label13.Text = "Type";
+            // 
             // Insert_AppointmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1011, 648);
+            this.ClientSize = new System.Drawing.Size(1001, 734);
+            this.Controls.Add(this.gbServices);
             this.Controls.Add(this.gbAppointmentDetail);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.gbCustomerDetail);
-            this.Controls.Add(this.cbCategory);
-            this.Controls.Add(this.cbServiceChoice);
             this.Controls.Add(this.dgvAppointmentDetail);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.cbMaxAppointment);
             this.Controls.Add(this.txtTotalPrice);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.cbPackages);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.dgvPackages);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -457,6 +509,8 @@ namespace SalonManagementSystem
             this.gbAppointmentDetail.ResumeLayout(false);
             this.gbAppointmentDetail.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.epAllError)).EndInit();
+            this.gbServices.ResumeLayout(false);
+            this.gbServices.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -495,5 +549,10 @@ namespace SalonManagementSystem
         private System.Windows.Forms.GroupBox gbCustomerDetail;
         private System.Windows.Forms.GroupBox gbAppointmentDetail;
         private System.Windows.Forms.ErrorProvider epAllError;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.GroupBox gbServices;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label13;
     }
 }

@@ -24,64 +24,66 @@ namespace SalonManagementSystem
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            try
+            if(txtCustContactNo.Text != "" || txtCustContactNo.Text != null)
             {
-                if (!customer.isCustomer(Convert.ToInt64(txtCustContactNo.Text)))
+                if (txtCustContactNo.TextLength == 10)
                 {
-                    try
+                    if (!customer.isCustomer(Convert.ToInt64(txtCustContactNo.Text)))
                     {
-                        char gender = ' ';
-                        if (rbFemale.Checked)
+                        if (txtCustFName.Text != null && txtCustFName.Text != "" && txtCustLName.Text != null && txtCustLName.Text != "" && txtCustArea.Text != null && txtCustArea.Text != "")
                         {
-                            gender = 'f';
+                            char gender = ' ';
+                            if (rbFemale.Checked)
+                            {
+                                gender = 'f';
+                            }
+                            else if (rbMale.Checked)
+                            {
+                                gender = 'm';
+                            }
+                            customer.insertDetail(txtCustFName.Text, txtCustLName.Text, txtCustArea.Text, Convert.ToInt64(txtCustContactNo.Text), gender);
                         }
-                        else if (rbMale.Checked)
+                        else
                         {
-                            gender = 'm';
+                            epAllError.SetError(gbCustomerDetail, "Empty Customer Details!");
                         }
-                        customer.insertDetail(txtCustFName.Text, txtCustLName.Text, txtCustArea.Text, Convert.ToInt64(txtCustContactNo.Text), gender);
-                    }
-                    catch (Exception)
-                    {
-                        epAllError.SetError(gbCustomerDetail, "Enter Custoemr Details Properly!");
-                    }
-                    finally
-                    {
-                        CString.con.Close();
                     }
                 }
                 else
                 {
-                    epAllError.SetError(txtCustContactNo, "Enter Customer Details Properly!");
+                    epAllError.SetError(txtCustContactNo, "Must be excatly 10 digits");
                 }
             }
-            catch (Exception)
+            else
             {
                 epAllError.SetError(txtCustContactNo, "Enter Contact No");
             }
 
-            try
+            if(cbAppointmentTime.Text != "" && cbAppointmentTime.Text != null)
             {
-                int count = appointment.count(dtpAppointmentDate.Value, Convert.ToDateTime(cbAppointmentTime.Text), 'r');
-                if(appointment.limitExceeded(Convert.ToInt32(cbMaxAppointment.Text), count))
+                if (cbPackages.Text != "" && cbPackages.Text != null)
                 {
-                    appointment.insertDetail(Convert.ToInt64(txtCustContactNo.Text), cbPackages.Text, Convert.ToDateTime(cbAppointmentTime.Text), dtpAppointmentDate.Value, 'r');
-                    dgvAppointmentDetail.DataSource = appointment.getUpcommingAppointment();
+                    int count = appointment.count(dtpAppointmentDate.Value, Convert.ToDateTime(cbAppointmentTime.Text), 'r');
+                    if (appointment.limitExceeded(Convert.ToInt32(cbMaxAppointment.Text), count))
+                    {
+                        appointment.insertDetail(Convert.ToInt64(txtCustContactNo.Text), cbPackages.Text, Convert.ToDateTime(cbAppointmentTime.Text), dtpAppointmentDate.Value, 'r');
+                        dgvAppointmentDetail.DataSource = appointment.getUpcommingAppointment();
+                        reset_AllFields();
+                    }
+                    else
+                    {
+                        epAllError.SetError(cbAppointmentTime, "Timing Not Available");
+                    }
                 }
                 else
                 {
-                    epAllError.SetError(cbAppointmentTime, "Timing Not Available");
+                    epAllError.SetError(cbPackages, "Package not selected!");
                 }
             }
-            catch (Exception)
+            else
             {
                 epAllError.SetError(gbAppointmentDetail, "Enter Appointment Details Properly!");
             }
-            finally
-            {
-                CString.con.Close();
-            }
-            reset_AllFields();
         }
 
         void reset_AllFields()
@@ -150,21 +152,28 @@ namespace SalonManagementSystem
         {
             if (txtCustContactNo.Text != "")
             {
-                if (customer.isCustomer(Convert.ToInt64(txtCustContactNo.Text)))
+                if (txtCustContactNo.TextLength == 10)
                 {
-                    if (lblAlertExists.Visible == false)
+                    if (customer.isCustomer(Convert.ToInt64(txtCustContactNo.Text)))
                     {
-                        txtCustContactNo.Focus();
+                        if (lblAlertExists.Visible == false)
+                        {
+                            txtCustContactNo.Focus();
+                        }
+                        lblAlertExists.Visible = true;
+                        get_CustomerDetail();
+                        disableAllControls();
                     }
-                    lblAlertExists.Visible = true;
-                    get_CustomerDetail();
-                    disableAllControls();
+                    else
+                    {
+                        lblAlertExists.Visible = false;
+                        reset_AllFields();
+                        enableAllControls();
+                    }
                 }
                 else
                 {
-                    lblAlertExists.Visible = false;
-                    reset_AllFields();
-                    enableAllControls();
+                    epAllError.SetError(txtCustContactNo, "Must be excatly 10 digits");
                 }
             }
         }
@@ -254,14 +263,6 @@ namespace SalonManagementSystem
             else if(cbAppointmentTime.Text == null || cbAppointmentTime.Text == "")
             {
                 epAllError.SetError(cbAppointmentTime, "Field Empty!");
-            }
-        }
-
-        private void txtCustLName_Leave(object sender, EventArgs e)
-        {
-            if (txtCustLName.Text == null || txtCustLName.Text == "")
-            {
-                epAllError.SetError(txtCustLName, "Remaining Field");
             }
         }
     }

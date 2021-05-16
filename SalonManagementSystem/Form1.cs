@@ -17,8 +17,9 @@ namespace SalonManagementSystem
         ServicesForm services = null;
         HomeForm home = null;
         Insert_AppointmentForm insertAppoint = null;
-        Customer customer = null;
+        Customers customer = null;
         Appointment appoint = null;
+        ReportForm report = new ReportForm();
         //RegistrationForm registration = null;
 
 
@@ -89,7 +90,7 @@ namespace SalonManagementSystem
         {
             if (customer == null || customer.IsDisposed == true)
             {
-                customer = new Customer();
+                customer = new Customers();
             }
             customer.Show();
             customer.MdiParent = this;
@@ -105,6 +106,17 @@ namespace SalonManagementSystem
             appoint.Show();
             appoint.MdiParent = this;
             close_AllForm(6);
+        }
+
+        private void rEPORTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (report == null || report.IsDisposed == true)
+            {
+                report = new ReportForm();
+            }
+            report.Show();
+            report.MdiParent = this;
+            close_AllForm(7);
         }
 
         void close_AllForm(int open)
@@ -132,6 +144,10 @@ namespace SalonManagementSystem
             if (appoint != null && open != 6)
             {
                 appoint.Hide();
+            }
+            if(report != null && open != 7)
+            {
+                report.Hide();
             }
         }
 

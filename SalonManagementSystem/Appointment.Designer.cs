@@ -273,9 +273,9 @@ namespace SalonManagementSystem
             // 
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Items.AddRange(new object[] {
-            "Remaining",
-            "Done",
-            "Cancel"});
+            "remaining",
+            "done",
+            "cancel"});
             this.cbStatus.Location = new System.Drawing.Point(148, 438);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(141, 24);
